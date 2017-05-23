@@ -13,9 +13,18 @@ from functools import wraps
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'myopotskavynomaj'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myonic.sqlite3'
 
+app.config.from_pyfile('configs.py')
+
+
+
+db = SQLAlchemy(app)
+
+from configs import *
+
+
+db.create_all()
+db.session.commit()
 
 
 
