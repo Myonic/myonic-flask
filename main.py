@@ -21,15 +21,10 @@ app.config.from_pyfile('configs.py')
 db = SQLAlchemy(app)
 
 from configs import *
-
+from util import *
 
 db.create_all()
 db.session.commit()
-
-
-
-
-
 
 
 
