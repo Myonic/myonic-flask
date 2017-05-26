@@ -1,0 +1,7 @@
+Flask
+Flask-Dance
+Flask-SQLAlchemy
+Flask-Login
+SQLAlchemy-Utils
+blinker
+SQLAlchemy-Migrate
