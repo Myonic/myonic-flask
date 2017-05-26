@@ -12,6 +12,7 @@ setup(
         'flask-login',
         'sqlalchemy-utils',
         'blinker',
-        'SQLAlchemy-Migrate'
+        'flask-migrate',
+        'flask-mail'
     ],
 )

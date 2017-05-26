@@ -3,8 +3,7 @@ import os
 
 SECRET_KEY = 'secret'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///myonic.sqlite3'
-SQLALCHEMY_MIGRATE_REPO = os.path.join(os.path.dirname(__file__), 'db_repository')
-SQLALCHEMY_TRACK_MODIFICATIONS = True
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER      = 'static/images/'
 THUMBS_FOLDER      = 'static/thumbs/'
 ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif', 'css'])
