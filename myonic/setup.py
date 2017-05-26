@@ -13,6 +13,7 @@ setup(
         'sqlalchemy-utils',
         'blinker',
         'flask-migrate',
-        'flask-mail'
+        'flask-mail',
+        'flask-wtf'
     ],
 )
