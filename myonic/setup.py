@@ -14,6 +14,7 @@ setup(
         'blinker',
         'flask-migrate',
         'flask-mail',
-        'flask-wtf'
+        'flask-wtf',
+        'flask-assets'
     ],
 )

@@ -7,3 +7,4 @@ blinker
 Flask-Migrate
 Flask-Mail
 Flask-WTF
+Flask-Assets

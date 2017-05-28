@@ -76,7 +76,3 @@ def logout():
 @app.route('/login')
 def login():
     return render_template('login.html')
-
-@app.route('/')
-def index():
-    return redirect(url_for('login'))

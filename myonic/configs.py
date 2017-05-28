@@ -14,3 +14,20 @@ if app.debug:
 else:
     GOOGLE_CLIENT_ID = '829851563990-cd6u0qhfil77ltb1vfhc3ps1r38jm74h.apps.googleusercontent.com' # WILL ONLY WORK IN PRODUCTION (MYONIC.TECH DOMAIN)
     GOOGLE_SECRET = 'ZFDP87r80-vVIerbGjyGUS0a' # WILL ONLY WORK IN PRODUCTION (MYONIC.TECH DOMAIN)
+
+# --- Site Config ---
+SITE_NAME = 'Myonic Technologies'
+
+# Social Accounts
+SITE_TWITTER = '@myonic'
+SITE_FACEBOOK = ''
+SITE_YOUTUBE = ''
+
+# Contact
+SITE_EMAIL = 'contact@myonic.tech'
+SITE_PHONE = ''
+
+# Info
+SITE_OWNER = 'Myonic Technologies Inc.' # Publisher Name
+SITE_DOMAIN = 'myonic.tech'
+SITE_DESCRIPTION = "We've designed a wearable device that allows paralyzed users to regain control of their muscles."

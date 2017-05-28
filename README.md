@@ -8,7 +8,7 @@ A rewrite of the Myonic website in Python/Flask.
 2. Run `python setup.py install`
 3. Run `export FLASK_APP=[PATH TO __init__.py]`
 4. *(Optional)* If you are running in a development environment, run `export FLASK_DEBUG=true` but **DO NOT USE IN PRODUCTION**
-6. Create the database with `flask initdb`
+6. Create the database with `flask db init` and then update with `flask db update` *(Make sure you are in the app (myonic) directory)*
 7. To run the app type `flask run`
 
 *On local development environments, you must set `export OAUTHLIB_INSECURE_TRANSPORT=1` and `export OAUTHLIB_RELAX_TOKEN_SCOPE=1` in order for the Google auth to function properly but* ***DO NOT DO USE IN PRODUCTION***
@@ -34,3 +34,7 @@ A rewrite of the Myonic website in Python/Flask.
 * Page System
 * Templates
   * Base Layout (layout.html)
+  * Homepage Layout
+* Favicon
+* [Generate sitemap.xml](http://flask.pocoo.org/snippets/108/)
+* [Generate RSS feed for each blog](http://flask.pocoo.org/snippets/10/)
