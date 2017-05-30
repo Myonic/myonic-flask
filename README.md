@@ -12,9 +12,11 @@ A rewrite of the Myonic website in Python/Flask.
   1. Navigate to newly created `myonic/migrations` directory and edit `script.py.mako`
   2. Append `import sqlalchemy_utils` to the import list so you have:
   ```python
+  ...
   from alembic import op
   import sqlalchemy as sa
-  import sqlalchemy_utils
+  import sqlalchemy_utils # Add this
+  ...
   ```
   3. Run `flask db upgrade`
 7. To run the app type `flask run`
@@ -35,6 +37,7 @@ A rewrite of the Myonic website in Python/Flask.
   * HTML Meta Tag Generation
 * [Dynamic WTF-forms](https://stackoverflow.com/questions/22203159/generate-a-dynamic-form-using-flask-wtf-and-sqlalchemy)
 * Admin Panel
+  * Make non-vital-to-function site information editable from admin panel
   * [Access Management](http://pythonhosted.org/Flask-Principal/)
 * Blog System
 * Navigation System
@@ -47,3 +50,5 @@ A rewrite of the Myonic website in Python/Flask.
 * [Generate sitemap.xml](http://flask.pocoo.org/snippets/108/)
 * [Generate RSS feed for each blog](http://flask.pocoo.org/snippets/10/)
 * Social buttons
+* Automate `sqlalchemy_utils` db fix with `setup.py`
+  * Automate init database with `setup.py`
