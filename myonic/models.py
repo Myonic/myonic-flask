@@ -1,8 +1,9 @@
 from flask_login import UserMixin, current_user
 from flask_dance.consumer.backend.sqla import OAuthConsumerMixin, SQLAlchemyBackend
 from flask_sqlalchemy import SQLAlchemy
+from myonic import app
+db = SQLAlchemy(app)
 
-db = SQLAlchemy()
 
 class Users(db.Model, UserMixin):
     __tablename__ = 'users'
