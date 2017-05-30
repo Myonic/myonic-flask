@@ -19,7 +19,7 @@ else:
 SITE_NAME = 'Myonic Technologies'
 
 # Social Accounts
-SITE_TWITTER = '@myonic'
+SITE_TWITTER = '@myonic' #Ex: @twitter
 SITE_FACEBOOK = ''
 SITE_YOUTUBE = ''
 
@@ -29,5 +29,5 @@ SITE_PHONE = ''
 
 # Info
 SITE_OWNER = 'Myonic Technologies Inc.' # Publisher Name
-SITE_DOMAIN = 'myonic.tech'
+SITE_DOMAIN = 'http://myonic.tech/' # Ex: http://example.com/
 SITE_DESCRIPTION = "We've designed a wearable device that allows paralyzed users to regain control of their muscles."

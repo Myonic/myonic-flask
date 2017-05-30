@@ -12,6 +12,8 @@ class Users(db.Model, UserMixin):
     picture     = db.Column(db.String(256)) # Stored as URL from Google
     email       = db.Column(db.String(256), unique = True)
     twitter     = db.Column(db.String(256)) # User Twitter account (EX: @myonic)
+    bio         = db.Column(db.String)
+    posts       = db.relationship('BlogPost', backref='users', lazy='dynamic')
 
 class OAuth(OAuthConsumerMixin, db.Model):
     user_id     = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -20,13 +22,13 @@ class OAuth(OAuthConsumerMixin, db.Model):
 class BlogPost(db.Model):
     __tablename__ = 'posts'
     id          = db.Column(db.Integer, primary_key = True)
-    postDate    = db.Column(db.String(32))  # Date of publication (do not include in pages)
+    datePublished = db.Column(db.DateTime(timezone = True))  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
     published   = db.Column(db.Boolean)     # Published state
     title       = db.Column(db.String(256))
-    content     = db.Column(db.String(4096))# Content limited to 4096
+    content     = db.Column(db.String)      # Content limited to 4096
     description = db.Column(db.String(256)) # Short description of page or article
-    images      = db.Column(db.String(256)) # Featured image on the post
-    publishedBy = db.Column(db.String(32))  # Author (do not include in pages)
+    image       = db.Column(db.String(256)) # Featured image on the post
+    author      = db.Column(db.String(256), db.ForeignKey('users.id'))  # Author (do not include in pages)
     category    = db.Column(db.String(32))  # Category of post (do not include in pages)
     blog        = db.Column(db.Integer, db.ForeignKey('blogs.id')) # Blog relationship (do not include in pages)
     isPage      = db.Column(db.Boolean)     # Determines if post is treated as page on site

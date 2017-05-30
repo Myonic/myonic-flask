@@ -8,7 +8,15 @@ A rewrite of the Myonic website in Python/Flask.
 2. Run `python setup.py install`
 3. Run `export FLASK_APP=[PATH TO __init__.py]`
 4. *(Optional)* If you are running in a development environment, run `export FLASK_DEBUG=true` but **DO NOT USE IN PRODUCTION**
-6. Create the database with `flask db init` and then update with `flask db update` *(Make sure you are in the app (myonic) directory)*
+6. Create the database with `flask db init` *(Make sure you are in the app (myonic) directory)*
+  1. Navigate to newly created `myonic/migrations` directory and edit `script.py.mako`
+  2. Append `import sqlalchemy_utils` to the import list so you have:
+  ```python
+  from alembic import op
+  import sqlalchemy as sa
+  import sqlalchemy_utils
+  ```
+  3. Run `flask db upgrade`
 7. To run the app type `flask run`
 
 *On local development environments, you must set `export OAUTHLIB_INSECURE_TRANSPORT=1` and `export OAUTHLIB_RELAX_TOKEN_SCOPE=1` in order for the Google auth to function properly but* ***DO NOT DO USE IN PRODUCTION***
