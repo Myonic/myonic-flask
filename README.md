@@ -46,3 +46,4 @@ A rewrite of the Myonic website in Python/Flask.
 * Favicon
 * [Generate sitemap.xml](http://flask.pocoo.org/snippets/108/)
 * [Generate RSS feed for each blog](http://flask.pocoo.org/snippets/10/)
+* Social buttons

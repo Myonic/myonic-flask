@@ -27,9 +27,17 @@
   <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ config.SITE_DESCRIPTION }}{% endif %}" />
   <meta name="twitter:image" content="{{ image }}" />
+  {# <meta name="theme-color" content="" /> TODO: Add theme color #}
+  <meta name="application-name" content="{{ config.SITE_NAME }}" />
+  <meta name="msapplication-tooltip" content="{{ config.SITE_DESCRIPTION }}" />
+  <meta name="msapplication-starturl" content="/" />
+  {# <meta name="msapplication-navbutton-color" content="#FF3300" /> TODO: Add theme color #}
+  <meta name="format-detection" content="telephone=no"/>
   <link rel="cononical" href="{{ request.url_root }}" />
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" /> {# TODO: Favicon system #}
-  {# <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href=""> #}
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+  {# <link rel="apple-touch-icon" href="" /> TODO: Apple shortcut icon #}
+  {# <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href=""> TODO: Add RSS #}
 </head>
 <body>
 

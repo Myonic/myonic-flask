@@ -12,6 +12,7 @@ def getSiteInfo():
     return dict(site_twitter=site_twitter, site_facebook=site_facebook, site_youtube=site_youtube, site_url=site_url, site_name=site_name)
 
 def getPostSchema(post):
+    # TODO: Add Breadcrumbs and Navigation stuffs
     schema = {
         '@context': 'https://schema.org',
         '@type': 'Article',
