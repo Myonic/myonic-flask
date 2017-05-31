@@ -3,10 +3,6 @@ from flask_dance.consumer.backend.sqla import OAuthConsumerMixin, SQLAlchemyBack
 from flask_sqlalchemy import SQLAlchemy
 from myonic import app
 from flask_migrate import Migrate
-# import imp
-# import os.path
-# from migrate.versioning import api
-# import click
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

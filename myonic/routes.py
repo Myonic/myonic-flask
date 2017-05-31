@@ -11,7 +11,18 @@ def index():
 @app.route('/admin')
 @login_required
 def admin():
-    pass
+    return render_template('admin/home.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have logged out')
+    return redirect(url_for('index'))
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 # @app.errorhandler(404)
 # def page_not_found(error):
