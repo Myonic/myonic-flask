@@ -22,7 +22,7 @@ class OAuth(OAuthConsumerMixin, db.Model):
     user_id     = db.Column(db.Integer, db.ForeignKey('users.id'))
     user        = db.relationship('Users')
 
-class BlogPost(db.Model):
+class BlogPosts(db.Model):
     __tablename__ = 'posts'
     id          = db.Column(db.Integer, primary_key = True)
     datePublished = db.Column(db.DateTime(timezone = True))  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
@@ -37,7 +37,7 @@ class BlogPost(db.Model):
     isPage      = db.Column(db.Boolean)     # Determines if post is treated as page on site
     pageRoute   = db.Column(db.String(256)) # Appended to default route (pages only)
 
-class Blog(db.Model):
+class Blogs(db.Model):
     __tablename__ = 'blogs'
     id          = db.Column(db.Integer, primary_key = True)
     name        = db.Column(db.String(32))  # Name of blog

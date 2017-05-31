@@ -14,19 +14,19 @@ def admin():
     return render_template('admin/home.html')
 
 @app.route('/admin/blogs') # List blogs
-def blogs():
+def listBlogs():
     pass
 
 @app.route('/admin/blogs/<blog>') # List posts
-def blogs():
+def blog(blog):
     pass
 
 @app.route('/admin/blogs/<blog>/<post>')
-def blog():
+def editPost(blog, post):
     pass
 
-@app.route('/admin/post/new')
-def newPost():
+@app.route('/admin/blogs/<blog>/post/new')
+def newPost(blog):
     pass
 
 @app.route('/logout')
