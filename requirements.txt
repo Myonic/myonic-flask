@@ -4,7 +4,8 @@ Flask-SQLAlchemy
 Flask-Login
 SQLAlchemy-Utils
 blinker
-Flask-Migrate
 Flask-Mail
 Flask-WTF
 Flask-Assets
+flask-migrate
+sqlalchemy-migrate

@@ -66,6 +66,11 @@ def google_error(blueprint, error, error_description=None, error_uri=None):
     )
     flash(msg, category='error')
 
+@login_manager.unauthorized_handler
+def unauthorized():
+    flash('You must log in to access that page')
+    return redirect(url_for('login'))
+
 @app.route('/logout')
 @login_required
 def logout():

@@ -12,9 +12,10 @@ setup(
         'flask-login',
         'sqlalchemy-utils',
         'blinker',
-        'flask-migrate',
         'flask-mail',
         'flask-wtf',
+        'sqlalchemy-migrate',
+        'flask-migrate',
         'flask-assets'
     ],
 )

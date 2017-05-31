@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash">
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  {% if current_user.is_authenticated %}
+    Hello {{ current_user.first_name }}!
+    <a href="{{ url_for("logout") }}">Log out</a>
+  {% else %}
+  {{ flash('You must be logged in to access this page') }}
+    {{ redirect(url_for('index')) }}
+  {% endif %}
+  {# block body #}{# endblock #}
+</body>

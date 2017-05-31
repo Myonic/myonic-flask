@@ -8,6 +8,7 @@ A rewrite of the Myonic website in Python/Flask.
 2. Run `python setup.py install`
 3. Run `export FLASK_APP=[PATH TO __init__.py]`
 4. *(Optional)* If you are running in a development environment, run `export FLASK_DEBUG=true` but **DO NOT USE IN PRODUCTION**
+  * For login to work run `export OAUTHLIB_INSECURE_TRANSPORT=1` and `export OAUTHLIB_RELAX_TOKEN_SCOPE=1`
 6. Create the database with `flask db init` *(Make sure you are in the app (myonic) directory)*
   1. Navigate to newly created `myonic/migrations` directory and edit `script.py.mako`
   2. Append `import sqlalchemy_utils` to the import list so you have:
@@ -46,7 +47,7 @@ A rewrite of the Myonic website in Python/Flask.
 * Templates
   * Base Layout (layout.html)
   * Homepage Layout
-* Favicon
+* Favicon System
 * [Generate sitemap.xml](http://flask.pocoo.org/snippets/108/)
 * [Generate RSS feed for each blog](http://flask.pocoo.org/snippets/10/)
 * Social buttons

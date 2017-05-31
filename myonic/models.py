@@ -2,8 +2,14 @@ from flask_login import UserMixin, current_user
 from flask_dance.consumer.backend.sqla import OAuthConsumerMixin, SQLAlchemyBackend
 from flask_sqlalchemy import SQLAlchemy
 from myonic import app
-db = SQLAlchemy(app)
+from flask_migrate import Migrate
+# import imp
+# import os.path
+# from migrate.versioning import api
+# import click
 
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 class Users(db.Model, UserMixin):
     __tablename__ = 'users'
