@@ -16,7 +16,7 @@ class Users(db.Model, UserMixin):
     email       = db.Column(db.String(256), unique = True)
     twitter     = db.Column(db.String(256)) # User Twitter account (EX: @myonic)
     bio         = db.Column(db.String)
-    posts       = db.relationship('BlogPost', backref='users', lazy='dynamic')
+    posts       = db.relationship('BlogPosts', backref='users', lazy='dynamic')
 
 class OAuth(OAuthConsumerMixin, db.Model):
     user_id     = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -41,4 +41,4 @@ class Blogs(db.Model):
     __tablename__ = 'blogs'
     id          = db.Column(db.Integer, primary_key = True)
     name        = db.Column(db.String(32))  # Name of blog
-    posts       = db.relationship('BlogPost', backref='blogs', lazy='dynamic')
+    posts       = db.relationship('BlogPosts', backref='blogs', lazy='dynamic')
