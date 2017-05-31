@@ -13,6 +13,22 @@ def index():
 def admin():
     return render_template('admin/home.html')
 
+@app.route('/admin/blogs') # List blogs
+def blogs():
+    pass
+
+@app.route('/admin/blogs/<blog>') # List posts
+def blogs():
+    pass
+
+@app.route('/admin/blogs/<blog>/<post>')
+def blog():
+    pass
+
+@app.route('/admin/post/new')
+def newPost():
+    pass
+
 @app.route('/logout')
 @login_required
 def logout():
