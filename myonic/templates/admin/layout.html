@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+  {% block head %}{% endblock %}
 </head>
 <body>
   {% with messages = get_flashed_messages(with_categories=true) %}
@@ -18,5 +19,5 @@
   {{ flash('You must be logged in to access this page') }}
     {{ redirect(url_for('index')) }}
   {% endif %}
-  {# block body #}{# endblock #}
+  {% block body %}{% endblock %}
 </body>
