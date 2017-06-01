@@ -18,5 +18,5 @@ EXPOSE 5000
 
 VOLUME /myonic/static
 
-CMD ["db", "init"]
+RUN flask db init
 CMD ["run", "--host=0.0.0.0"]
