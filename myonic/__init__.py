@@ -26,5 +26,7 @@ login_manager.login_view = 'google.login'
 
 from myonic.userauth import *
 from myonic.routes import *
+from myonic.blogs import *
+
 
 login_manager.init_app(app)
