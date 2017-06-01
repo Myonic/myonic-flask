@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:2.7.13-alpine
 
 ENTRYPOINT ["flask"]
 
@@ -18,5 +18,5 @@ EXPOSE 5000
 
 VOLUME /myonic/static
 
-CMD ["db init"]
+CMD ["db", "init"]
 CMD ["run", "--host=0.0.0.0"]
