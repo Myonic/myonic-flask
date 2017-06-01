@@ -1,4 +1,4 @@
-FROM python:2.7.13-wheezy
+FROM python:2.7.13-alpine
 
 WORKDIR /myonic-flask
 
@@ -16,7 +16,9 @@ ENTRYPOINT ["flask"]
 
 EXPOSE 5000
 
-VOLUME /myonic/static
+VOLUME /myonic-flask/myonic/static
+
+WORKDIR /myonic-flask/myonic
 
 RUN flask db migrate
 RUN flask db upgrade
