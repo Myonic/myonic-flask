@@ -2,11 +2,7 @@ from flask import request, g, redirect, url_for, render_template, flash
 from flask_login import login_required, logout_user
 from myonic import app, login_manager
 from myonic.models import *
-
-from myonic.seo import getSiteInfo
-
-from seo import getSiteInfo
-from myonic.blogs import *
+from myonic.blog import *
 
 
 @app.route('/')
@@ -25,9 +21,9 @@ def listBlogs():
             flash('Please enter the name of your new blog')
         else:
             name = request.form['name']
-            newblog(name)
-    
-    blogs = getblogs()
+            newBlog(name)
+
+    blogs = getBlogs()
     return render_template('admin/blogs.html', blogs=blogs)
 
 @app.route('/admin/blogs/<blog>') # List posts
