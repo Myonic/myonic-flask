@@ -5,6 +5,8 @@ Vagrant.configure("2") do |config|
     echo "--INSTALLING PYTHON--"
     apt-get update
     apt-get install -y python-pip python-dev build-essential
+    export FLASK_APP=/vagrant/myonic/__init__.py
+    export FLASK_DEBUG=1
     echo "--SETTING BASH PROFILE--"
     echo "export FLASK_APP=/vagrant/myonic/__init__.py" >> /etc/profile
     echo "export FLASK_DEBUG=1" >> /etc/profile
@@ -14,5 +16,6 @@ Vagrant.configure("2") do |config|
     cat /etc/profile
     echo "--INSTALLING REQUIREMENTS--"
     pip install -r /vagrant/requirements.txt
+    flask db init
   SHELL
 end
