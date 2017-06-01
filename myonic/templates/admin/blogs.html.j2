@@ -5,33 +5,16 @@
 
 {% block body %}
 
-
 <form action = "blogs" method="post">
     <label for = "name">New Blog</label>
     <input type = "text" name ="name" placeholder = "Blog Name"/>
     <input type = "submit" value = "Create"/>
 </form>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {%- for blog in blogs %}
 
-<p> {{ blog.name }} </p>  
+<p> {{ blog.name }} </p>
 
 {% endfor %}
-
 
 {% endblock %}

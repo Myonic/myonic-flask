@@ -3,16 +3,18 @@ from flask_login import login_required, logout_user
 from myonic import app, login_manager
 from myonic.models import *
 from myonic.blog import *
+from myonic.seo import *
 
+# NOTE: When sending a post object to a template, send it as the variable "post" otherwise THINGS WILL BREAK!
 
 @app.route('/')
 def index():
-    return render_template('layout.html', title='test', type='page')
+    return render_template('layout.html.j2', seo=pageSEO(title='test'))
 
 @app.route('/admin')
 @login_required
 def admin():
-    return render_template('admin/home.html')
+    return render_template('admin/home.html.j2')
 
 @app.route('/admin/blogs', methods = ['GET', 'POST']) # List blogs
 def listBlogs():
@@ -24,7 +26,7 @@ def listBlogs():
             newBlog(name)
 
     blogs = getBlogs()
-    return render_template('admin/blogs.html', blogs=blogs)
+    return render_template('admin/blogs.html.j2', blogs=blogs)
 
 @app.route('/admin/blogs/<blog>') # List posts
 def blog(blog):
@@ -47,8 +49,10 @@ def logout():
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html.j2')
+
+#TODO: Error handler
 
 # @app.errorhandler(404)
 # def page_not_found(error):
-#     return render_template('page_not_found.html'), 404
+#     return render_template('page_not_found.html.j2'), 404

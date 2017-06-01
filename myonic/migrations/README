@@ -1,1 +1,7 @@
-Generic single-database configuration.
+# Database
+
+`flask db init` is not required because the database comes preconfigured in this package
+
+Only `flask db migrate` and `flask db upgrade` is required to set up the database
+
+**Generic single-database configuration.**
