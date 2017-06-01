@@ -4,7 +4,7 @@ from flask_dance.consumer import oauth_authorized, oauth_error
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from sqlalchemy.orm.exc import NoResultFound
 from myonic import app, login_manager
-from models import *
+from myonic.models import *
 
 # --- User Auth and Session System ---
 
