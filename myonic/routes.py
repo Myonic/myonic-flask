@@ -2,7 +2,7 @@ from flask import request, g, redirect, url_for, render_template, flash
 from flask_login import login_required, logout_user
 from myonic import app, login_manager
 from myonic.models import *
-from seo import getSiteInfo
+from myonic.seo import getSiteInfo
 
 @app.route('/')
 def index():
