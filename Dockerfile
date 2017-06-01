@@ -19,4 +19,4 @@ EXPOSE 5000
 VOLUME /myonic/static
 
 CMD ["db init"]
-CMD ["run --host=0.0.0.0"]
+CMD ["run", "--host=0.0.0.0"]
