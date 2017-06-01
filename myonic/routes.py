@@ -2,12 +2,12 @@ from flask import request, g, redirect, url_for, render_template, flash
 from flask_login import login_required, logout_user
 from myonic import app, login_manager
 from myonic.models import *
-<<<<<<< Updated upstream
+
 from myonic.seo import getSiteInfo
-=======
+
 from seo import getSiteInfo
 from myonic.blogs import *
->>>>>>> Stashed changes
+
 
 @app.route('/')
 def index():
