@@ -1,8 +1,8 @@
 FROM python:2.7.13-wheezy
 
-ENTRYPOINT ["flask"]
+WORKDIR /myonic/myonic
 
-WORKDIR /myonic
+ENTRYPOINT ["flask"]
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
