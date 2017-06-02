@@ -7,9 +7,12 @@ def getBlogs():
     return blogs
 
 def newBlog(name):
-    newblog = Blogs(name = name)
-    db.session.add(newblog)
-    db.session.commit()
+    if not db.session.query(Blogs).filter_by(name=name).all():
+        newblog = Blogs(name = name)
+        db.session.add(newblog)
+        db.session.commit()
+    else:
+        pass
 
 def deleteBlog(blog):
     db.session.query(Blogs).filter_by(name=blog).delete()
