@@ -10,3 +10,8 @@ def newBlog(name):
     newblog = Blogs(name = name)
     db.session.add(newblog)
     db.session.commit()
+
+def deleteBlog(name):
+    db.session.delete(name)
+    db.session.commit()
+    
