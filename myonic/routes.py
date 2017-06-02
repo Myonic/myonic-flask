@@ -17,6 +17,7 @@ def admin():
     return render_template('admin/home.html.j2')
 
 @app.route('/admin/blogs', methods = ['GET', 'POST']) # List blogs
+@login_required
 def listBlogs():
     if request.method == 'POST':
         if not request.form['name']:
@@ -27,7 +28,11 @@ def listBlogs():
 
     blogs = getBlogs()
     return render_template('admin/blogs.html.j2', blogs=blogs)
-
+@app.route('/admin/blogs/delete/<blog>')
+@login_required
+def deleteaBlog(blog):
+    deleteBlog(blog)
+    return redirect(url_for('listBlogs'))
 @app.route('/admin/blogs/<blog>') # List posts
 def blog(blog):
     pass

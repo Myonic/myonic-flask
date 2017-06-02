@@ -11,7 +11,7 @@ def newBlog(name):
     db.session.add(newblog)
     db.session.commit()
 
-def deleteBlog(name):
-    db.session.delete(name)
+def deleteBlog(blog):
+    db.session.query(Blogs).filter_by(name=blog).delete()
     db.session.commit()
-    
+   
