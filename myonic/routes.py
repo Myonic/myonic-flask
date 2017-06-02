@@ -4,6 +4,7 @@ from myonic import app, login_manager
 from myonic.models import *
 from myonic.blog import *
 from myonic.seo import *
+from myonic.forms import *
 
 # NOTE: When sending a post object to a template, send it as the variable "post" otherwise THINGS WILL BREAK!
 
@@ -11,12 +12,12 @@ from myonic.seo import *
 def index():
     return render_template('layout.html.j2', seo=pageSEO(title='test'))
 
-@app.route('/admin')
+@app.route('/admin/')
 @login_required
 def admin():
     return render_template('admin/home.html.j2')
 
-@app.route('/admin/blogs', methods = ['GET', 'POST']) # List blogs
+@app.route('/admin/blogs/', methods = ['GET', 'POST']) # List blogs
 @login_required
 def listBlogs():
     if request.method == 'POST':
@@ -28,31 +29,47 @@ def listBlogs():
 
     blogs = getBlogs()
     return render_template('admin/blogs.html.j2', blogs=blogs)
-@app.route('/admin/blogs/delete/<blog>')
+
+@app.route('/admin/blogs/<blog>/delete/')
 @login_required
 def deleteaBlog(blog):
     deleteBlog(blog)
+    flash('You deleted' + blog + '. If you want to restore this blog, just type the name and all the posts reappear.')
     return redirect(url_for('listBlogs'))
-@app.route('/admin/blogs/<blog>') # List posts
+
+@app.route('/admin/blogs/<blog>/') # List posts
+@login_required
 def blog(blog):
-    pass
+    posts = getPosts(blog)
+    return render_template('admin/blog.html.j2', blog=blog, posts=posts)
 
-@app.route('/admin/blogs/<blog>/<post>')
-def editPost(blog, post):
-    pass
-
-@app.route('/admin/blogs/<blog>/post/new')
+@app.route('/admin/blogs/<blog>/new/', methods = ['GET', 'POST'])
+@login_required
 def newPost(blog):
+    form = editPost()
+    if form.validate_on_submit():
+        createPost(form, blog)
+        return redirect(url_for('blog', blog=blog))
+    return render_template('admin/newpost.html.j2', form=form)
+
+@app.route('/admin/blogs/<blog>/<post>/')
+@login_required
+def editaPost(blog, post):
     pass
 
-@app.route('/logout')
+@app.route('/admin/blogs/<blog>/<post>/delete')
+@login_required
+def deletePost(blog, post):
+    pass
+
+@app.route('/logout/')
 @login_required
 def logout():
     logout_user()
     flash('You have logged out')
     return redirect(url_for('index'))
 
-@app.route('/login')
+@app.route('/login/')
 def login():
     return render_template('login.html.j2')
 

@@ -1,5 +1,17 @@
+{% macro form_errors(form) -%}
+  {% for field in form %}
+      {% if field.errors %}
+          {% for error in field.errors %}
+              {{ error }}
+          {% endfor %}
+      {% endif %}
+    {% endfor %}
+{%- endmacro %}
+
 <!DOCTYPE html>
 <head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
   {% block head %}{% endblock %}
 </head>
 <body>

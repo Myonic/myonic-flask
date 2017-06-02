@@ -1,0 +1,18 @@
+{% extends "admin/layout.html.j2" %}
+
+{% block title %}Create New Post - Myonic Admin{% endblock %}
+
+{% block body %}
+<form method="POST" action="">
+    {{ form_errors(form) }}
+    {{ form.csrf_token }}
+    {{ form.title.label }} {{ form.title }}
+    {{ form.description.label }} {{ form.description }}
+    {{ form.date.label }} {{ form.date }}
+    {{ form.image.label }} {{ form.image }}
+    {{ form.author.label }} {{ form.author }}
+    {{ form.category.label }} {{ form.category }}
+    {{ form.blog(value=blog) }}
+    <input type="submit" value="Create">
+</form>
+{% endblock %}

@@ -17,4 +17,22 @@ def newBlog(name):
 def deleteBlog(blog):
     db.session.query(Blogs).filter_by(name=blog).delete()
     db.session.commit()
-   
+
+def getPosts(blog):
+    blog_id = Blogs.query.filter_by(name=blog).first()
+    posts = BlogPosts.query.filter_by(blog=blog_id.id)
+    return posts
+
+def createPost(form, blog):
+    blog_id = Blogs.query.filter_by(name=blog).first()
+    newpost = BlogPosts(
+    datePublished=form.date.data,
+    title=form.title.data,
+    description=form.description.data,
+    image=form.image.data,
+    author=form.author.data,
+    category=form.category.data,
+    blog=blog_id.id,
+    )
+    db.session.add(newpost)
+    db.session.commit()
