@@ -6,15 +6,16 @@
 {% endblock %}
 
 {% block body %}
-
 <br />
 <br />
+<a href="{{ url_for('listBlogs') }}">Back</a>
+<h1>Blog: {{ blog }}</h1>
 <a href="{{ url_for('newPost', blog=blog) }}">Create new post</a>
 <hr />
 
 {%- for post in posts %}
 
-  <p><a href="{{ url_for('editaPost', blog=blog, post=post.title) }}">{{ post.title }}</a> | <a href="{{ url_for('deletePost', blog=blog, post=post.title) }}"> Delete </a> </p>
+  <p><a href="{{ url_for('editaPost', blog=blog, post=post.title) }}">{{ post.title }}</a> | <a href="{{ url_for('deleteaPost', blog=blog, post=post.title) }}"> Delete </a> </p>
 
 {% endfor %}
 

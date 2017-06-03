@@ -27,7 +27,7 @@ class BlogPosts(db.Model):
     id          = db.Column(db.Integer, primary_key = True)
     datePublished = db.Column(db.DateTime(timezone = True))  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
     published   = db.Column(db.Boolean)     # Published state
-    title       = db.Column(db.String(256))
+    title       = db.Column(db.String(256), unique = True)
     content     = db.Column(db.String)      # Content limited to 4096
     description = db.Column(db.String(256)) # Short description of page or article
     image       = db.Column(db.String(256)) # Featured image on the post
