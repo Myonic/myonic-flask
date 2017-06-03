@@ -19,7 +19,7 @@ It is that simple. Now you are working in a fully configured development environ
 
 All you need to do to set up a container is `$ docker run myonic/myonic-cms`
 
-*On local development environments, you must set `export OAUTHLIB_INSECURE_TRANSPORT=1` and `export OAUTHLIB_RELAX_TOKEN_SCOPE=1` in order for the Google auth to function properly but* ***DO NOT DO USE IN PRODUCTION***
+---
 
 ## Other Stuff
 * Run Flask in shell mode: `$ flask shell`
@@ -27,3 +27,6 @@ All you need to do to set up a container is `$ docker run myonic/myonic-cms`
   * Migrate database: `$ flask db migrate`
   * Upgrade database: `$ flask db upgrade`
   * More database tools: `$ flask db --help`
+* Put Flask in debug mode by setting the environment variable `FLASK_DEBUG=1`
+
+*On local development environments, you must set the environment variables `OAUTHLIB_INSECURE_TRANSPORT=1` and `OAUTHLIB_RELAX_TOKEN_SCOPE=1` in order for the Google auth to function properly but* ***DO NOT DO USE IN PRODUCTION***
