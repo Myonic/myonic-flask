@@ -19,6 +19,8 @@ It is that simple. Now you are working in a fully configured development environ
 
 All you need to do to set up a container is `$ docker run myonic/myonic-cms`
 
+* The `SECRET_KEY` environment variable should be set to something besides the default in production
+
 ---
 
 ## Other Stuff
@@ -28,5 +30,8 @@ All you need to do to set up a container is `$ docker run myonic/myonic-cms`
   * Upgrade database: `$ flask db upgrade`
   * More database tools: `$ flask db --help`
 * Put Flask in debug mode by setting the environment variable `FLASK_DEBUG=1`
+* The `SECRET_KEY` environment variable should be set
+  * Without Docker, this is required
+  * With Docker, this should be changed
 
 *On local development environments, you must set the environment variables `OAUTHLIB_INSECURE_TRANSPORT=1` and `OAUTHLIB_RELAX_TOKEN_SCOPE=1` in order for the Google auth to function properly but* ***DO NOT DO USE IN PRODUCTION***

@@ -19,6 +19,7 @@ EXPOSE 5000
 
 VOLUME /myonic-flask/myonic/static
 VOLUME /myonic-flask/myonic/database
+VOLUME /myonic-flask/myonic/migrations
 
 WORKDIR /myonic-flask/myonic
 
