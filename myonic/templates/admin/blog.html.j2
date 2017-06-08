@@ -15,7 +15,7 @@
 
 {%- for post in posts %}
 
-  <p><a href="{{ url_for('editaPost', blog=blog, post=post.title) }}">{{ post.title }}</a> | <a href="{{ url_for('deleteaPost', blog=blog, post=post.title) }}"> Delete </a> </p>
+  <p><a href="{{ url_for('editPostContent', blog=blog, post=post.title) }}">{{ post.title }}</a> | <a href="{{ url_for('deletePost', blog=blog, post=post.title) }}"> Delete </a> | <a href="{{ url_for('editPost', blog=blog, post=post.title) }}"> Edit Metadata </a> </p>
 
 {% endfor %}
 

@@ -1,0 +1,30 @@
+{% extends "admin/layout.html.j2" %}
+
+{% block title %}Edit Post - Myonic Admin{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/editor.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}">
+<meta name="post_id" content="{{ post.id }}" />
+{% endblock %}
+
+
+{% block body %}
+<br />
+<br />
+<i>This is a preview. Changes will not go live until they are saved.</i>
+<br />
+<a href="{{ url_for('blog', blog=blog) }}">Back</a>
+
+<h1 data-fixture data-name="title">
+  {{ post.title }}
+</h1>
+<div data-editable data-name="main-content">
+  <p>
+    {{ post.content }}
+  </p>
+</div>
+
+<script src="{{ url_for('static', filename='content-tools/content-tools.min.js') }}"></script>
+<script src="{{ url_for('static', filename='content-tools/editor.js') }}"></script>
+{% endblock %}

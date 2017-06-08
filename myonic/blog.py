@@ -15,7 +15,7 @@ def newBlog(name):
     else:
         flash('A blog with that name already exsists')
 
-def deleteBlog(blog):
+def deleteaBlog(blog):
     Blogs.query.filter_by(name=blog).delete()
     db.session.commit()
     flash('You deleted "%s". If you want to restore this blog, just type the name and all the posts reappear.' % blog)
@@ -26,7 +26,7 @@ def getPosts(blog):
         posts = BlogPosts.query.filter_by(blog=blog_id.id)
         return posts
 
-def createPost(form, blog):
+def createaPost(form, blog):
     blog_id = Blogs.query.filter_by(name=blog).first()
     newpost = BlogPosts(
     published=False,
@@ -42,7 +42,7 @@ def createPost(form, blog):
     db.session.commit()
     flash('You created the post %s! This post is not yet published. Click the post to edit it\'s data and content.' % form.title.data)
 
-def editPost(form, blog, post):
+def editaPost(form, blog, post):
     blog_id = Blogs.query.filter_by(name=blog).first()
     _post = BlogPosts.query.filter_by(title=post).first()
     _post.datePublished=form.date.data
@@ -56,7 +56,7 @@ def editPost(form, blog, post):
     db.session.commit()
     flash('Edited settings for %s' % form.title.data)
 
-def deletePost(post):
+def deleteaPost(post):
     BlogPosts.query.filter_by(title=post).delete()
     db.session.commit()
     flash('You deleted "%s".' % post)

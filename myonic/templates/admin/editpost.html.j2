@@ -5,18 +5,21 @@
 
 {% block title %}Edit Post - Myonic Admin{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/editor.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}">
+{% endblock %}
+
+
 {% block body %}
 <br />
 <br />
 <a href="{{ url_for('blog', blog=blog) }}">Back</a>
 <h1>Editing {{ post.title }} in {{ blog }}</h1>
-
 <form method="POST" action="">
     {{ form_errors(form) }}
     <br />
     {{ form.csrf_token }}
-    <br />
-    {{ form.title.label }} <br /> {{ form.title(value=post.title) }}
     <br />
     {{ form.description.label }} <br /> {{ form.description(value=post.description) }}
     <br />
@@ -33,4 +36,5 @@
     {{ form.blog(value=blog) }}
     <input type="submit" value="Create">
 </form>
+
 {% endblock %}

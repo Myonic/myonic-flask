@@ -50,8 +50,8 @@ def listBlogs():
 
 @app.route('/admin/blogs/<blog>/delete/')
 @login_required
-def deleteaBlog(blog):
-    deleteBlog(blog)
+def deleteBlog(blog):
+    deleteaBlog(blog)
     return redirect(url_for('listBlogs'))
 
 @app.route('/admin/blogs/<blog>/') # List posts
@@ -68,16 +68,16 @@ def blog(blog):
 def newPost(blog):
     form = editPostForm()
     if form.validate_on_submit():
-        createPost(form, blog)
+        createaPost(form, blog)
         return redirect(url_for('blog', blog=blog))
     return render_template('admin/newpost.html.j2', form=form, blog=blog, now=dt.utcnow())
 
-@app.route('/admin/blogs/<blog>/<post>/', methods = ['GET', 'POST'])
+@app.route('/admin/blogs/<blog>/edit/<post>/', methods = ['GET', 'POST'])
 @login_required
-def editaPost(blog, post):
+def editPost(blog, post):
     form = editPostForm()
     if form.validate_on_submit():
-        editPost(form, blog, post)
+        editaPost(form, blog, post)
         return redirect(url_for('blog', blog=blog))
     if BlogPosts.query.filter_by(title=post).all():
         _post = BlogPosts.query.filter_by(title=post).first()
@@ -85,15 +85,25 @@ def editaPost(blog, post):
     else:
         abort(404) # TODO: Add custom 404 eventually
 
-@app.route('/admin/blogs/<blog>/<post>/edit/')
+@app.route('/<blog>/<post>/preview/', methods = ['GET', 'POST'])
 @login_required
-def editaPostContent(blog, post):
-    pass
+def editPostContent(blog, post):
+    if BlogPosts.query.filter_by(title=post).all():
+        _post = BlogPosts.query.filter_by(title=post).first()
+        return render_template('admin/editpostcontent.html.j2', blog=blog, post=_post)
+    else:
+        abort(404) # TODO: Add custom 404 eventually
+
+@app.route('/admin/ajax/save', methods=['POST'])
+@login_required
+def savePostContent():
+    print request.form['regions']
+    return redirect(url_for('admin'))
 
 @app.route('/admin/blogs/<blog>/<post>/delete/')
 @login_required
-def deleteaPost(blog, post):
-    deletePost(post)
+def deletePost(blog, post):
+    deleteaPost(post)
     return redirect(url_for('blog', blog=blog))
 
 #TODO: Error handlers
