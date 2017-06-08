@@ -12,10 +12,16 @@ Vagrant.configure("2") do |config|
     echo "export FLASK_DEBUG=1" >> /etc/profile
     echo "export OAUTHLIB_INSECURE_TRANSPORT=1" >> /etc/profile
     echo "export OAUTHLIB_RELAX_TOKEN_SCOPE=1" >> /etc/profile
+    echo "export SECRET_KEY='test_key'" >> /etc/profile
     echo "cd /vagrant/myonic" >> /etc/profile
     cat /etc/profile
     echo "--INSTALLING REQUIREMENTS--"
     pip install -r /vagrant/requirements.txt
     flask db init
+    echo "
+    !!!--------------------------------------------------------------------------------------------------------!!!
+    !!!--REMEMBER: This Vagrant enviroment is for development use ONLY and should NEVER be used in production.--!!
+    !!!--------------------------------------------------------------------------------------------------------!!!
+    "
   SHELL
 end

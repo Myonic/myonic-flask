@@ -11,12 +11,14 @@ ENV FLASK_APP=/myonic-flask/myonic/__init__.py
 ENV FLASK_DEBUG=0
 ENV OAUTHLIB_INSECURE_TRANSPORT=0
 ENV OAUTHLIB_RELAX_TOKEN_SCOPE=0
+ENV SECRET_KEY='change_me'
 
 ENTRYPOINT ["flask"]
 
 EXPOSE 5000
 
 VOLUME /myonic-flask/myonic/static
+VOLUME /myonic-flask/myonic/database
 
 WORKDIR /myonic-flask/myonic
 

@@ -9,7 +9,7 @@ def TitleCheck(form, field):
         raise ValidationError('Post title already exists')
 
 # Only load needed fields for articles and pages
-class editPost(FlaskForm):
+class editPostForm(FlaskForm):
     published = BooleanField('Published?')
     title = StringField('Title', validators=[DataRequired(message='The post must have a title'), TitleCheck])
     description = StringField('Short Description')

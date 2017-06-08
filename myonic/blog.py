@@ -31,7 +31,7 @@ def createPost(form, blog):
     newpost = BlogPosts(
     published=False,
     datePublished=form.date.data,
-    title=form.title.data.capitalize(),
+    title=form.title.data,
     description=form.description.data,
     image=form.image.data,
     author=form.author.data,
@@ -40,23 +40,23 @@ def createPost(form, blog):
     )
     db.session.add(newpost)
     db.session.commit()
-    flash('You created the post %s! This post is not yet published. Click the post to edit it\'s data and content.' % form.title.data.capitalize())
+    flash('You created the post %s! This post is not yet published. Click the post to edit it\'s data and content.' % form.title.data)
 
-def editPost(form):
-    post = BlogPosts.query.filter_by(form.title.data)
-    post.datePublished=form.date.data
-    post.title=form.title.data.capitalize()
-    post.description=form.description.data
-    post.image=form.image.data
-    post.author=form.author.data
-    post.category=form.category.data
-    post.blog=blog_id.id
+def editPost(form, blog, post):
+    blog_id = Blogs.query.filter_by(name=blog).first()
+    _post = BlogPosts.query.filter_by(title=post).first()
+    _post.datePublished=form.date.data
+    _post.title=form.title.data
+    _post.description=form.description.data
+    _post.image=form.image.data
+    _post.author=form.author.data
+    _post.category=form.category.data
+    _post.blog=blog_id.id
+    db.session.add(_post)
     db.session.commit()
-    flash('Edited settings for %s' % form.title.data.capitalize())
+    flash('Edited settings for %s' % form.title.data)
 
 def deletePost(post):
     BlogPosts.query.filter_by(title=post).delete()
     db.session.commit()
     flash('You deleted "%s".' % post)
-
-    

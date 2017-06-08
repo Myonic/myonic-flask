@@ -66,21 +66,21 @@ def blog(blog):
 @app.route('/admin/blogs/<blog>/new/', methods = ['GET', 'POST'])
 @login_required
 def newPost(blog):
-    form = editPost()
+    form = editPostForm()
     if form.validate_on_submit():
         createPost(form, blog)
         return redirect(url_for('blog', blog=blog))
     return render_template('admin/newpost.html.j2', form=form, blog=blog, now=dt.utcnow())
 
-@app.route('/admin/blogs/<blog>/<post>/')
+@app.route('/admin/blogs/<blog>/<post>/', methods = ['GET', 'POST'])
 @login_required
 def editaPost(blog, post):
-    form = editPost()
-    _post = BlogPosts.query.filter_by(title=post).first()
+    form = editPostForm()
     if form.validate_on_submit():
-        editPost(form, blog)
+        editPost(form, blog, post)
         return redirect(url_for('blog', blog=blog))
     if BlogPosts.query.filter_by(title=post).all():
+        _post = BlogPosts.query.filter_by(title=post).first()
         return render_template('admin/editpost.html.j2', form=form, blog=blog, post=_post)
     else:
         abort(404) # TODO: Add custom 404 eventually
