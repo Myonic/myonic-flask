@@ -1,6 +1,9 @@
-from flask import request, g, redirect, url_for, render_template, flash, abort
+from flask import request, g, redirect, url_for, render_template, flash, abort, jsonify
 from flask_login import login_required, logout_user
 from datetime import datetime as dt
+from time import time
+from os.path import join
+from PIL import Image
 from myonic import app, login_manager
 from myonic.models import *
 from myonic.blog import *
@@ -79,8 +82,8 @@ def editPost(blog, post):
     if form.validate_on_submit():
         editaPost(form, blog, post)
         return redirect(url_for('blog', blog=blog))
-    if BlogPosts.query.filter_by(title=post).all():
-        _post = BlogPosts.query.filter_by(title=post).first()
+    if BlogPosts.query.filter_by(slug=post).all():
+        _post = BlogPosts.query.filter_by(slug=post).first()
         return render_template('admin/editpost.html.j2', form=form, blog=blog, post=_post)
     else:
         abort(404) # TODO: Add custom 404 eventually
@@ -88,17 +91,80 @@ def editPost(blog, post):
 @app.route('/<blog>/<post>/preview/', methods = ['GET', 'POST'])
 @login_required
 def editPostContent(blog, post):
-    if BlogPosts.query.filter_by(title=post).all():
-        _post = BlogPosts.query.filter_by(title=post).first()
-        return render_template('admin/editpostcontent.html.j2', blog=blog, post=_post)
+    if BlogPosts.query.filter_by(slug=post).all():
+        post = BlogPosts.query.filter_by(slug=post).first()
+        return render_template('admin/editpostcontent.html.j2', blog=blog, post=post)
     else:
         abort(404) # TODO: Add custom 404 eventually
 
 @app.route('/admin/ajax/save', methods=['POST'])
 @login_required
 def savePostContent():
-    print request.form['regions']
-    return redirect(url_for('admin'))
+    data = json.loads(request.form['regions'])
+    print('pinged')
+    if BlogPosts.query.filter_by(id=request.form['post_id']).all():
+        post = BlogPosts.query.filter_by(id=request.form['post_id']).first()
+        try:
+            if data['title']:
+                post.title = str(data['title'])
+                post.slug = str(data['title'].lower().replace(' ', '-'))
+        except KeyError:
+            pass
+        try:
+            if data['content']:
+                post.content = str(data['content'])
+        except KeyError:
+            pass
+        db.session.add(post)
+        db.session.commit()
+    return "ok"
+
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1] in app.config.get('ALLOWED_EXTENSIONS')
+
+@app.route('/admin/ajax/image/upload', methods=['POST'])
+@login_required
+def uploadImageFromEditor():
+    file = request.files['image']
+    fname = ''
+    if file and allowed_file(file.filename):
+        ext = file.filename.rsplit('.', 1)[1]
+        fname = str(int(time() * 1000)) + '.' + ext
+        file.save(join(app.config.get('UPLOAD_FOLDER'), fname))
+    file = Image.open(join(app.config.get('UPLOAD_FOLDER'), fname))
+    return jsonify({'size' : file.size, 'url' : url_for('static', filename='uploads/' + fname)})
+
+@app.route('/admin/ajax/image/rotate', methods=['POST'])
+@login_required
+def rotateImageFromEditor():
+    fname = request.form['url'].split('/')[-1].split('#')[0].split('?')[0]
+    file = Image.open(join(app.config.get('UPLOAD_FOLDER'), fname))
+    if request.form['direction'] == 'CW':
+        file.rotate(90).save(join(app.config.get('UPLOAD_FOLDER'), fname))
+    else:
+        file.rotate(-90).save(join(app.config.get('UPLOAD_FOLDER'), fname))
+    file = Image.open(join(app.config.get('UPLOAD_FOLDER'), fname))
+    return jsonify({'size' : file.size, 'url' : url_for('static', filename='uploads/' + fname)})
+
+@app.route('/admin/ajax/image/insert', methods=['POST'])
+@login_required
+def insertImageFromEditor():
+    fname = request.form['url'].split('/')[-1].split('#')[0].split('?')[0]
+    file = Image.open(join(app.config.get('UPLOAD_FOLDER'), fname))
+    width = file.size[0]
+    height = file.size[1]
+    crop = request.form['crop'].split(",")
+    file = file.crop((
+        int(width * float(crop[1])),
+        int(height * float(crop[0])),
+        int(width * float(crop[3])),
+        int(height * float(crop[2]))
+    ))
+    file.save(join(app.config.get('UPLOAD_FOLDER'), 'c' + fname))
+    # Crop, save as new file, and then do something
+    # print request.form
+    return jsonify({'size' : file.size, 'url' : url_for('static', filename='uploads/' + 'c' + fname)})
 
 @app.route('/admin/blogs/<blog>/<post>/delete/')
 @login_required

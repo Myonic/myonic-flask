@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     echo "--INSTALLING PYTHON--"
     apt-get update
-    apt-get install -y python-pip python-dev build-essential
+    apt-get install -y python-pip python-dev build-essential python-imaging
     export FLASK_APP=/vagrant/myonic/__init__.py
     export FLASK_DEBUG=1
     echo "--SETTING BASH PROFILE--"

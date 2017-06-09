@@ -1,4 +1,4 @@
-{% extends "admin/layout.html.j2" %}
+{% extends "layout.html.j2" %}
 
 {% block title %}Edit Post - Myonic Admin{% endblock %}
 
@@ -12,14 +12,14 @@
 {% block body %}
 <br />
 <br />
-<i>This is a preview. Changes will not go live until they are saved.</i>
+<i>This is a preview. Changes will not go live until they are saved.</i> {# TODO: Add post drafting #}
 <br />
 <a href="{{ url_for('blog', blog=blog) }}">Back</a>
 
 <h1 data-fixture data-name="title">
   {{ post.title }}
 </h1>
-<div data-editable data-name="main-content">
+<div data-editable data-name="content">
   <p>
     {{ post.content }}
   </p>

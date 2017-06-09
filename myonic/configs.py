@@ -5,8 +5,7 @@ import os
 SECRET_KEY = os.environ['SECRET_KEY']
 SQLALCHEMY_DATABASE_URI = 'sqlite:///database/myonic.sqlite3'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-UPLOAD_FOLDER      = 'static/images/'
-THUMBS_FOLDER      = 'static/thumbs/'
+UPLOAD_FOLDER      = 'static/uploads/'
 ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif', 'css'])
 # TODO: Eventually set secret/client_id to use Enviroment Variables
 if app.debug:

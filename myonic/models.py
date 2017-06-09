@@ -27,7 +27,8 @@ class BlogPosts(db.Model):
     id          = db.Column(db.Integer, primary_key = True)
     datePublished = db.Column(db.DateTime(timezone = True))  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
     published   = db.Column(db.Boolean)     # Published state
-    title       = db.Column(db.String(256), unique = True)
+    title       = db.Column(db.String(256))
+    slug        = db.Column(db.String(256), unique = True)
     content     = db.Column(db.String)      # Content limited to 4096
     description = db.Column(db.String(256)) # Short description of page or article
     image       = db.Column(db.String(256)) # Featured image on the post
@@ -40,5 +41,6 @@ class BlogPosts(db.Model):
 class Blogs(db.Model):
     __tablename__ = 'blogs'
     id          = db.Column(db.Integer, primary_key = True)
-    name        = db.Column(db.String(32))  # Name of blog
+    name        = db.Column(db.String(32), unique = True)  # Name of blog
+    slug        = db.Column(db.String(32), unique = True)
     posts       = db.relationship('BlogPosts', backref='blogs', lazy='dynamic')
