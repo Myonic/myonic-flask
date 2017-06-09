@@ -1,9 +1,10 @@
 FROM python:2.7.13-slim
 
+RUN apt update && apt install -y python-imaging
+
 WORKDIR /myonic-flask
 
 COPY requirements.txt ./
-RUN apt install python-imaging
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
