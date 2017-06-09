@@ -8,4 +8,3 @@ Flask-Mail
 Flask-WTF
 Flask-Assets
 Flask-Migrate
-Pillow
