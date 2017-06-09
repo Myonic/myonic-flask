@@ -1,8 +1,9 @@
-FROM python:2.7.13-slim
+FROM python:2.7.13-alpine
 
 WORKDIR /myonic-flask
 
 COPY requirements.txt ./
+RUN apk add python-imaging
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
