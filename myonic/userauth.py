@@ -15,7 +15,7 @@ blueprint = make_google_blueprint(
     client_secret=app.config.get('GOOGLE_SECRET'),
     scope=['profile', 'email']
 )
-app.register_blueprint(blueprint, url_prefix='/login')
+app.register_blueprint(blueprint, url_prefix='/admin/login')
 
 blueprint.backend = SQLAlchemyBackend(OAuth, db.session, user=current_user)
 

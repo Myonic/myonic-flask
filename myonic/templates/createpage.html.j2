@@ -1,0 +1,10 @@
+{% from '_macros.j2' import form_errors %}
+
+<form method="POST" action="">
+    {{ form_errors(form) }}
+    {{ form.csrf_token }}
+    {{ form.title.label }} {{ form.title }}
+    {{ form.description.label }} {{ form.description }}
+    {{ form.path.label }} {{ form.path(value='/') }}
+    <input type="submit" value="Create">
+</form>

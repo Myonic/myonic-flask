@@ -16,31 +16,30 @@ class Users(db.Model, UserMixin):
     email       = db.Column(db.String(256), unique = True)
     twitter     = db.Column(db.String(256)) # User Twitter account (EX: @myonic)
     bio         = db.Column(db.String)
-    posts       = db.relationship('BlogPosts', backref='users', lazy='dynamic')
+    # posts       = db.relationship('BlogPosts', backref='users', lazy='dynamic')
 
 class OAuth(OAuthConsumerMixin, db.Model):
     user_id     = db.Column(db.Integer, db.ForeignKey('users.id'))
     user        = db.relationship('Users')
 
-class BlogPosts(db.Model):
-    __tablename__ = 'posts'
+class Pages(db.Model):
+    __tablename__ = 'pages'
     id          = db.Column(db.Integer, primary_key = True)
-    datePublished = db.Column(db.DateTime(timezone = True))  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
+    # datePublished = db.Column(db.DateTime(timezone = True))  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
     published   = db.Column(db.Boolean)     # Published state
     title       = db.Column(db.String(256))
-    slug        = db.Column(db.String(256), unique = True)
-    content     = db.Column(db.String)      # Content limited to 4096
+    content     = db.Column(db.String)
     description = db.Column(db.String(256)) # Short description of page or article
     image       = db.Column(db.String(256)) # Featured image on the post
-    author      = db.Column(db.String(256), db.ForeignKey('users.id'))  # Author (do not include in pages)
-    category    = db.Column(db.String(32))  # Category of post (do not include in pages)
-    blog        = db.Column(db.Integer, db.ForeignKey('blogs.id')) # Blog relationship (do not include in pages)
-    isPage      = db.Column(db.Boolean)     # Determines if post is treated as page on site
-    pageRoute   = db.Column(db.String(256)) # Appended to default route (pages only)
+    # author      = db.Column(db.String(256), db.ForeignKey('users.id'))  # Author (do not include in pages)
+    # category    = db.Column(db.String(32))  # Category of post (do not include in pages)
+    # blog        = db.Column(db.Integer, db.ForeignKey('blogs.id')) # Blog relationship (do not include in pages)
+    # isPage      = db.Column(db.Boolean)     # Determines if post is treated as page on site
+    path = db.Column(db.String(256), unique = True)
 
-class Blogs(db.Model):
-    __tablename__ = 'blogs'
-    id          = db.Column(db.Integer, primary_key = True)
-    name        = db.Column(db.String(32), unique = True)  # Name of blog
-    slug        = db.Column(db.String(32), unique = True)
-    posts       = db.relationship('BlogPosts', backref='blogs', lazy='dynamic')
+# class Blogs(db.Model):
+#     __tablename__ = 'blogs'
+#     id          = db.Column(db.Integer, primary_key = True)
+#     name        = db.Column(db.String(32), unique = True)  # Name of blog
+#     slug        = db.Column(db.String(32), unique = True)
+#     posts       = db.relationship('BlogPosts', backref='blogs', lazy='dynamic')

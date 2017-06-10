@@ -1,22 +1,35 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SelectField, HiddenField
-from wtforms.validators import DataRequired, URL, Email, ValidationError
+from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp
 from wtforms.ext.dateutil.fields import DateTimeField
-from myonic.models import BlogPosts
+from myonic.models import Pages
 
-def TitleCheck(form, field):
-    if BlogPosts.query.filter_by(title=field.data.capitalize()).all():
-        raise ValidationError('Post title already exists')
+def CreatePathCheck(form, field):
+    if Pages.query.filter_by(path=field.data).all() or field.data == '/':
+        raise ValidationError('Page path already exists')
+    if field.data.startswith('/admin'):
+        raise ValidationError('Page cannot be in a /admin path')
+
 
 # Only load needed fields for articles and pages
-class editPostForm(FlaskForm):
+class createPageForm(FlaskForm):
     published = BooleanField('Published?')
-    title = StringField('Title', validators=[DataRequired(message='The post must have a title'), TitleCheck])
+    title = StringField('Title', validators=[DataRequired(message='The page must have a title')])
+    path = StringField('Path', validators=[DataRequired(message='The page must have a path'), CreatePathCheck, Regexp('^/([a-z\/]+)', message='The path is not valid. It must start with a "/" and only have lower case letters.')])
     description = StringField('Short Description')
-    date = DateTimeField('Date Published (UTC)')
-    image = StringField('Image', validators=[URL(message='Image must be from a URL')])
-    author = StringField('Author Email', validators=[Email(message="Author must be an email")])
-    category = StringField('Category')
-    blog = HiddenField() # Name of blog
-    isPage = BooleanField('Set as Page') # Check this as true on page creation template
-    pageRoute = StringField('Page Path')
+    id = HiddenField()
+
+def EditPathCheck(form, field):
+    if Pages.query.filter_by(id=int(form.id.data)).first().id != int(form.id.data) and (Pages.query.filter_by(path=field.data).first() != None or field.data == '/'):
+        raise ValidationError('Page path already exists')
+    if field.data.startswith('/admin'):
+        raise ValidationError('Page cannot be in a /admin path')
+
+
+# Only load needed fields for articles and pages
+class editPageForm(FlaskForm):
+    published = BooleanField('Published?')
+    # title = StringField('Title', validators=[DataRequired(message='The page must have a title')])
+    path = StringField('Path', validators=[DataRequired(message='The page must have a path'), EditPathCheck, Regexp('^/([a-z\/]+)', message='The path is not valid. It must start with a "/" and only have lower case letters.')])
+    description = StringField('Summery')
+    id = HiddenField()

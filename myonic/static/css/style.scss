@@ -1,0 +1,38 @@
+/* Alignment styles for images, videos and iframes in editable regions */
+
+/* Center (default) */
+
+[data-editable] {
+  iframe, image, [data-ce-tag=img], img, video {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+  .align-left {
+    clear: initial;
+    float: left;
+    margin-right: 0.5em;
+  }
+  .align-right {
+    clear: initial;
+    float: right;
+    margin-left: 0.5em;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+  }
+}
+
+/* Left align */
+
+/* Right align */
+
+/* Alignment styles for text in editable regions */

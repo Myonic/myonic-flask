@@ -1,0 +1,16 @@
+{% extends "layout.html.j2" %}
+
+{% block body %}
+<h1 data-fixture data-name="title">
+  {{ page.title }}
+</h1>
+<div data-editable data-name="content">
+  <p>
+    {{ page.content }}
+  </p>
+</div>
+{% if current_user.is_authenticated %}
+  {% from '_macros.j2' import form_errors %}
+  {% include '_admin.html.j2' with context %}
+{% endif %}
+{% endblock %}

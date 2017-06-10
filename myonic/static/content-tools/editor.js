@@ -280,8 +280,8 @@ window.addEventListener('load', function() {
     // Collect the contents of each region into a FormData instance
     payload = new FormData();
     payload.append(
-      'post_id',
-      document.querySelector('meta[name="post_id"]')['content']
+      'page_id',
+      document.querySelector('meta[name="page_id"]')['content']
     );
     payload.append('images', JSON.stringify(getImages()));
     payload.append('regions', JSON.stringify(regions));

@@ -44,10 +44,10 @@ def schemaProcessor():
             'publisher': {
                 '@type': 'Organization',
                 'name': app.config.get('SITE_NAME'),
-                # 'logo': app.config.get('SITE_LOGO')
+                # 'logo': app.config.get('SITE_LOGO') #TODO: Site logo
             },
             'url': app.config.get('SITE_DOMAIN'),
-            # 'image': #[SITE COVER IMAGE],
+            # 'image': #[SITE COVER IMAGE], #TODO: Site Cover Image
             'mainEntityOfPage': {
                 '@type': 'WebPage',
                 '@id': app.config.get('SITE_DOMAIN')
@@ -56,23 +56,24 @@ def schemaProcessor():
         }
         return json.dumps(schema, indent=4, sort_keys=True)
 
-    def getPageSchema(post):
+    def getPageSchema(page):
         schema = {
             '@context': 'https://schema.org',
             '@type': 'Website',
             'publisher': {
                 '@type': 'Organization',
                 'name': app.config.get('SITE_NAME'),
-                # 'logo': app.config.get('SITE_LOGO')
+                # 'logo': app.config.get('SITE_LOGO') #TODO: Site logo
             },
             'url': app.config.get('SITE_DOMAIN'),
-            # 'image': #[SITE COVER IMAGE],
+            # 'image': #[SITE COVER IMAGE], #TODO: Site Cover Image
             'mainEntityOfPage': {
                 '@type': 'WebPage',
                 '@id': app.config.get('SITE_DOMAIN'),
-                'name': post.title,
-                'description': post.description #,
-                # 'breadcrumb' : post.breadcrumb
+                'name': page.title,
+                'description': page.description #,
+                # 'breadcrumb' : page.breadcrumb,
+                # 'image' : page.image #TODO: Page Featured Image
             },
             'description': app.config.get('SITE_DESCRIPTION')
         }

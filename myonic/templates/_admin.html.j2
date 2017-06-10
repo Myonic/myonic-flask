@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}">
+<meta name="page_id" content="{{ page.id }}" />
+
+{# TODO: Linked Breadcrumbs #}
+{% set breadcrumb = page.path[1:].split("/") %}
+<a href="{{ url_for('page', path='') }}">Home</a>
+{% for page in breadcrumb %}
+    > {{ page|e }}
+{% endfor %}
+
+
+{% if page.path != '' %}
+<form method="POST" action="">
+    {{ form_errors(form) }}
+    {{ form.csrf_token }}
+    {{ form.id(value=page.id) }}
+    {{ form.description.label }} {{ form.description(value=page.description) }}
+    {{ form.path.label }} {{ form.path(value=page.path) }}
+    {{ form.published.label }}
+    {% if page.published %}
+        {{ form.published(checked='') }}
+    {% else %}
+        {{ form.published }}
+    {% endif %}
+    <input type="submit" value="Update">
+</form>
+{% else %}
+<i>The homepage uses the site description and is always the root path</i>
+{% endif %}
+<a href="url_for('newPage')">Create new page</a>
+{% if current_user.is_authenticated %}
+  Hello {{ current_user.first_name }}!
+  <a href="{{ url_for('logout') }}">Log out</a>
+{% else %}
+  You are not logged in.
+  <a href="{{ url_for('google.login') }}">Log in</a>
+{% endif %}
+<script src="{{ url_for('static', filename='content-tools/content-tools.min.js') }}"></script>
+<script src="{{ url_for('static', filename='content-tools/editor.js') }}"></script>
