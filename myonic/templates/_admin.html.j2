@@ -1,39 +1,68 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}">
 <meta name="page_id" content="{{ page.id }}" />
 
-{# TODO: Linked Breadcrumbs #}
-{% set breadcrumb = page.path[1:].split("/") %}
-<a href="{{ url_for('page', path='') }}">Home</a>
-{% for page in breadcrumb %}
-    > {{ page|e }}
-{% endfor %}
+<div class='admin'>
+  <div class='left'>
 
+    {# TODO: Linked Breadcrumbs #}
+    <div class='breadcrumb'>
+      {# TODO: Link to page list #}
+      <a href='#not-implimented'><i class="all-pages material-icons">menu</i></a>
+      {% set breadcrumb = page.path[1:].split("/") %}
+      <span class='path'>
+        <a href="{{ url_for('page', path='') }}">Home</a>
+        {% if page.path != '' %}
+          {% for page in breadcrumb %}
+            <span> / {{ page|e }}</span>
+          {% endfor %}
+        {% endif %}
+      </span>
+    </div>
 
-{% if page.path != '' %}
-<form method="POST" action="">
-    {{ form_errors(form) }}
-    {{ form.csrf_token }}
-    {{ form.id(value=page.id) }}
-    {{ form.description.label }} {{ form.description(value=page.description) }}
-    {{ form.path.label }} {{ form.path(value=page.path) }}
-    {{ form.published.label }}
-    {% if page.published %}
-        {{ form.published(checked='') }}
+    <form method="POST" action="">
+    {% if page.path != '' %}
+        {{ form_errors(form) }}
+        {{ form.csrf_token }}
+        {{ form.id(value=page.id) }}
+        <div class="textbox">
+          {{ form.description(value=page.description, placeholder=' ') }}
+          {{ form.description.label }}
+        </div>
+        <div class="textbox">
+          {{ form.path(value=page.path, placeholder=' ') }}
+          {{ form.path.label }}
+        </div>
+        {% if page.published %}
+            {{ form.published(checked='', class='switch-input') }}
+        {% else %}
+            {{ form.published(class='switch-input') }}
+        {% endif %}
+        <label for='published' class='switch-label'><span class="toggle--on">Published</span><span class="toggle--off">Unpublished</span></label>
+        <input type="submit" value="Update">
     {% else %}
-        {{ form.published }}
+    <i>The homepage uses the site description and is always the root path</i>
     {% endif %}
-    <input type="submit" value="Update">
-</form>
-{% else %}
-<i>The homepage uses the site description and is always the root path</i>
-{% endif %}
-<a href="url_for('newPage')">Create new page</a>
-{% if current_user.is_authenticated %}
-  Hello {{ current_user.first_name }}!
-  <a href="{{ url_for('logout') }}">Log out</a>
-{% else %}
-  You are not logged in.
-  <a href="{{ url_for('google.login') }}">Log in</a>
-{% endif %}
-<script src="{{ url_for('static', filename='content-tools/content-tools.min.js') }}"></script>
-<script src="{{ url_for('static', filename='content-tools/editor.js') }}"></script>
+    </form>
+  </div>
+
+  <div class='right'>
+    <div class='options'>
+      <a href="url_for('newPage')">Create new page</a>
+    </div>
+    <div class='user'>
+      {% if current_user.is_authenticated %}
+        Hello {{ current_user.first_name }}!
+        <a href="{{ url_for('logout') }}">Log out</a>
+      {% else %}
+        You are not logged in.
+        <a href="{{ url_for('google.login') }}">Log in</a>
+      {% endif %}
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='content-tools/content-tools.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='content-tools/editor.js') }}"></script>
+</div>
+
+<div class='admin-notice'>
+  The content editor saves every 30 seconds
+</div>

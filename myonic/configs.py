@@ -6,7 +6,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 SQLALCHEMY_DATABASE_URI = 'sqlite:///database/myonic.sqlite3'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER      = 'static/uploads/'
-ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif', 'css'])
+ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif'])
 # TODO: Eventually set secret/client_id to use Enviroment Variables
 if app.debug:
     GOOGLE_CLIENT_ID = '829851563990-35t7op4btrdhrj9duameklqjjo2i8t0o.apps.googleusercontent.com' # Will work on localhost:5000 or 127.0.0.1:5000

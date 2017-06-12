@@ -1,6 +1,8 @@
-/* Alignment styles for images, videos and iframes in editable regions */
+@import 'mixins';
 
-/* Center (default) */
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
 [data-editable] {
   iframe, image, [data-ce-tag=img], img, video {
@@ -31,8 +33,202 @@
   }
 }
 
-/* Left align */
+// --- ADMIN BAR ---
+.admin {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #eee;
+  height: 50px;
+  a {
+    color: #333;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: #666;
+  }
+  a:active {
+    color: #111;
+  }
+  .left {
+    height:50px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    .breadcrumb {
+      display: inline-block;
+      background: #333;
+      color: #ddd;
+      padding: 16px;
+      .all-pages {
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 12px;
+        margin-top: -2px;
+      }
+      a {
+        color: #ddd;
+        transition: color 0.2s;
+      }
+      a:hover {
+        color: #eee;
+      }
+      a:active {
+        color: #aaa;
+      }
+    }
+    form {
+      display: inline-block;
+      padding-left:16px;
+      .textbox {
+        display: inline-block;
+        position: relative;
+        bottom: -4px;
 
-/* Right align */
+        label, > span {
+          position: absolute;
+          left: 0;
+          top: 0;
+          cursor: text;
+          font-size: 75%;
+          opacity: 1;
+          color: #ccc;
+          transition: all .2s;
+        }
 
-/* Alignment styles for text in editable regions */
+        input {
+          &::placeholder {
+            opacity: 1;
+            transition: all .2s;
+          }
+          &:placeholder-shown:not(:focus)::placeholder {
+            opacity: 0;
+          }
+          &:focus + label {
+            color: #337ab7;
+          }
+
+          font-size: inherit;
+          padding-top: 1em;
+          margin-bottom: 2px;
+          border: 0;
+          background: none;
+          border-radius: 0;
+          border-bottom: 1px solid #ccc;
+          transition: border-bottom .2s;
+
+          &:placeholder-shown:not(:focus) + * {
+            padding-top: 14px;
+            font-size: 100%;
+            opacity: .5;
+          }
+
+          &:focus {
+            outline: none;
+            border-bottom: 2px solid #337ab7;
+          }
+        }
+      }
+      .switch-input {
+        display: none;
+      }
+      .switch-label {
+        position: relative;
+        display: inline-block;
+        min-width: 90px;
+        cursor: pointer;
+        font-weight: 500;
+        text-align: left;
+        margin: 16px;
+        padding: 0 0 0 44px;
+      }
+      .switch-label:before, .switch-label:after {
+        content: "";
+        position: absolute;
+        margin: 0;
+        outline: 0;
+        top: 50%;
+        -ms-transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .switch-label:before {
+        left: 1px;
+        width: 34px;
+        height: 14px;
+        background-color: #9E9E9E;
+        border-radius: 8px;
+      }
+      .switch-label:after {
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-color: #FAFAFA;
+        border-radius: 50%;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+      }
+      .switch-label .toggle--on {
+        display: none;
+      }
+      .switch-label .toggle--off {
+        display: inline-block;
+      }
+      .switch-input:checked + .switch-label:before {
+        background-color: #A5D6A7;
+      }
+      .switch-input:checked + .switch-label:after {
+        background-color: #4CAF50;
+        -ms-transform: translate(80%, -50%);
+        -webkit-transform: translate(80%, -50%);
+        transform: translate(80%, -50%);
+      }
+      .switch-input:checked + .switch-label .toggle--on {
+        display: inline-block;
+      }
+      .switch-input:checked + .switch-label .toggle--off {
+        display: none;
+      }
+      input[type=submit] {
+        background: #333;
+        color: #fff;
+        border: 0;
+        padding: 4px 8px;
+        font-size: 16px;
+        border-radius: 6px;
+        transition: background 0.3s;
+      }
+      input[type=submit]:hover {
+        background: #555;
+      }
+      input[type=submit]:active {
+        background: #111;
+      }
+    }
+  }
+  .right {
+    top: 16px;
+    position: absolute;
+    display: inline-block;
+    right: 16px;
+    .user {
+      display: inline-block;
+      padding-left: 16px;
+    }
+    .options {
+      padding-right: 16px;
+      border-right: solid 3px #000;
+      display: inline-block;
+    }
+  }
+}
+
+// --- ADMIN EDITOR AUTOSAVE NOTICE ---
+.admin-notice {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-style: italic;
+}

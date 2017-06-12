@@ -2,11 +2,11 @@
 
 {% block body %}
 <h1 data-fixture data-name="title">
-  {{ page.title }}
+  {{ page.title|default('No Title') }}
 </h1>
 <div data-editable data-name="content">
   <p>
-    {{ page.content }}
+    {{ page.content|default('No Content') }}
   </p>
 </div>
 {% if current_user.is_authenticated %}

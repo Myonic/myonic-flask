@@ -6,9 +6,10 @@ from os.path import join
 from PIL import Image
 from myonic import app, login_manager
 from myonic.models import *
-from myonic.page import *
 from myonic.seo import *
 from myonic.forms import *
+
+# NOTE: When creating page list, sort by route
 
 @app.before_first_request
 def createHomepage():
@@ -21,7 +22,6 @@ def createHomepage():
         db.session.add(page)
         db.session.commit()
         print('Detected no homepage. This is probably a first run. Homepage created.')
-        flash('Detected no homepage. This is probably a first run. Homepage created.')
 
 @app.route('/admin/new/', methods=['GET', 'POST'])
 @login_required

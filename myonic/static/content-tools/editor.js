@@ -227,19 +227,18 @@ window.addEventListener('load', function() {
     }
   });
 
-  // TODO: IMPLIMENT AUTOSAVE TO DRAFT
-  // editor.addEventListener('start', function(ev) {
-  //   var _this = this;
-  //
-  //   function autoSave() {
-  //     _this.save(true);
-  //   };
-  //   this.autoSaveTimer = setInterval(autoSave, 30 * 1000);
-  // });
-  //
-  // editor.addEventListener('stop', function(ev) {
-  //   clearInterval(this.autoSaveTimer);
-  // });
+  editor.addEventListener('start', function(ev) {
+    var _this = this;
+
+    function autoSave() {
+      _this.save(true);
+    };
+    this.autoSaveTimer = setInterval(autoSave, 30 * 1000);
+  });
+
+  editor.addEventListener('stop', function(ev) {
+    clearInterval(this.autoSaveTimer);
+  });
 
   function getImages() {
     // Return an object containing image URLs and widths for all regions
