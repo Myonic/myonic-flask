@@ -9,7 +9,7 @@
     {# TODO: Linked Breadcrumbs #}
     <div class='breadcrumb'>
       {# TODO: Link to page list #}
-      <a href="{{ url_for('admin') }}"><i class="all-pages material-icons">menu</i></a>
+      <a href="{{ url_for('listPages') }}"><i class="all-pages material-icons">menu</i></a>
       {% set breadcrumb = page.path[1:].split("/") %}
       <span class='path'>
         <a href="{{ url_for('page', path='') }}">Home</a>
