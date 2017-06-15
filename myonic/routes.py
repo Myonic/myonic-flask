@@ -23,6 +23,17 @@ def createHomepage():
         db.session.commit()
         print('Detected no homepage. This is probably a first run. Homepage created.')
 
+@app.route('/admin/')
+@login_required
+def admin():
+    return render_template('admin/admin.html.j2')
+
+@app.route('/admin/pages/')
+@login_required
+def listPages():
+    pages = Pages.query.order_by('path')
+    return render_template('admin/allpages.html.j2', pages=pages, active='pages')
+
 @app.route('/admin/pages/new/', methods=['GET', 'POST'])
 @login_required
 def newPage():
@@ -39,9 +50,29 @@ def newPage():
         flash('You created the page %s! It is not published yet.' % form.title.data, category='success')
         return redirect(url_for('page', path=form.path.data[1:]))
     else:
-        return render_template('admin/createpage.html.j2', form=form)
+        return render_template('admin/createpage.html.j2', form=form, active='pages')
 
-@app.route('/admin/posts/new/', methods=['GET', 'POST'])
+@app.route('/admin/pages/delete/<int:id>/confirm', methods=['GET', 'POST'])
+@login_required
+def deletePage(id):
+    page = Pages.query.filter_by(id=id).first()
+    db.session.delete(page)
+    db.session.commit()
+    flash('Deleted the page <b>%s</b>' % page.title, category='success')
+    return redirect(url_for('listPages'))
+
+@app.route('/admin/blog/')
+@login_required
+def blogSettings():
+    pass
+
+@app.route('/admin/blog/posts/')
+@login_required
+def listPosts():
+    posts = Posts.query.order_by('datePublished')
+    return render_template('admin/allposts.html.j2', posts=posts, active='blog')
+
+@app.route('/admin/blog/posts/new/', methods=['GET', 'POST'])
 @login_required
 def newPost():
     form = createPostForm()
@@ -64,29 +95,30 @@ def newPost():
         description=form.description.data,
         category=category,
         tags=tags,
-        author=current_user.id
+        datePublished=form.date.data,
+        author=current_user.email
         )
         db.session.add(post)
         db.session.commit()
         flash('You created the post %s! It is not published yet.' % form.title.data, category='success')
-        return redirect(url_for('page')) # TODO: Fix redirect
+        return redirect(url_for('listPosts')) # TODO: Fix redirect
     else:
-        return render_template('admin/createpost.html.j2', form=form)
+        return render_template('admin/createpost.html.j2', form=form, active='posts')
 
-@app.route('/admin/categories/new/', methods=['GET', 'POST'])
+@app.route('/admin/blog/categories/', methods=['GET', 'POST'])
 @login_required
-def newCategory():
+def categories():
     form = createCategoryForm()
+    categories = Categories.query.order_by('name')
     if form.validate_on_submit():
         category = Categories(name=form.name.data)
         db.session.add(category)
         db.session.commit()
         flash('You created the category %s!' % form.name.data, category='success')
-        return redirect(url_for('page'))
-    else:
-        return render_template('admin/createcategory.html.j2', form=form)
+    return render_template('admin/categories.html.j2', form=form, categories=categories)
 
-@app.route('/admin/me')
+@app.route('/admin/me/')
+@login_required
 def userSettings():
     pass
 

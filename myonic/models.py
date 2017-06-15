@@ -44,7 +44,7 @@ class Posts(db.Model):
     content     = db.Column(db.String)
     description = db.Column(db.String(256)) # Short description of page or article
     image       = db.Column(db.String(256)) # Featured image on the post
-    author      = db.Column(db.Integer, db.ForeignKey('users.id'))  # Author (do not include in pages)
+    author      = db.Column(db.String, db.ForeignKey('users.email'))  # Author (do not include in pages)
     category    = db.Column(db.Integer, db.ForeignKey('categories.id'))  # Category of post (do not include in pages)
     tags        = db.Column(db.PickleType)
 

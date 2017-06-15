@@ -11,6 +11,6 @@
 </div>
 {% if current_user.is_authenticated %}
   {% from '_macros.j2' import form_errors %}
-  {% include '_admin.html.j2' with context %}
+  {% include '_pageAdmin.html.j2' with context %}
 {% endif %}
 {% endblock %}

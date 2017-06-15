@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SelectField, HiddenField
 from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp
 from wtforms.ext.dateutil.fields import DateField
-from myonic.models import Pages
+from myonic.models import Pages, Posts
 
 # TODO: Add length validators to prevent database errors
 

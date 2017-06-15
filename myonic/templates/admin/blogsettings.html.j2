@@ -1,0 +1,21 @@
+{% extends 'admin/layout.html.j2' %}
+{% from 'admin/_macros.j2' import form_errors, field_errors, checkfield %}
+
+{% block title %}Blog Settings{% endblock %}
+
+{% block sidebar %}
+<li class="active"><a href="#">Blog Settings <span class="sr-only">(current)</span></a></li>
+<li><a href="{{ url_for('listPosts' )}}">All Posts</a></li>
+<li><a href="{{ url_for('newPost') }}">Create Post</a></li>
+<li><a href="{{ url_for('categories') }}">Categories</a></li>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-header">Blog Settings</h1>
+
+<div class="row">
+  <i>There are currently no blog settings to be edited</i>
+</div>
+{% endblock %}
+
+{% block body %}{% endblock %}

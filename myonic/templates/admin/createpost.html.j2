@@ -7,9 +7,10 @@
 {% endblock %}
 
 {% block sidebar %}
-<li><a href="#">All Posts</a></li>
+<li><a href="{{ url_for('blogSettings') }}">Blog Settings</a></li>
+<li><a href="{{ url_for('listPosts') }}">All Posts</a></li>
 <li class="active"><a href="#">Create Post <span class="sr-only">(current)</span></a></li>
-<li><a href="#">Blog Settings</a></li>
+<li><a href="{{ url_for('categories') }}">Categories</a></li>
 {% endblock %}
 
 {% block content %}

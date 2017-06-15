@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" /> {# TODO: Favicon system #}
     <link rel="stylesheet" href=" {{ url_for('static', filename='css/style-admin.min.css') }}" />
-    <title>{% block title %}Admin{% endblock %}</title>
+    <title>{% block title %}Admin{% endblock %} | Myonic Admin</title> {# TODO: Pull site short name #}
     {% block head %}{% endblock %}
   </head>
   <body>
@@ -20,14 +20,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Myonic Admin</a>
+          <a class="navbar-brand" href="{{ url_for('admin') }}">Myonic Admin</a> {# TODO: Pull site short name #}
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          {# TODO: Navbar grabs dropdown data from page navigation #}
           <ul class="nav navbar-nav">
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Site Settings</a></li>
+            <li {% if active == 'pages' %}class="active"{% endif %}><a href="{{ url_for('listPages') }}">Pages</a></li>
+            <li {% if active == 'blog' %}class="active"{% endif %}><a href="#">Blog</a></li>
+            <li {% if active == 'profile' %}class="active"{% endif %}><a href="#">Profile</a></li>
+            <li {% if active == 'settings' %}class="active"{% endif %}><a href="#">Site Settings</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}

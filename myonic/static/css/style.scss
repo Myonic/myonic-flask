@@ -86,6 +86,20 @@
         position: relative;
         bottom: -4px;
 
+        &.has-error {
+          label, > span {
+            color: #A20000 !important;
+          }
+          input {
+            color: #A20000;
+            border-bottom: 1px solid #A20000;
+            &:focus {
+              color: #A20000;
+              border-bottom: 2px solid #A20000;
+            }
+          }
+        }
+
         label, > span {
           position: absolute;
           left: 0;
@@ -98,6 +112,7 @@
         }
 
         input {
+
           &::placeholder {
             opacity: 1;
             transition: all .2s;
@@ -199,12 +214,21 @@
         font-size: 16px;
         border-radius: 6px;
         transition: background 0.3s;
+        cursor: pointer;
       }
       input[type=submit]:hover {
         background: #555;
       }
       input[type=submit]:active {
         background: #111;
+      }
+    }
+    .form_errors {
+      margin: 0;
+      display: inline-block;
+      color: #8F0000;
+      font-size: 12px;
+      li {
       }
     }
   }

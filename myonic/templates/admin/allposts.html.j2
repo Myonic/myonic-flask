@@ -1,0 +1,65 @@
+{% extends 'admin/layout.html.j2' %}
+{% from 'admin/_macros.j2' import form_errors, field_errors, checkfield %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block sidebar %}
+<li><a href="{{ url_for('blogSettings') }}">Blog Settings</a></li>
+<li class="active"><a href="#">All Posts <span class="sr-only">(current)</span></a></li>
+<li><a href="{{ url_for('newPost') }}">Create Post</a></li>
+<li><a href="{{ url_for('categories') }}">Categories</a></li>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-header">All Posts</h1>
+
+<div class="row">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Published</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Tags</th>
+          <th>Author</th>
+          <th>Path</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in posts %}
+          <tr>
+            <td>
+            {% if post.published %}
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            {% else %}
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            {% endif %}
+            </td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.description }}</td>
+            <td>{{ post.datePublished }}</td>
+            <td>{{ post.category }}</td>
+            <td>
+              {% for tag in post.tags %}
+                  {{ tag }}{{ "," if not loop.last }}
+              {% endfor %}
+            </td>
+            <td>{{ post.author }}</td>
+            <td><a href="#">Not Implimented</a></td>
+            <td>
+              <a href="#" class="btn btn-primary btn-xs btn btn-success">View/Edit</a>
+              <a href="#" class="btn btn-primary btn-xs btn btn-danger">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block body %}{% endblock %}

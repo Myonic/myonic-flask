@@ -1,3 +1,5 @@
+{% from '_macros.j2' import form_errors, checkfield %}
+
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}">
 <meta name="page_id" content="{{ page.id }}" />
 
@@ -7,7 +9,7 @@
     {# TODO: Linked Breadcrumbs #}
     <div class='breadcrumb'>
       {# TODO: Link to page list #}
-      <a href='#not-implimented'><i class="all-pages material-icons">menu</i></a>
+      <a href="{{ url_for('admin') }}"><i class="all-pages material-icons">menu</i></a>
       {% set breadcrumb = page.path[1:].split("/") %}
       <span class='path'>
         <a href="{{ url_for('page', path='') }}">Home</a>
@@ -21,14 +23,13 @@
 
     <form method="POST" action="">
     {% if page.path != '' %}
-        {{ form_errors(form) }}
         {{ form.csrf_token }}
         {{ form.id(value=page.id) }}
-        <div class="textbox">
+        <div class="textbox {{ checkfield(form.description) }}">
           {{ form.description(value=page.description, placeholder=' ') }}
           {{ form.description.label }}
         </div>
-        <div class="textbox">
+        <div class="textbox {{ checkfield(form.path) }}">
           {{ form.path(value=page.path, placeholder=' ') }}
           {{ form.path.label }}
         </div>
@@ -43,6 +44,7 @@
     <i>The homepage uses the site description and is always the root path</i>
     {% endif %}
     </form>
+    {{ form_errors(form) }}
   </div>
 
   <div class='right'>

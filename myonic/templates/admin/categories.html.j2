@@ -1,0 +1,55 @@
+{% extends 'admin/layout.html.j2' %}
+{% from 'admin/_macros.j2' import form_errors, field_errors, checkfield %}
+
+{% block title %}Category Manager{% endblock %}
+
+{% block sidebar %}
+<li><a href="{{ url_for('blogSettings') }}">Blog Settings</a></li>
+<li><a href="{{ url_for('listPosts') }}">All Posts</a></li>
+<li><a href="{{ url_for('newPost') }}">Create Post</a></li>
+<li class="active"><a href="#">Categories <span class="sr-only">(current)</span></a></li>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-header">Category Manager</h1>
+
+<h2 class="sub-header">Create Category</h2>
+
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    <div class="form-group {{ checkfield(form.name) }}">
+      {{ form.name.label }}
+      {{ form.name(class='form-control') }}
+      {{ field_errors(form.name) }}
+    </div>
+    <input type="submit" value="Create" class="btn btn-default">
+</form>
+
+<h2 class="sub-header">All Categories</h2>
+
+<div class="row">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for category in categories %}
+          <tr>
+            <td>{{ category.name }}</td>
+            <td>
+              <a href="#" class="btn btn-primary btn-xs btn btn-success">Edit</a>
+              <a href="#" class="btn btn-primary btn-xs btn btn-danger">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block body %}{% endblock %}
