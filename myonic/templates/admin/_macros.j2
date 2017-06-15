@@ -1,0 +1,25 @@
+{% macro form_errors(form) -%}
+  <ul>
+  {% for field in form %}
+      {% if field.errors %}
+          {% for error in field.errors %}
+              <li>{{ error }}</li>
+          {% endfor %}
+      {% endif %}
+    {% endfor %}
+    </ul>
+{%- endmacro %}
+
+{% macro field_errors(field) -%}
+  {% if field.errors %}
+      {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+      {% endfor %}
+  {% endif %}
+{%- endmacro %}
+
+{% macro checkfield(field) -%}
+  {% if field.errors %}
+      has-error
+  {% endif %}
+{%- endmacro %}

@@ -43,7 +43,6 @@ fi" >> /etc/profile
     echo "export FLASK_DEBUG=1" >> /etc/profile
     echo "export OAUTHLIB_INSECURE_TRANSPORT=1" >> /etc/profile
     echo "export OAUTHLIB_RELAX_TOKEN_SCOPE=1" >> /etc/profile
-    echo "export SECRET_KEY='test_key'" >> /etc/profile
     echo "cd /vagrant/myonic" >> /etc/profile
     echo "echo Remember to include the host when starting Flask: \"flask run --host=0.0.0.0\"" >> /etc/profile
     cat /etc/profile

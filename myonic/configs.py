@@ -1,22 +1,23 @@
 from myonic import app
 import os
 
-# TODO: Make secret key auto generate!!!
-SECRET_KEY = os.environ['SECRET_KEY']
 SQLALCHEMY_DATABASE_URI = 'sqlite:///database/myonic.sqlite3'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER      = 'static/uploads/'
 ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif'])
 # TODO: Eventually set secret/client_id to use Enviroment Variables
 if app.debug:
-    GOOGLE_CLIENT_ID = '829851563990-35t7op4btrdhrj9duameklqjjo2i8t0o.apps.googleusercontent.com' # Will work on localhost:5000 or 127.0.0.1:5000
-    GOOGLE_SECRET = '1u1ZRyhuAOaMerY_wSYpl6mh' # Will work on localhost:5000 or 127.0.0.1:5000
+    SECRET_KEY = 'secret'
+    GOOGLE_CLIENT_ID = '829851563990-35t7op4btrdhrj9duameklqjjo2i8t0o.apps.googleusercontent.com' # Add a key that will work on localhost:5000 or 127.0.0.1:5000
+    GOOGLE_SECRET = '1u1ZRyhuAOaMerY_wSYpl6mh' # Add a key that will on localhost:5000 or 127.0.0.1:5000
 else:
-    GOOGLE_CLIENT_ID = '829851563990-cd6u0qhfil77ltb1vfhc3ps1r38jm74h.apps.googleusercontent.com' # WILL ONLY WORK IN PRODUCTION (MYONIC.TECH DOMAIN)
-    GOOGLE_SECRET = 'ZFDP87r80-vVIerbGjyGUS0a' # WILL ONLY WORK IN PRODUCTION (MYONIC.TECH DOMAIN)
+    SECRET_KEY = os.urandom(24).encode('hex')
+    GOOGLE_CLIENT_ID = '829851563990-cd6u0qhfil77ltb1vfhc3ps1r38jm74h.apps.googleusercontent.com' # Add a key that will only work on your production domain (ex: example.com or subdomain.example.com)
+    GOOGLE_SECRET = 'ZFDP87r80-vVIerbGjyGUS0a' # Add a key that will only work on your production domain (ex: example.com or subdomain.example.com)
 
 # --- Site Config ---
 # TODO: Set this to be updatable from within the admin panel
+# NOTE: When updated from the admin panel, this data is injected into the config. Data is injected into the config on app start as well.
 SITE_NAME = 'Myonic Technologies'
 
 # Social Accounts

@@ -47,7 +47,7 @@
 
   <div class='right'>
     <div class='options'>
-      <a href="url_for('newPage')">Create new page</a>
+      <a href="{{ url_for('newPage') }}">Create new page</a>
     </div>
     <div class='user'>
       {% if current_user.is_authenticated %}

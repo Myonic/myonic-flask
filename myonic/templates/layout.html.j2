@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <head>
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" /> {# TODO: Favicon system #}
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {% if seo %}
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ seo.title }}</title>
     <meta name="description" content="{% if seo.description %}{{ seo.description }}{% else %}{{ config.SITE_DESCRIPTION }}{% endif %}" />
     <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:site_name" content="{{ config.SITE_NAME }}" />
@@ -53,10 +48,18 @@
       {{ getHomeSchema() }}
     {% endif %}
     </script>
+    <title>{{ seo.title }}</title>
   {% else %}
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
   {% endif %}
-
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" /> {# TODO: Favicon system #}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {% block head %}{% endblock %}
 </head>
 <body>

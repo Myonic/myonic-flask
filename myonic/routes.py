@@ -1,6 +1,6 @@
 from flask import request, g, redirect, url_for, render_template, flash, abort, jsonify
 from flask_login import login_required, logout_user, current_user
-from datetime import datetime as dt
+from datetime import datetime
 from time import time
 from os.path import join
 from PIL import Image
@@ -23,7 +23,7 @@ def createHomepage():
         db.session.commit()
         print('Detected no homepage. This is probably a first run. Homepage created.')
 
-@app.route('/admin/new/', methods=['GET', 'POST'])
+@app.route('/admin/pages/new/', methods=['GET', 'POST'])
 @login_required
 def newPage():
     form = createPageForm()
@@ -36,22 +36,71 @@ def newPage():
         )
         db.session.add(page)
         db.session.commit()
-        flash('You created the page %s! It is not published yet.' % form.title.data)
+        flash('You created the page %s! It is not published yet.' % form.title.data, category='success')
         return redirect(url_for('page', path=form.path.data[1:]))
     else:
-        return render_template('createpage.html.j2', form=form)
+        return render_template('admin/createpage.html.j2', form=form)
+
+@app.route('/admin/posts/new/', methods=['GET', 'POST'])
+@login_required
+def newPost():
+    form = createPostForm()
+    if Categories.query.all():
+        form.category.choices = [(category.id, category.name) for category in Categories.query.order_by('name')]
+    else:
+        form.category.choices = [(0, '(No Categories)')]
+    if form.validate_on_submit():
+        if form.category.data == 0:
+            category = None
+        else:
+            category = form.category.data
+        if form.tags.data:
+            tags = [(tag.capitalize()) for tag in form.tags.data.capitalize().split(', ')]
+        else:
+            tags = None
+        post = Posts(
+        published=False,
+        title=form.title.data,
+        description=form.description.data,
+        category=category,
+        tags=tags,
+        author=current_user.id
+        )
+        db.session.add(post)
+        db.session.commit()
+        flash('You created the post %s! It is not published yet.' % form.title.data, category='success')
+        return redirect(url_for('page')) # TODO: Fix redirect
+    else:
+        return render_template('admin/createpost.html.j2', form=form)
+
+@app.route('/admin/categories/new/', methods=['GET', 'POST'])
+@login_required
+def newCategory():
+    form = createCategoryForm()
+    if form.validate_on_submit():
+        category = Categories(name=form.name.data)
+        db.session.add(category)
+        db.session.commit()
+        flash('You created the category %s!' % form.name.data, category='success')
+        return redirect(url_for('page'))
+    else:
+        return render_template('admin/createcategory.html.j2', form=form)
+
+@app.route('/admin/me')
+def userSettings():
+    pass
 
 @app.route('/admin/logout/')
 @login_required
 def logout():
     logout_user()
-    flash('You have logged out')
+    flash('You have logged out', category='info')
     return redirect(url_for('page', path=''))
 
 @app.route('/admin/login/')
 def login():
     if current_user.is_authenticated:
-        flash('You are already logged in')
+        flash('You are already logged in', category='warning')
         return redirect(url_for('page', path=''))
     else:
         return render_template('login.html.j2')

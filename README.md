@@ -19,8 +19,6 @@ It is that simple. Now you are working in a fully configured development environ
 
 All you need to do to set up a container is `$ docker run myonic/myonic-cms`
 
-* The `SECRET_KEY` environment variable should be set to something besides the default in production
-
 ---
 
 ## Other Stuff
