@@ -11,7 +11,9 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="page-header">All Posts</h1>
+<h1 class="page-header">All Posts <a href="{{ url_for('newPost') }}" class="btn btn-success pull-right">Create Post</a><a href="{{ url_for('blog') }}" class="btn btn-info pull-right" style="margin-right:8px">View Blog</a></h1>
+
+{# TODO: Sort by form that changes query order_by #}
 
 <div class="row">
   <div class="table-responsive">
@@ -42,17 +44,34 @@
             <td>{{ post.title }}</td>
             <td>{{ post.description }}</td>
             <td>{{ post.datePublished }}</td>
-            <td>{{ post.category }}</td>
+            <td>{{ post.categories.name }}</td> {# TODO: Click this to view all posts in category #}
             <td>
               {% for tag in post.tags %}
                   {{ tag }}{{ "," if not loop.last }}
               {% endfor %}
             </td>
-            <td>{{ post.author }}</td>
-            <td><a href="#">Not Implimented</a></td>
+            <td><span data-toggle="tooltip" data-placement="top" title="{{ post.users.first_name }} {{ post.users.last_name }}">{{ post.author }}</span></td> {# TODO: Link to profile #}
+            <td><a href="#not-implimented"><i style="color:#999">BLOG</i> /{{ post.slug }}</a></td>
             <td>
-              <a href="#" class="btn btn-primary btn-xs btn btn-success">View/Edit</a>
-              <a href="#" class="btn btn-primary btn-xs btn btn-danger">Delete</a>
+              <a href="{{ url_for('blog-canonical', slug=post.slug) }}" class="btn btn-primary btn-xs btn btn-success">View/Edit</a>
+              <a href="{{ url_for('editPost', id=post.id) }}" class="btn btn-primary btn-xs btn btn-info">Settings</a>
+              <button type="button" data-toggle="modal" data-target=".delete-confirm-{{ post.id }}" class="btn btn-primary btn-xs btn-danger">Delete</button>
+              <div class="modal fade delete-confirm-{{ post.id }}" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Are you sure?</h4>
+                    </div>
+                    <div class="modal-body">
+                      This will permanately delete the page, <b>{{ post.title }}</b>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <a href="{{ url_for('deletePost', id=post.id) }}" class="btn btn-danger">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
         {% endfor %}
@@ -63,3 +82,11 @@
 {% endblock %}
 
 {% block body %}{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+{% endblock %}

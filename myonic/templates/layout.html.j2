@@ -22,6 +22,12 @@
       <meta property="article:section" content="{{ seo.category }}" />
       <meta name="twitter:creator" content="{{ seo.author_twitter }}" />
       {# <meta property="article:tag" content="" /> #}
+      <link rel="canonical" href="{{ url_for('blog-canonical', _external=True, slug=post.slug) }}" />
+      <script type="application/ld+json">
+        {{ getPostSchema(post) }}
+      </script>
+    {% else %}
+      <link rel="canonical" href="{{ url_for('page', _external=True, path=page.path) }}" />
     {% endif %}
     <meta name="twitter:card" content="{{ seo.twitter_type }}" /> {# summary or summary_large_image #}
     <meta name="twitter:site" content="{{ config.SITE_TWITTER }}" /> {# fetch from app config #}
@@ -34,20 +40,8 @@
     <meta name="msapplication-starturl" content="/" />
     {# <meta name="msapplication-navbutton-color" content="#FF3300" /> TODO: Add theme color #}
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="cononical" href="{{ request.url_root }}" />
     {# <link rel="apple-touch-icon" href="" /> TODO: Apple shortcut icon #}
     {# <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href=""> TODO: Add RSS #}
-    <script type="application/ld+json">
-    {% if page.path != '/' %}
-      {% if type == 'article' %}
-        {{ getPostSchema(page) }}
-      {% else %}
-        {{ getPageSchema(page) }}
-      {% endif %}
-    {% else %}
-      {{ getHomeSchema() }}
-    {% endif %}
-    </script>
     <title>{{ seo.title }} | Myonic</title> {# TODO: Grab site name from site settings #}
   {% else %}
     <meta charset="utf-8" />
@@ -57,7 +51,9 @@
   {% endif %}
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" /> {# TODO: Favicon system #}
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
+  {% assets 'css' %}
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+  {% endassets %}
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {% block head %}{% endblock %}

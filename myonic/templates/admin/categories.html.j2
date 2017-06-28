@@ -12,6 +12,7 @@
 
 {% block content %}
 <h1 class="page-header">Category Manager</h1>
+<p><i>Categories are displayed with every post to let the viewer know what the post is about. Categories can also be filtered and apper in the blog navigation bar.</i></p>
 
 <h2 class="sub-header">Create Category</h2>
 
@@ -33,6 +34,7 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Posts</th>
           <th>Options</th>
         </tr>
       </thead>
@@ -40,9 +42,26 @@
         {% for category in categories %}
           <tr>
             <td>{{ category.name }}</td>
+            <td>{{ category.posts.count() }}</td> {# TODO: Click this to view all posts in category #}
             <td>
-              <a href="#" class="btn btn-primary btn-xs btn btn-success">Edit</a>
-              <a href="#" class="btn btn-primary btn-xs btn btn-danger">Delete</a>
+              <a href="{{ url_for('editCategory', id=category.id) }}" class="btn btn-primary btn-xs btn btn-success">Edit</a>
+              <button type="button" data-toggle="modal" data-target=".delete-confirm-{{ category.id }}" class="btn btn-primary btn-xs btn-danger">Delete</button>
+              <div class="modal fade delete-confirm-{{ category.id }}" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Are you sure?</h4>
+                    </div>
+                    <div class="modal-body">
+                      This will permanately delete the page, <b>{{ category.title }}</b>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                      <a href="{{ url_for('deleteCategory', id=category.id) }}" class="btn btn-danger">Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
         {% endfor %}

@@ -1,5 +1,3 @@
-// This is NOT for style-admin. Do not include in style-admin.
-
 [data-editable] {
   iframe, image, [data-ce-tag=img], img, video {
     clear: both;
@@ -237,8 +235,8 @@
       display: inline-block;
       padding-left: 16px;
     }
-    .options {
-      padding-right: 16px;
+    .option {
+      padding: 0 16px 0 16px;
       border-right: solid 3px #000;
       display: inline-block;
     }

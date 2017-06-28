@@ -17,11 +17,11 @@ def schemaProcessor():
             },
             'author': {
                 '@type': 'Person',
-                'name': post.author.first_name + ' ' + post.author.last_name,
-                'image': post.author.picture,
+                'name': post.users.first_name + ' ' + post.users.last_name,
+                'image': post.users.picture,
                 # 'url': post.author.url,
                 # 'sameAs': post.url, # TODO: Figure out how to pass post URL
-                'description': post.author.bio
+                'description': post.users.bio
             },
             'headline': post.title,
             # 'url': post.url, # TODO: Figure out how to pass post URL

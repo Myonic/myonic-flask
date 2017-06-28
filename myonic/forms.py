@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SelectField, HiddenField
 from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp
 from wtforms.ext.dateutil.fields import DateField
-from myonic.models import Pages, Posts
+from myonic.models import Pages, Posts, Categories
 
 # TODO: Add length validators to prevent database errors
 
@@ -24,6 +24,8 @@ def editPagePathCheck(form, field):
         raise ValidationError('Page path already exists')
     if field.data.startswith('/admin'):
         raise ValidationError('Page cannot be in a /admin path')
+    if field.data.startswith('/blog'):
+        raise ValidationError('Page cannot be in a /blog path')
 
 
 # Only load needed fields for articles and pages
@@ -47,14 +49,25 @@ class createPostForm(FlaskForm):
 
 class editPostForm(FlaskForm):
     published = BooleanField('Published?')
+    slug = StringField('Slug') # TODO: Validate Slug
     date = DateField('Date')
     description = StringField('Short Description')
     category = SelectField('Category', coerce=int) # TODO: Validate this field
     tags = StringField('Tags')
     author = SelectField('Author', coerce=int) # TODO: Validate this field
 
+class editPostFormInpage(FlaskForm):
+    published = BooleanField('Published?')
+    slug = StringField('Slug') # TODO: Validate Slug
+    description = StringField('Short Description')
+    id = HiddenField()
+
+def categoryNameCheck(form, field):
+    if Categories.query.filter_by(name=field.data).all():
+        raise ValidationError('Category already exists')
+
 class createCategoryForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(message='Please provide a name for the category')])
+    name = StringField('Name', validators=[DataRequired(message='Please provide a name for the category'), categoryNameCheck])
 
 # class userDataForm(FlaskForm):
 #     twitter = StringField('Twitter Account')

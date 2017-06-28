@@ -1,13 +1,17 @@
 from myonic import app
 import os
+from datetime import timedelta
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///database/myonic.sqlite3'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER      = 'static/uploads/'
 ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif'])
+REMEMBER_COOKIE_DURATION = timedelta(days=1)
+REMEMBER_COOKIE_DOMAIN = '.127.0.0.1'
 # TODO: Eventually set secret/client_id to use Enviroment Variables
 if app.debug:
     SECRET_KEY = 'secret'
+    SERVER_NAME = 'localhost:5000'
     GOOGLE_CLIENT_ID = '829851563990-35t7op4btrdhrj9duameklqjjo2i8t0o.apps.googleusercontent.com' # Add a key that will work on localhost:5000 or 127.0.0.1:5000
     GOOGLE_SECRET = '1u1ZRyhuAOaMerY_wSYpl6mh' # Add a key that will on localhost:5000 or 127.0.0.1:5000
 else:

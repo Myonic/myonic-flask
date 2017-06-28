@@ -1,6 +1,11 @@
 {% from '_macros.j2' import form_errors, checkfield %}
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}">
+{# <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}"> #}
+
+{% assets "css" %}
+  <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+{% endassets %}
+
 <meta name="page_id" content="{{ page.id }}" />
 
 <div class='admin'>
@@ -48,8 +53,11 @@
   </div>
 
   <div class='right'>
-    <div class='options'>
+    <div class='option'>
       <a href="{{ url_for('newPage') }}">Create new page</a>
+    </div>
+    <div class='option'>
+    <a href="{{ url_for('listPages') }}">All Pages</a>
     </div>
     <div class='user'>
       {% if current_user.is_authenticated %}
@@ -61,8 +69,9 @@
       {% endif %}
     </div>
   </div>
-  <script src="{{ url_for('static', filename='content-tools/content-tools.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='content-tools/editor.js') }}"></script>
+  {% assets "pageadmin-js" %}
+    <script src="{{ ASSET_URL }}"></script>
+  {% endassets %}
 </div>
 
 <div class='admin-notice'>

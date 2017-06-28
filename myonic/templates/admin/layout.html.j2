@@ -4,9 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" /> {# TODO: Favicon system #}
-    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style-admin.min.css') }}" />
+    {% assets 'admin-css' %}
+      <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+    {% endassets %}
     <title>{% block title %}Admin{% endblock %} | Myonic Admin</title> {# TODO: Pull site short name #}
     {% block head %}{% endblock %}
   </head>
@@ -25,8 +28,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           {# TODO: Navbar grabs dropdown data from page navigation #}
           <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('page') }}">Homepage</a></li>
             <li {% if active == 'pages' %}class="active"{% endif %}><a href="{{ url_for('listPages') }}">Pages</a></li>
-            <li {% if active == 'blog' %}class="active"{% endif %}><a href="#">Blog</a></li>
+            <li {% if active == 'blog' %}class="active"{% endif %}><a href="{{ url_for('listPosts') }}">Blog</a></li>
             <li {% if active == 'profile' %}class="active"{% endif %}><a href="#">Profile</a></li>
             <li {% if active == 'settings' %}class="active"{% endif %}><a href="#">Site Settings</a></li>
           </ul>
@@ -122,8 +126,9 @@
         </div>
       {% endblock %}
     </div>
-    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    {% assets 'admin-js' %}
+      <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
     {% block scripts %}{% endblock %}
   </body>
 </html>

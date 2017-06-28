@@ -40,7 +40,8 @@ class Posts(db.Model):
     id          = db.Column(db.Integer, primary_key = True)
     datePublished = db.Column(db.Date)  # Date of publication Uses DateTime object to allow conversion to different formats (do not include in pages)
     published   = db.Column(db.Boolean)     # Published state
-    title       = db.Column(db.String(256), unique=True)
+    title       = db.Column(db.String(256))
+    slug        = db.Column(db.String(256), unique=True)
     content     = db.Column(db.String)
     description = db.Column(db.String(256)) # Short description of page or article
     image       = db.Column(db.String(256)) # Featured image on the post

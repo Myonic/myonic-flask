@@ -1,0 +1,32 @@
+{% extends 'admin/layout.html.j2' %}
+{% from 'admin/_macros.j2' import form_errors, field_errors, checkfield %}
+
+{% block title %}Category Manager{% endblock %}
+
+{% block sidebar %}
+<li><a href="{{ url_for('blogSettings') }}">Blog Settings</a></li>
+<li><a href="{{ url_for('listPosts') }}">All Posts</a></li>
+<li><a href="{{ url_for('newPost') }}">Create Post</a></li>
+<li class="active"><a href="{{ url_for('categories') }}">Categories <span class="sr-only">(current)</span></a></li>
+{% endblock %}
+
+{% block content %}
+<h1 class="page-header">Category Manager</h1>
+<p><i>Categories are displayed with every post to let the viewer know what the post is about. Categories can also be filtered and apper in the blog navigation bar.</i></p>
+
+<h2 class="sub-header">Update Category</h2>
+
+<p class="bg-primary" style="padding:8px">The category you are editing is currently named <b>{{ category.name }}</b> which contains {{ category.posts.count() }} posts</p>
+
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    <div class="form-group {{ checkfield(form.name) }}">
+      {{ form.name.label }}
+      {{ form.name(class='form-control', value=category.name) }}
+      {{ field_errors(form.name) }}
+    </div>
+    <input type="submit" value="Update" class="btn btn-default">
+</form>
+{% endblock %}
+
+{% block body %}{% endblock %}

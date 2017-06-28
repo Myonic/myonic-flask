@@ -8,13 +8,13 @@
 
 {% block sidebar %}
 <li><a href="{{ url_for('blogSettings') }}">Blog Settings</a></li>
-<li><a href="{{ url_for('listPosts') }}">All Posts</a></li>
-<li class="active"><a href="#">Create Post <span class="sr-only">(current)</span></a></li>
+<li class="active"><a href="{{ url_for('listPosts') }}">All Posts <span class="sr-only">(current)</span></a></li>
+<li><a href="{{ url_for('newPost') }}">Create Post</a></li>
 <li><a href="{{ url_for('categories') }}">Categories</a></li>
 {% endblock %}
 
 {% block content %}
-<h1 class="page-header">Create Post</h1>
+<h1 class="page-header">Edit Post Settings</h1>
 
 <i>The content of the post is edited in the post page. It will not be published until you flip the published switch. If you set a post's date in the future <b>and</b> publish it, it will not publish until that date. Also take note the server is running on UTC time.</i>
 <hr />
@@ -22,35 +22,40 @@
 <div class="row">
   <form method="POST" action="">
       {{ form.csrf_token }}
-      <div class="form-group {{ checkfield(form.title) }}">
-        {{ form.title.label }}
-        {{ form.title(class='form-control') }}
-        {{ field_errors(form.title) }}
+      <div class="form-group {{ checkfield(form.author) }}">
+        {{ form.author.label }}
+        {{ form.author(class='form-control', value=post.users.id) }}
+        {{ field_errors(form.author) }}
+      </div>
+      <div class="form-group {{ checkfield(form.slug) }}">
+        {{ form.slug.label }}
+        {{ form.slug(class='form-control', value=post.slug) }}
+        {{ field_errors(form.slug) }}
       </div>
       <div class="form-group {{ checkfield(form.description) }}">
         {{ form.description.label }}
-        {{ form.description(class='form-control') }}
+        {{ form.description(class='form-control', value=post.description) }}
         {{ field_errors(form.description) }}
       </div>
       <div class="form-group {{ checkfield(form.category) }}">
         {{ form.category.label }}
-        {{ form.category(class='form-control') }}
+        {{ form.category(class='form-control', value=post.categories.id) }}
         {{ field_errors(form.category) }}
       </div>
       <div class="form-group {{ checkfield(form.date) }}">
         {{ form.date.label }}
         <div class="input-group date">
-          {{ form.date(id='date', class='form-control') }}
+          {{ form.date(id='date', class='form-control', value=post.datePublished.strftime('%m/%d/%Y')) }}
           <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
         </div>
         {{ field_errors(form.date) }}
       </div>
       <div class="form-group {{ checkfield(form.tags) }}">
         {{ form.tags.label }}
-        {{ form.tags(id='tags', placeholder='Press Enter to add') }}
+        {{ form.tags(id='tags', placeholder='Press Enter to add', value=', '.join(post.tags)) }}
         {{ field_errors(form.tags) }}
       </div>
-      <input type="submit" value="Create" class="btn btn-default">
+      <input type="submit" value="Update" class="btn btn-default">
   </form>
 </div>
 {% endblock %}

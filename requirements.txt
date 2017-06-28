@@ -7,5 +7,9 @@ blinker
 Flask-Mail
 Flask-WTF
 Flask-Assets
+pyScss
+cssmin
+Flask-DebugToolbar
 Flask-Migrate
 Pillow
+Python-Slugify

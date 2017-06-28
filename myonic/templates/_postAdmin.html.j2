@@ -1,0 +1,72 @@
+{% from '_macros.j2' import form_errors, checkfield %}
+
+{# <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}"> #}
+
+{% assets "css" %}
+  <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+{% endassets %}
+
+<meta name="post_id" content="{{ post.id }}" />
+
+<div class='admin'>
+  <div class='left'>
+
+    {# TODO: Linked Breadcrumbs #}
+    <div class='breadcrumb'>
+      <a href="{{ url_for('listPosts') }}"><i class="all-pages material-icons">menu</i></a>
+      <span class='path'>
+        <a href="{{ url_for('page', path='') }}">Home</a> :: <a href="#">Blog</a><span> / {{ post.slug|e }}</span>
+      </span>
+    </div>
+
+    <form method="POST" action="">
+      {{ form.csrf_token }}
+      {{ form.id(value=post.id) }}
+      <div class="textbox {{ checkfield(form.description) }}">
+        {{ form.description(value=post.description, placeholder=' ') }}
+        {{ form.description.label }}
+      </div>
+      <div class="textbox {{ checkfield(form.slug) }}">
+        {{ form.slug(value=post.slug, placeholder=' ') }}
+        {{ form.slug.label }}
+      </div>
+      {% if post.published %}
+          {{ form.published(checked='', class='switch-input') }}
+      {% else %}
+          {{ form.published(class='switch-input') }}
+      {% endif %}
+      <label for='published' class='switch-label'><span class="toggle--on">Published</span><span class="toggle--off">Unpublished</span></label>
+      <input type="submit" value="Update">
+    </form>
+    {{ form_errors(form) }}
+    <i style="font-size:10px; color:#555">Note that admin mode uses canonical URLs for the blog system</i>
+  </div>
+
+  <div class='right'>
+    <div class='option'>
+      <a href="{{ url_for('editPost', id=post.id) }}">Edit Post Settings</a>
+    </div>
+    <div class='option'>
+      <a href="{{ url_for('newPost') }}">Create New Post</a>
+    </div>
+    <div class='option'>
+    <a href="{{ url_for('listPosts') }}">All Posts</a>
+    </div>
+    <div class='user'>
+      {% if current_user.is_authenticated %}
+        Hello {{ current_user.first_name }}!
+        <a href="{{ url_for('logout') }}">Log out</a>
+      {% else %}
+        You are not logged in.
+        <a href="{{ url_for('google.login') }}">Log in</a>
+      {% endif %}
+    </div>
+  </div>
+  {% assets "postadmin-js" %}
+    <script src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+</div>
+
+<div class='admin-notice'>
+  The content editor saves every 30 seconds
+</div>

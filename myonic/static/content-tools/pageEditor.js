@@ -304,7 +304,7 @@ window.addEventListener('load', function() {
 
     xhr = new XMLHttpRequest();
     xhr.addEventListener('readystatechange', onStateChange);
-    xhr.open('POST', '/admin/ajax/save');
+    xhr.open('POST', '/admin/ajax/page/save');
     xhr.send(payload);
   });
 });
