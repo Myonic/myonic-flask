@@ -1,0 +1,15 @@
+{% extends "bloglayout.html.j2" %}
+
+{% block body %}
+<h1>All Posts</h1>
+{% for post in posts %}
+  <div>
+    <h2><a href="{{ url_for('blog', slug=post.slug) }}">{{ post.title|e }}</a></h2>
+    <p>{{ post.content|e|truncate(255) }}</p>
+  </div>
+{% endfor %}
+
+{% if current_user.is_authenticated %}
+  {% from '_macros.j2' import form_errors %}
+{% endif %}
+{% endblock %}

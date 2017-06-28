@@ -35,5 +35,5 @@ SITE_PHONE = ''
 
 # Info
 SITE_OWNER = 'Myonic Technologies Inc.' # Publisher Name
-SITE_DOMAIN = 'http://myonic.tech/' # Ex: http://example.com/
+SITE_DOMAIN = 'myonic.tech' # Ex: example.com
 SITE_DESCRIPTION = "We've designed a wearable device that allows paralyzed users to regain control of their muscles."

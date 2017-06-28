@@ -3,6 +3,7 @@ from wtforms import StringField, BooleanField, SelectField, HiddenField
 from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp
 from wtforms.ext.dateutil.fields import DateField
 from myonic.models import Pages, Posts, Categories
+from slugify import slugify
 
 # TODO: Add length validators to prevent database errors
 
@@ -39,21 +40,23 @@ class editPageForm(FlaskForm):
 def postTitleCheck(form, field):
     if Posts.query.filter_by(title=field.data).all():
         raise ValidationError('There is already a post with that title')
+    if Posts.query.filter_by(slug=slugify(field.data)).all():
+        raise ValidationError('That title matches the slug of another post.')
 
 class createPostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(message='The post must have a title'), postTitleCheck])
-    date = DateField('Date')
+    date = DateField('Date', validators=[DataRequired(message='A date is required')])
     description = StringField('Short Description')
     category = SelectField('Category', coerce=int) # TODO: Validate this field
-    tags = StringField('Tags')
+    tags = StringField('Tags', validators=[DataRequired(message='Please add at least 1 tag')])
 
 class editPostForm(FlaskForm):
     published = BooleanField('Published?')
     slug = StringField('Slug') # TODO: Validate Slug
-    date = DateField('Date')
+    date = DateField('Date', validators=[DataRequired(message='A date is required')])
     description = StringField('Short Description')
     category = SelectField('Category', coerce=int) # TODO: Validate this field
-    tags = StringField('Tags')
+    tags = StringField('Tags', validators=[DataRequired(message='Please add at least 1 tag')])
     author = SelectField('Author', coerce=int) # TODO: Validate this field
 
 class editPostFormInpage(FlaskForm):

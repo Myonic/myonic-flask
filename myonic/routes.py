@@ -72,7 +72,7 @@ def blogSettings():
 @app.route('/admin/blog/posts/')
 @login_required
 def listPosts():
-    posts = Posts.query.order_by('datePublished')
+    posts = Posts.query.order_by(Posts.datePublished.desc())
     return render_template('admin/allposts.html.j2', posts=posts, active='blog')
 
 @app.route('/admin/blog/posts/new/', methods=['GET', 'POST'])
@@ -231,7 +231,7 @@ def savePageContent():
 def savePostContent():
     data = json.loads(request.form['regions'])
     if Posts.query.filter_by(id=request.form['post_id']).all():
-        post = Pages.query.filter_by(id=request.form['post_id']).first()
+        post = Posts.query.filter_by(id=request.form['post_id']).first()
         try:
             if data['title']:
                 post.title = str(data['title'])
@@ -341,16 +341,17 @@ def blog(slug):
             if form.validate_on_submit():
                 post = Posts.query.filter_by(slug=slug).first()
                 post.description = form.description.data
-                post.slug = form.slug.data
+                post.slug = slugify(form.slug.data)
                 post.published = form.published.data
                 db.session.add(post)
                 db.session.commit()
-                return redirect(url_for('blog-canonical', slug=form.slug.data))
+                return redirect(url_for('blog-canonical', slug=slugify(form.slug.data)))
     else:
         form = None
 
     if slug == '':
-        pass # RENDER POST LIST
+        posts=Posts.query.filter(Posts.datePublished <= datetime.date.today(), Posts.published).order_by(Posts.datePublished.desc()).limit(5)
+        return render_template('postlist.html.j2', posts=posts, seo=pageSEO(title='Blog', type='blog'))
     elif Posts.query.filter_by(slug=slug).all():
         post = Posts.query.filter_by(slug=slug).first()
         if post.published and post.datePublished <= datetime.date.today():

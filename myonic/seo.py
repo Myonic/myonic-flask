@@ -32,7 +32,7 @@ def schemaProcessor():
             'description': post.description,
             'mainEntityOfPage': {
                 '@type': 'WebPage',
-                '@id': app.config.get('SITE_DOMAIN')
+                '@id': 'http://' + app.config.get('SITE_DOMAIN') + '/'
             }
         }
         return json.dumps(schema, indent=4, sort_keys=True)
@@ -46,11 +46,30 @@ def schemaProcessor():
                 'name': app.config.get('SITE_NAME'),
                 # 'logo': app.config.get('SITE_LOGO') #TODO: Site logo
             },
-            'url': app.config.get('SITE_DOMAIN'),
+            'url': 'http://' + app.config.get('SITE_DOMAIN') + '/',
             # 'image': #[SITE COVER IMAGE], #TODO: Site Cover Image
             'mainEntityOfPage': {
                 '@type': 'WebPage',
-                '@id': app.config.get('SITE_DOMAIN')
+                '@id': 'http://' + app.config.get('SITE_DOMAIN') + '/'
+            },
+            'description': app.config.get('SITE_DESCRIPTION')
+        }
+        return json.dumps(schema, indent=4, sort_keys=True)
+
+    def getBlogSchema():
+        schema = {
+            '@context': 'https://schema.org',
+            '@type': 'Website',
+            'publisher': {
+                '@type': 'Organization',
+                'name': app.config.get('SITE_NAME') + ' Blog',
+                # 'logo': app.config.get('SITE_LOGO') #TODO: Site logo
+            },
+            'url': 'http://blog.' + app.config.get('SITE_DOMAIN') + '/',
+            # 'image': #[SITE COVER IMAGE], #TODO: Site Cover Image
+            'mainEntityOfPage': {
+                '@type': 'WebPage',
+                '@id': 'http://blog.' + app.config.get('SITE_DOMAIN') + '/'
             },
             'description': app.config.get('SITE_DESCRIPTION')
         }
@@ -65,11 +84,11 @@ def schemaProcessor():
                 'name': app.config.get('SITE_NAME'),
                 # 'logo': app.config.get('SITE_LOGO') #TODO: Site logo
             },
-            'url': app.config.get('SITE_DOMAIN'),
+            'url': 'http://' + app.config.get('SITE_DOMAIN') + '/',
             # 'image': #[SITE COVER IMAGE], #TODO: Site Cover Image
             'mainEntityOfPage': {
                 '@type': 'WebPage',
-                '@id': app.config.get('SITE_DOMAIN'),
+                '@id': 'http://' + app.config.get('SITE_DOMAIN') + '/',
                 'name': page.title,
                 'description': page.description #,
                 # 'breadcrumb' : page.breadcrumb,
@@ -79,7 +98,7 @@ def schemaProcessor():
         }
         return json.dumps(schema, indent=4, sort_keys=True)
 
-    return dict(getPageSchema=getPageSchema, getPostSchema=getPostSchema, getHomeSchema=getHomeSchema)
+    return dict(getPageSchema=getPageSchema, getPostSchema=getPostSchema, getHomeSchema=getHomeSchema, getBlogSchema=getBlogSchema)
 
 class articleSEO():
     def __init__(self, title, postDate, author, category, twitter_type, description=None, type='article', image=None, author_twitter=None):
