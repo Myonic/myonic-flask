@@ -17,7 +17,7 @@ def createPagePathCheck(form, field):
 # Only load needed fields for articles and pages
 class createPageForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(message='The page must have a title')])
-    path = StringField('Path', validators=[DataRequired(message='The page must have a path'), createPagePathCheck, Regexp('^/([a-z\/]+)', message='The path is not valid. It must start with a "/" and only have lower case letters.')])
+    path = StringField('Path', validators=[DataRequired(message='The page must have a path'), createPagePathCheck, Regexp(r'^/([a-z\/\-]+$)', message='The path is not valid. It must start with a "/" and only have lower case letters.')])
     description = StringField('Short Description')
 
 def editPagePathCheck(form, field):
@@ -33,7 +33,7 @@ def editPagePathCheck(form, field):
 class editPageForm(FlaskForm):
     published = BooleanField('Published?')
     # title = StringField('Title', validators=[DataRequired(message='The page must have a title')])
-    path = StringField('Path', validators=[DataRequired(message='The page must have a path'), editPagePathCheck, Regexp('^/([a-z\/]+)', message='The path is not valid. It must start with a "/" and only have lower case letters.')])
+    path = StringField('Path', validators=[DataRequired(message='The page must have a path'), editPagePathCheck, Regexp(r'^/([a-z\/\-]+$)', message='The path is not valid. It must start with a "/" and only have lower case letters.')])
     description = StringField('Summery')
     id = HiddenField()
 
