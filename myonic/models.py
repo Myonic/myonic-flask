@@ -19,7 +19,7 @@ class Users(db.Model, UserMixin):
     twitter     = db.Column(db.String(256)) # User Twitter account (EX: @myonic)
     bio         = db.Column(db.String)
     # timezone    = db.Column(db.String)
-    posts       = db.relationship('Posts', backref='users', lazy='dynamic')
+    posts       = db.relationship('Posts', backref='users', lazy='dynamic') # TODO: update backref name
 
 class OAuth(OAuthConsumerMixin, db.Model):
     user_id     = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -34,6 +34,7 @@ class Pages(db.Model):
     description = db.Column(db.String(256)) # Short description of page or article
     image       = db.Column(db.String(256)) # Featured image on the post
     path        = db.Column(db.String(256), unique = True)
+    navitems    = db.relationship('Navbar', backref='pageitem', lazy='dynamic')
 
 class Posts(db.Model):
     __tablename__ = 'posts'
@@ -52,8 +53,17 @@ class Posts(db.Model):
 class Categories(db.Model):
     id          = db.Column(db.Integer, primary_key = True)
     name        = db.Column(db.String(256), unique = True)
-    posts       = db.relationship('Posts', backref='categories', lazy='dynamic')
+    posts       = db.relationship('Posts', backref='categories', lazy='dynamic') # TODO: update backref name
 
+class Navbar(db.Model):
+    id          = db.Column(db.Integer, primary_key = True)
+    index       = db.Column(db.Integer)
+    label       = db.Column(db.String)
+    type        = db.Column(db.String) # "url" or "page" (TODO: or "dropdown" or "seperator" or "label" when dropdown support is added)
+    url         = db.Column(db.String)
+    page        = db.Column(db.Integer, db.ForeignKey('pages.id'))
+
+# TODO: Change to setting:data model instead of keeping all the data in 1 giant row
 class Site(db.Model):
     __tablename__ = 'site'
     id          = db.Column(db.Integer, primary_key = True)

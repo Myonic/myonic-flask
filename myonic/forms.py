@@ -1,11 +1,18 @@
+from myonic import app
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SelectField, HiddenField
-from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp
+from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp, URL, NoneOf
 from wtforms.ext.dateutil.fields import DateField
 from myonic.models import Pages, Posts, Categories
 from slugify import slugify
 
 # TODO: Add length validators to prevent database errors
+
+# TODO: Use FormField for reusables
+
+# TODO: Check ALL validators and add missing ones
+
+# TODO: Replace simple validators with NoneOf
 
 def createPagePathCheck(form, field):
     if Pages.query.filter_by(path=field.data).all() or field.data == '/':
@@ -71,6 +78,14 @@ def categoryNameCheck(form, field):
 
 class createCategoryForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(message='Please provide a name for the category'), categoryNameCheck])
+
+class addURLNavitemForm(FlaskForm):
+    label = StringField('Label', validators=[DataRequired(message='Please provide a label')])
+    url = StringField('URL', validators=[URL(message='That is not a valid URL')])
+
+class addPageNavitemForm(FlaskForm):
+    label = StringField('Label', validators=[DataRequired(message='Please provide a label')])
+    page = SelectField('Page', coerce=int)
 
 # class userDataForm(FlaskForm):
 #     twitter = StringField('Twitter Account')

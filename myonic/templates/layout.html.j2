@@ -34,7 +34,7 @@
     {% else %}
       <link rel="canonical" href="{{ url_for('page', _external=True, path=page.path) }}" />
       <script type="application/ld+json">
-        {{ getPostSchema(page) }}
+        {{ getPageSchema(page) }}
       </script>
     {% endif %}
     <meta name="twitter:card" content="{{ seo.twitter_type }}" /> {# summary or summary_large_image #}

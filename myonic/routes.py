@@ -14,6 +14,8 @@ from myonic.forms import *
 
 # NOTE: Change active system to use variables within the templates instead of being passed by the return
 
+# TODO: Change delete and navbar up/down to use forms instead of routes maybe?
+
 @app.before_first_request
 def createHomepage():
     if not Pages.query.filter_by(path='').first():
@@ -190,6 +192,81 @@ def deleteCategory(id):
 @login_required
 def userSettings():
     pass
+
+@app.route('/admin/settings/')
+@login_required
+def siteSettings():
+    return render_template('admin/sitesettings.html.j2', active='settings')
+
+# TODO: Limit items
+@app.route('/admin/settings/navbar/', methods=['GET', 'POST'])
+@login_required
+def navbarSettings():
+    urlform = addURLNavitemForm()
+    pageform = addPageNavitemForm()
+    pageform.page.choices = [(page.id, page.title + ': ' + (page.path if page.path != '' else '/')) for page in Pages.query.order_by('title')]
+    if request.args.get('form') == 'urlform':
+        if urlform.validate_on_submit():
+            if Navbar.query.all():
+                index = Navbar.query.order_by(Navbar.index.desc()).first().index + 1
+            else:
+                index = 1
+            item = Navbar(
+            index = index,
+            label = urlform.label.data,
+            type = 'url',
+            url = urlform.url.data
+            )
+            db.session.add(item)
+            db.session.commit()
+            flash('Item Added!', category='success')
+    if request.args.get('form') == 'pageform':
+        if pageform.validate_on_submit():
+            if Navbar.query.all():
+                index = Navbar.query.order_by(Navbar.index.desc()).first().index + 1
+            else:
+                index = 1
+            item = Navbar(
+            index = index,
+            label = pageform.label.data,
+            type = 'page',
+            page = pageform.page.data
+            )
+            db.session.add(item)
+            db.session.commit()
+            flash('Item Added!', category='success')
+    navitems = Navbar.query.order_by('index').all()
+    return render_template('admin/navbarsettings.html.j2', navitems=navitems, urlform=urlform, pageform=pageform, active='settings')
+
+@app.route('/admin/settings/navbar/down/<int:index>/')
+@login_required
+def navbarDown(index):
+    if Navbar.query.filter_by(index=index + 1).all():
+        swap = Navbar.query.filter_by(index=index + 1).first()
+    else:
+        app.logger.warning('nop')
+        return redirect(url_for('navbarSettings'))
+    navitem = Navbar.query.filter_by(index=index).first()
+    navitem.index += 1
+    swap.index -= 1
+    db.session.add(navitem, swap)
+    db.session.commit()
+    return redirect(url_for('navbarSettings'))
+
+@app.route('/admin/settings/navbar/up/<int:index>/')
+@login_required
+def navbarUp(index):
+    if Navbar.query.filter_by(index=index - 1).all():
+        swap = Navbar.query.filter_by(index=index - 1).first()
+    else:
+        app.logger.warning('nop')
+        return redirect(url_for('navbarSettings'))
+    navitem = Navbar.query.filter_by(index=index).first()
+    navitem.index -= 1
+    swap.index += 1
+    db.session.add(navitem, swap)
+    db.session.commit()
+    return redirect(url_for('navbarSettings'))
 
 @app.route('/admin/logout/')
 @login_required

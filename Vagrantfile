@@ -4,9 +4,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     echo "--INSTALLING PYTHON--"
     apt-get update
-    apt-get install -y python-pip python-dev build-essential python-imaging
+    apt-get install -y python-pip python-dev build-essential python-imaging ruby-full
     export FLASK_APP=/vagrant/myonic/__init__.py
     export FLASK_DEBUG=1
+    echo "--INSTALLING SASS--"
+    gem install sass
     echo "--SETTING BASH PROFILE--"
     rm /etc/profile
     echo "# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
@@ -44,7 +46,8 @@ fi" >> /etc/profile
     echo "export OAUTHLIB_INSECURE_TRANSPORT=1" >> /etc/profile
     echo "export OAUTHLIB_RELAX_TOKEN_SCOPE=1" >> /etc/profile
     echo "cd /vagrant/myonic" >> /etc/profile
-    echo "echo Remember to include the host when starting Flask: \"flask run --host=0.0.0.0\"" >> /etc/profile
+    echo "alias frun='flask run --host=0.0.0.0'"
+    echo "echo -e '\e[94mRemember to include the host when starting Flask: "flask run --host=0.0.0.0" which is aliased to the command \e[107m"frun"\e[49m\e[39m'" >> /etc/profile
     cat /etc/profile
     echo "--INSTALLING REQUIREMENTS--"
     pip install -r /vagrant/requirements.txt

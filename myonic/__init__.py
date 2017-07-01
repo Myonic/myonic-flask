@@ -7,6 +7,12 @@ import os
 
 # TODO: File logs of errors and user activity
 
+# TODO: When email system is added, send welcome email to new users
+
+# TODO: Standardize naming schemes for everything (files, classes, methods, variables)
+
+# TODO: Smart linking on post/page editor for links to other parts of site
+
 app = Flask(__name__)
 
 assets = Environment(app)
@@ -26,7 +32,7 @@ bundles = {
     ),
     'admin-css': Bundle(
     'css/style-admin.scss',
-    filters='pyscss,cssmin',
+    filters='scss',
     output='css/style-admin.min.css'
     ),
     'pageadmin-js': Bundle(
