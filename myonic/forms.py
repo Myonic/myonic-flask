@@ -48,7 +48,7 @@ def postTitleCheck(form, field):
     if Posts.query.filter_by(title=field.data).all():
         raise ValidationError('There is already a post with that title')
     if Posts.query.filter_by(slug=slugify(field.data)).all():
-        raise ValidationError('That title matches the slug of another post.')
+        raise ValidationError('That title matches the slug of another post')
 
 class createPostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(message='The post must have a title'), postTitleCheck])
@@ -59,7 +59,7 @@ class createPostForm(FlaskForm):
 
 class editPostForm(FlaskForm):
     published = BooleanField('Published?')
-    slug = StringField('Slug') # TODO: Validate Slug
+    slug = StringField('Slug', validators=[DataRequired(message='A slug is required')]) # TODO: Validate Slug
     date = DateField('Date', validators=[DataRequired(message='A date is required')])
     description = StringField('Short Description')
     category = SelectField('Category', coerce=int) # TODO: Validate this field

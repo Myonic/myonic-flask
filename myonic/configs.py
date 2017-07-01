@@ -7,7 +7,6 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER      = 'static/uploads/'
 ALLOWED_EXTENSIONS =  set(['png','jpg','jpeg','gif'])
 REMEMBER_COOKIE_DURATION = timedelta(days=1)
-REMEMBER_COOKIE_DOMAIN = '.127.0.0.1'
 # TODO: Eventually set secret/client_id to use Enviroment Variables
 if app.debug:
     SECRET_KEY = 'secret'

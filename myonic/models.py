@@ -67,23 +67,5 @@ class Navbar(db.Model):
 class Site(db.Model):
     __tablename__ = 'site'
     id          = db.Column(db.Integer, primary_key = True)
-    name        = db.Column(db.String(256))
-    short_name  = db.Column(db.String(256))
-    twitter     = db.Column(db.String(256))
-    facebook    = db.Column(db.String(256))
-    email       = db.Column(db.String(256))
-    phone       = db.Column(db.String(256))
-    owner       = db.Column(db.String(256))
-    domain      = db.Column(db.String(256))
-    description = db.Column(db.String(512))
-    google_client_debug = db.Column(db.String(512))
-    google_secret_debug = db.Column(db.String(512))
-    google_client = db.Column(db.String(512))
-    google_secret = db.Column(db.String(512))
-
-# class Blogs(db.Model):
-#     __tablename__ = 'blogs'
-#     id          = db.Column(db.Integer, primary_key = True)
-#     name        = db.Column(db.String(32), unique = True)  # Name of blog
-#     slug        = db.Column(db.String(32), unique = True)
-#     posts       = db.relationship('BlogPosts', backref='blogs', lazy='dynamic')
+    setting        = db.Column(db.String(256))
+    data           = db.Column(db.String(256))

@@ -27,6 +27,20 @@ def createHomepage():
         db.session.add(page)
         db.session.commit()
         app.logger.warning('Detected no homepage. This is probably a first run. Homepage created.')
+    # if not Site.query.all():
+    #     name        = Site(setting='name', data='Site')
+    #     short_name  = Site(setting='short_name', data='Site')
+    #     twitter     = Site(setting='twitter', data='Site')
+    #     facebook    = Site(setting='facebook', data='Site')
+    #     email       = Site(setting='name', data='Site')
+    #     phone       = Site(setting='name', data='Site')
+    #     owner       = Site(setting='name', data='Site')
+    #     domain      = Site(setting='name', data='Site')
+    #     description = Site(setting='name', data='Site')
+    #     google_client_debug = Site(setting='name', data='Site')
+    #     google_secret_debug = Site(setting='name', data='Site')
+    #     google_client = Site(setting='name', data='Site')
+    #     google_secret = Site(setting='name', data='Site')
 
 @app.route('/admin/')
 @login_required
