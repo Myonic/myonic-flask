@@ -8793,37 +8793,37 @@ button.close {
  *
  * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
  */
-/* line 7, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 7, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker {
   border-radius: 4px;
   direction: ltr;
 }
 
-/* line 12, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 12, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-inline {
   width: 220px;
 }
 
-/* line 16, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 16, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-rtl {
   direction: rtl;
 }
-/* line 18, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 18, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-rtl.dropdown-menu {
   left: auto;
 }
-/* line 21, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 21, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-rtl table tr td span {
   float: right;
 }
 
-/* line 26, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 26, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown {
   top: 0;
   left: 0;
   padding: 4px;
 }
-/* line 30, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 30, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown:before {
   content: '';
   display: inline-block;
@@ -8834,7 +8834,7 @@ button.close {
   border-bottom-color: rgba(0, 0, 0, 0.2);
   position: absolute;
 }
-/* line 40, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 40, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown:after {
   content: '';
   display: inline-block;
@@ -8844,44 +8844,44 @@ button.close {
   border-top: 0;
   position: absolute;
 }
-/* line 50, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 50, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-left:before {
   left: 6px;
 }
-/* line 53, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 53, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-left:after {
   left: 7px;
 }
-/* line 58, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 58, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-right:before {
   right: 6px;
 }
-/* line 61, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 61, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-right:after {
   right: 7px;
 }
-/* line 66, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 66, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-bottom:before {
   top: -7px;
 }
-/* line 69, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 69, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-bottom:after {
   top: -6px;
 }
-/* line 74, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 74, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-top:before {
   bottom: -7px;
   border-bottom: 0;
   border-top: 7px solid rgba(0, 0, 0, 0.15);
 }
-/* line 79, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 79, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker-dropdown.datepicker-orient-top:after {
   bottom: -6px;
   border-bottom: 0;
   border-top: 6px solid #fff;
 }
 
-/* line 87, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 87, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table {
   margin: 0;
   -webkit-touch-callout: none;
@@ -8891,7 +8891,7 @@ button.close {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 96, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 96, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td, .datepicker table tr th {
   text-align: center;
   width: 30px;
@@ -8900,537 +8900,537 @@ button.close {
   border: none;
 }
 
-/* line 107, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 107, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .table-striped .datepicker table tr td, .table-striped .datepicker table tr th {
   background-color: transparent;
 }
 
-/* line 113, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 113, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.old, .datepicker table tr td.new {
   color: #777777;
 }
-/* line 116, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 116, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.day:hover, .datepicker table tr td.focused {
   background: #eeeeee;
   cursor: pointer;
 }
-/* line 120, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 120, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.disabled {
   background: none;
   color: #777777;
   cursor: default;
 }
-/* line 124, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 124, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.disabled:hover {
   background: none;
   color: #777777;
   cursor: default;
 }
-/* line 130, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 130, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted {
   color: #000;
   background-color: #d9edf7;
   border-color: #85c5e5;
   border-radius: 0;
 }
-/* line 135, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 135, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted:focus, .datepicker table tr td.highlighted.focus {
   color: #000;
   background-color: #afd9ee;
   border-color: #298fc2;
 }
-/* line 140, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 140, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted:hover, .datepicker table tr td.highlighted:active, .datepicker table tr td.highlighted.active {
   color: #000;
   background-color: #afd9ee;
   border-color: #52addb;
 }
-/* line 145, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 145, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted:active:hover, .datepicker table tr td.highlighted.active:hover, .datepicker table tr td.highlighted:active:focus, .datepicker table tr td.highlighted.active:focus, .datepicker table tr td.highlighted:active.focus, .datepicker table tr td.highlighted.active.focus {
   color: #000;
   background-color: #91cbe8;
   border-color: #298fc2;
 }
-/* line 150, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 150, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted.disabled:hover, .datepicker table tr td.highlighted[disabled]:hover {
   background-color: #d9edf7;
   border-color: #85c5e5;
 }
 
-/* line 157, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 157, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.highlighted:hover {
   background-color: #d9edf7;
   border-color: #85c5e5;
 }
 
-/* line 163, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 163, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted.disabled:focus, .datepicker table tr td.highlighted[disabled]:focus {
   background-color: #d9edf7;
   border-color: #85c5e5;
 }
 
-/* line 169, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 169, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.highlighted:focus {
   background-color: #d9edf7;
   border-color: #85c5e5;
 }
 
-/* line 175, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 175, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted.disabled.focus, .datepicker table tr td.highlighted[disabled].focus {
   background-color: #d9edf7;
   border-color: #85c5e5;
 }
 
-/* line 181, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 181, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.highlighted.focus {
   background-color: #d9edf7;
   border-color: #85c5e5;
 }
 
-/* line 188, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 188, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted.focused {
   background: #afd9ee;
 }
-/* line 191, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 191, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted.disabled {
   background: #d9edf7;
   color: #777777;
 }
-/* line 194, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 194, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.highlighted.disabled:active {
   background: #d9edf7;
   color: #777777;
 }
-/* line 200, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 200, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today {
   color: #000;
   background-color: #ffdb99;
   border-color: #ffb733;
 }
-/* line 204, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 204, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today:focus, .datepicker table tr td.today.focus {
   color: #000;
   background-color: #ffc966;
   border-color: #b37400;
 }
-/* line 209, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 209, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today:hover, .datepicker table tr td.today:active, .datepicker table tr td.today.active {
   color: #000;
   background-color: #ffc966;
   border-color: #f59e00;
 }
-/* line 214, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 214, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today:active:hover, .datepicker table tr td.today.active:hover, .datepicker table tr td.today:active:focus, .datepicker table tr td.today.active:focus, .datepicker table tr td.today:active.focus, .datepicker table tr td.today.active.focus {
   color: #000;
   background-color: #ffbc42;
   border-color: #b37400;
 }
-/* line 219, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 219, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today.disabled:hover, .datepicker table tr td.today[disabled]:hover {
   background-color: #ffdb99;
   border-color: #ffb733;
 }
 
-/* line 226, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 226, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.today:hover {
   background-color: #ffdb99;
   border-color: #ffb733;
 }
 
-/* line 232, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 232, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today.disabled:focus, .datepicker table tr td.today[disabled]:focus {
   background-color: #ffdb99;
   border-color: #ffb733;
 }
 
-/* line 238, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 238, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.today:focus {
   background-color: #ffdb99;
   border-color: #ffb733;
 }
 
-/* line 244, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 244, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today.disabled.focus, .datepicker table tr td.today[disabled].focus {
   background-color: #ffdb99;
   border-color: #ffb733;
 }
 
-/* line 250, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 250, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.today.focus {
   background-color: #ffdb99;
   border-color: #ffb733;
 }
 
-/* line 257, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 257, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today.focused {
   background: #ffc966;
 }
-/* line 260, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 260, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today.disabled {
   background: #ffdb99;
   color: #777777;
 }
-/* line 263, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 263, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.today.disabled:active {
   background: #ffdb99;
   color: #777777;
 }
-/* line 269, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 269, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range {
   color: #000;
   background-color: #eeeeee;
   border-color: #bbbbbb;
   border-radius: 0;
 }
-/* line 274, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 274, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range:focus, .datepicker table tr td.range.focus {
   color: #000;
   background-color: #d5d5d5;
   border-color: #7c7c7c;
 }
-/* line 279, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 279, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range:hover, .datepicker table tr td.range:active, .datepicker table tr td.range.active {
   color: #000;
   background-color: #d5d5d5;
   border-color: #9d9d9d;
 }
-/* line 284, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 284, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range:active:hover, .datepicker table tr td.range.active:hover, .datepicker table tr td.range:active:focus, .datepicker table tr td.range.active:focus, .datepicker table tr td.range:active.focus, .datepicker table tr td.range.active.focus {
   color: #000;
   background-color: #c3c3c3;
   border-color: #7c7c7c;
 }
-/* line 289, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 289, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.disabled:hover, .datepicker table tr td.range[disabled]:hover {
   background-color: #eeeeee;
   border-color: #bbbbbb;
 }
 
-/* line 296, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 296, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range:hover {
   background-color: #eeeeee;
   border-color: #bbbbbb;
 }
 
-/* line 302, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 302, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.disabled:focus, .datepicker table tr td.range[disabled]:focus {
   background-color: #eeeeee;
   border-color: #bbbbbb;
 }
 
-/* line 308, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 308, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range:focus {
   background-color: #eeeeee;
   border-color: #bbbbbb;
 }
 
-/* line 314, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 314, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.disabled.focus, .datepicker table tr td.range[disabled].focus {
   background-color: #eeeeee;
   border-color: #bbbbbb;
 }
 
-/* line 320, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 320, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.focus {
   background-color: #eeeeee;
   border-color: #bbbbbb;
 }
 
-/* line 326, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 326, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.focused {
   background: #d5d5d5;
 }
-/* line 329, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 329, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.disabled {
   background: #eeeeee;
   color: #777777;
 }
-/* line 332, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 332, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.disabled:active {
   background: #eeeeee;
   color: #777777;
 }
-/* line 337, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 337, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted {
   color: #000;
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
-/* line 341, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 341, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted:focus, .datepicker table tr td.range.highlighted.focus {
   color: #000;
   background-color: #c1d7e3;
   border-color: #4b88a6;
 }
-/* line 346, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 346, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted:hover, .datepicker table tr td.range.highlighted:active, .datepicker table tr td.range.highlighted.active {
   color: #000;
   background-color: #c1d7e3;
   border-color: #73a6c0;
 }
-/* line 351, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 351, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted:active:hover, .datepicker table tr td.range.highlighted.active:hover, .datepicker table tr td.range.highlighted:active:focus, .datepicker table tr td.range.highlighted.active:focus, .datepicker table tr td.range.highlighted:active.focus, .datepicker table tr td.range.highlighted.active.focus {
   color: #000;
   background-color: #a8c8d8;
   border-color: #4b88a6;
 }
-/* line 356, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 356, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted.disabled:hover, .datepicker table tr td.range.highlighted[disabled]:hover {
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
 
-/* line 363, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 363, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.highlighted:hover {
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
 
-/* line 369, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 369, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted.disabled:focus, .datepicker table tr td.range.highlighted[disabled]:focus {
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
 
-/* line 375, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 375, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.highlighted:focus {
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
 
-/* line 381, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 381, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted.disabled.focus, .datepicker table tr td.range.highlighted[disabled].focus {
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
 
-/* line 387, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 387, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.highlighted.focus {
   background-color: #e4eef3;
   border-color: #9dc1d3;
 }
 
-/* line 394, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 394, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted.focused {
   background: #c1d7e3;
 }
-/* line 397, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 397, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted.disabled {
   background: #e4eef3;
   color: #777777;
 }
-/* line 400, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 400, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.highlighted.disabled:active {
   background: #e4eef3;
   color: #777777;
 }
-/* line 406, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 406, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today {
   color: #000;
   background-color: #f7ca77;
   border-color: #f1a417;
 }
-/* line 410, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 410, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today:focus, .datepicker table tr td.range.today.focus {
   color: #000;
   background-color: #f4b747;
   border-color: #815608;
 }
-/* line 415, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 415, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today:hover, .datepicker table tr td.range.today:active, .datepicker table tr td.range.today.active {
   color: #000;
   background-color: #f4b747;
   border-color: #bf800c;
 }
-/* line 420, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 420, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today:active:hover, .datepicker table tr td.range.today.active:hover, .datepicker table tr td.range.today:active:focus, .datepicker table tr td.range.today.active:focus, .datepicker table tr td.range.today:active.focus, .datepicker table tr td.range.today.active.focus {
   color: #000;
   background-color: #f2aa25;
   border-color: #815608;
 }
-/* line 425, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 425, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today.disabled:hover, .datepicker table tr td.range.today[disabled]:hover {
   background-color: #f7ca77;
   border-color: #f1a417;
 }
 
-/* line 432, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 432, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.today:hover {
   background-color: #f7ca77;
   border-color: #f1a417;
 }
 
-/* line 438, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 438, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today.disabled:focus, .datepicker table tr td.range.today[disabled]:focus {
   background-color: #f7ca77;
   border-color: #f1a417;
 }
 
-/* line 444, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 444, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.today:focus {
   background-color: #f7ca77;
   border-color: #f1a417;
 }
 
-/* line 450, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 450, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today.disabled.focus, .datepicker table tr td.range.today[disabled].focus {
   background-color: #f7ca77;
   border-color: #f1a417;
 }
 
-/* line 456, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 456, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.range.today.focus {
   background-color: #f7ca77;
   border-color: #f1a417;
 }
 
-/* line 462, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 462, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today.disabled {
   background: #f7ca77;
   color: #777777;
 }
-/* line 465, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 465, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.range.today.disabled:active {
   background: #f7ca77;
   color: #777777;
 }
-/* line 470, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 470, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected {
   color: #fff;
   background-color: #777777;
   border-color: #555555;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 475, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 475, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected.highlighted {
   color: #fff;
   background-color: #777777;
   border-color: #555555;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 481, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 481, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected:focus, .datepicker table tr td.selected.highlighted:focus, .datepicker table tr td.selected.focus, .datepicker table tr td.selected.highlighted.focus {
   color: #fff;
   background-color: #5e5e5e;
   border-color: #161616;
 }
-/* line 486, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 486, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected:hover, .datepicker table tr td.selected.highlighted:hover, .datepicker table tr td.selected:active, .datepicker table tr td.selected.highlighted:active, .datepicker table tr td.selected.active, .datepicker table tr td.selected.highlighted.active {
   color: #fff;
   background-color: #5e5e5e;
   border-color: #373737;
 }
-/* line 491, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 491, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected:active:hover, .datepicker table tr td.selected.highlighted:active:hover, .datepicker table tr td.selected.active:hover, .datepicker table tr td.selected.highlighted.active:hover, .datepicker table tr td.selected:active:focus, .datepicker table tr td.selected.highlighted:active:focus, .datepicker table tr td.selected.active:focus, .datepicker table tr td.selected.highlighted.active:focus, .datepicker table tr td.selected:active.focus, .datepicker table tr td.selected.highlighted:active.focus, .datepicker table tr td.selected.active.focus, .datepicker table tr td.selected.highlighted.active.focus {
   color: #fff;
   background-color: #4c4c4c;
   border-color: #161616;
 }
-/* line 496, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 496, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected.highlighted.disabled:hover, .datepicker table tr td.selected[disabled]:hover, .datepicker table tr td.selected.highlighted[disabled]:hover {
   background-color: #777777;
   border-color: #555555;
 }
 
-/* line 504, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 504, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.selected:hover, fieldset[disabled] .datepicker table tr td.selected.highlighted:hover {
   background-color: #777777;
   border-color: #555555;
 }
 
-/* line 511, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 511, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected.disabled:focus, .datepicker table tr td.selected.highlighted.disabled:focus, .datepicker table tr td.selected[disabled]:focus, .datepicker table tr td.selected.highlighted[disabled]:focus {
   background-color: #777777;
   border-color: #555555;
 }
 
-/* line 518, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 518, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.selected:focus, fieldset[disabled] .datepicker table tr td.selected.highlighted:focus {
   background-color: #777777;
   border-color: #555555;
 }
 
-/* line 525, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 525, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.selected.disabled.focus, .datepicker table tr td.selected.highlighted.disabled.focus, .datepicker table tr td.selected[disabled].focus, .datepicker table tr td.selected.highlighted[disabled].focus {
   background-color: #777777;
   border-color: #555555;
 }
 
-/* line 532, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 532, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.selected.focus, fieldset[disabled] .datepicker table tr td.selected.highlighted.focus {
   background-color: #777777;
   border-color: #555555;
 }
 
-/* line 538, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 538, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 543, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 543, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active.highlighted {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 549, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 549, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active:focus, .datepicker table tr td.active.highlighted:focus, .datepicker table tr td.active.focus, .datepicker table tr td.active.highlighted.focus {
   color: #fff;
   background-color: #286090;
   border-color: #122b40;
 }
-/* line 554, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 554, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active:hover, .datepicker table tr td.active.highlighted:hover, .datepicker table tr td.active:active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-/* line 559, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 559, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active:active:hover, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active:active:focus, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active:active.focus, .datepicker table tr td.active.highlighted:active.focus, .datepicker table tr td.active.active.focus, .datepicker table tr td.active.highlighted.active.focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 564, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 564, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.highlighted.disabled:hover, .datepicker table tr td.active[disabled]:hover, .datepicker table tr td.active.highlighted[disabled]:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 571, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 571, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.active:hover, fieldset[disabled] .datepicker table tr td.active.highlighted:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 578, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 578, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active.disabled:focus, .datepicker table tr td.active.highlighted.disabled:focus, .datepicker table tr td.active[disabled]:focus, .datepicker table tr td.active.highlighted[disabled]:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 585, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 585, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.active:focus, fieldset[disabled] .datepicker table tr td.active.highlighted:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 592, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 592, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td.active.disabled.focus, .datepicker table tr td.active.highlighted.disabled.focus, .datepicker table tr td.active[disabled].focus, .datepicker table tr td.active.highlighted[disabled].focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 599, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 599, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td.active.focus, fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 605, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 605, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span {
   display: block;
   width: 23%;
@@ -9441,255 +9441,255 @@ fieldset[disabled] .datepicker table tr td.active.focus, fieldset[disabled] .dat
   cursor: pointer;
   border-radius: 4px;
 }
-/* line 614, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 614, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span:hover, .datepicker table tr td span.focused {
   background: #eeeeee;
 }
-/* line 617, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 617, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.disabled {
   background: none;
   color: #777777;
   cursor: default;
 }
-/* line 621, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 621, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.disabled:hover {
   background: none;
   color: #777777;
   cursor: default;
 }
-/* line 627, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 627, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 632, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 632, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active:hover {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 638, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 638, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 643, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 643, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:hover {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-/* line 650, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 650, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active:focus, .datepicker table tr td span.active:hover:focus {
   color: #fff;
   background-color: #286090;
   border-color: #122b40;
 }
-/* line 656, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 656, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:focus, .datepicker table tr td span.active.disabled:hover:focus {
   color: #fff;
   background-color: #286090;
   border-color: #122b40;
 }
-/* line 662, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 662, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.focus, .datepicker table tr td span.active:hover.focus {
   color: #fff;
   background-color: #286090;
   border-color: #122b40;
 }
-/* line 668, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 668, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.focus, .datepicker table tr td span.active.disabled:hover.focus {
   color: #fff;
   background-color: #286090;
   border-color: #122b40;
 }
-/* line 674, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 674, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active:hover, .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active:active, .datepicker table tr td span.active:hover:active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-/* line 680, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 680, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:active, .datepicker table tr td span.active.disabled:hover:active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-/* line 686, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 686, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.active, .datepicker table tr td span.active:hover.active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-/* line 692, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 692, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.active, .datepicker table tr td span.active.disabled:hover.active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-/* line 698, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 698, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active:active:hover, .datepicker table tr td span.active.disabled:active:hover, .datepicker table tr td span.active.active:hover, .datepicker table tr td span.active.disabled.active:hover, .datepicker table tr td span.active:active:focus, .datepicker table tr td span.active:hover:active:focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 704, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 704, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:active:focus, .datepicker table tr td span.active.disabled:hover:active:focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 710, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 710, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.active:focus, .datepicker table tr td span.active:hover.active:focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 716, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 716, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.active:focus, .datepicker table tr td span.active.disabled:hover.active:focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 722, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 722, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active:active.focus, .datepicker table tr td span.active:hover:active.focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 728, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 728, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:active.focus, .datepicker table tr td span.active.disabled:hover:active.focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 734, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 734, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.active.focus, .datepicker table tr td span.active:hover.active.focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 740, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 740, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.active.focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 745, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 745, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 746, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 746, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:hover.active.focus {
   color: #fff;
   background-color: #204d74;
   border-color: #122b40;
 }
-/* line 755, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 755, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active[disabled]:hover, .datepicker table tr td span.active.disabled[disabled]:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 763, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 763, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td span.active:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 770, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 770, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled:focus, .datepicker table tr td span.active:hover.disabled:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 775, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 775, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.disabled:focus, .datepicker table tr td span.active.disabled:hover.disabled:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 780, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 780, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active[disabled]:focus, .datepicker table tr td span.active:hover[disabled]:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 785, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 785, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled[disabled]:focus, .datepicker table tr td span.active.disabled:hover[disabled]:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 793, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 793, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td span.active:focus, fieldset[disabled] .datepicker table tr td span.active:hover:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 798, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 798, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td span.active.disabled:focus, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 806, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 806, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.focus, .datepicker table tr td span.active:hover.disabled.focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 811, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 811, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled.disabled.focus, .datepicker table tr td span.active.disabled:hover.disabled.focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 816, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 816, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active[disabled].focus, .datepicker table tr td span.active:hover[disabled].focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 821, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 821, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.active.disabled[disabled].focus, .datepicker table tr td span.active.disabled:hover[disabled].focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 829, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 829, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td span.active.focus, fieldset[disabled] .datepicker table tr td span.active:hover.focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-/* line 834, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 834, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
 
-/* line 843, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 843, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker table tr td span.old, .datepicker table tr td span.new {
   color: #777777;
 }
-/* line 847, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 847, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker .datepicker-switch {
   width: 145px;
   cursor: pointer;
 }
-/* line 851, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 851, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker .prev, .datepicker .next, .datepicker tfoot tr th {
   cursor: pointer;
 }
-/* line 854, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 854, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker .datepicker-switch:hover, .datepicker .prev:hover, .datepicker .next:hover, .datepicker tfoot tr th:hover {
   background: #eeeeee;
 }
-/* line 857, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 857, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker .prev.disabled, .datepicker .next.disabled {
   visibility: hidden;
 }
-/* line 860, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 860, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .datepicker .cw {
   font-size: 10px;
   width: 12px;
@@ -9697,28 +9697,28 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   vertical-align: middle;
 }
 
-/* line 868, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 868, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .input-group.date .input-group-addon {
   cursor: pointer;
 }
 
-/* line 872, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 872, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .input-daterange {
   width: 100%;
 }
-/* line 874, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 874, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .input-daterange input {
   text-align: center;
 }
-/* line 876, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 876, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .input-daterange input:first-child {
   border-radius: 3px 0 0 3px;
 }
-/* line 879, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 879, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .input-daterange input:last-child {
   border-radius: 0 3px 3px 0;
 }
-/* line 883, /vagrant/myonic/static/css/_bootstrap-datepicker.scss */
+/* line 883, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-datepicker.scss */
 .input-daterange .input-group-addon {
   width: auto;
   min-width: 16px;
@@ -9759,20 +9759,20 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
     border-color: #b94a48;
   }
 }
-/* line 39, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 39, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield {
   height: auto;
   min-height: 34px;
   padding-bottom: 0px;
 }
-/* line 43, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 43, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-/* line 49, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 49, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -9789,16 +9789,16 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   vertical-align: top;
   cursor: default;
 }
-/* line 64, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 64, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token:hover {
   border-color: #b9b9b9;
 }
-/* line 67, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 67, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token.active {
   border-color: #52a8ec;
   border-color: rgba(82, 168, 236, 0.8);
 }
-/* line 71, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 71, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token.duplicate {
   border-color: #ebccd1;
   -webkit-animation-name: blink;
@@ -9812,7 +9812,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
-/* line 84, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 84, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token.invalid {
   background: none;
   border: 1px solid transparent;
@@ -9821,7 +9821,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   border-radius: 0;
   border-bottom: 1px dotted #d9534f;
 }
-/* line 91, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 91, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token.invalid.active {
   background: #ededed;
   border: 1px solid #ededed;
@@ -9829,7 +9829,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 99, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 99, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token .token-label {
   display: inline-block;
   overflow: hidden;
@@ -9837,7 +9837,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   padding-left: 4px;
   vertical-align: top;
 }
-/* line 106, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 106, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token .close {
   font-family: Arial;
   display: inline-block;
@@ -9850,7 +9850,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   vertical-align: top;
   padding-right: 4px;
 }
-/* line 119, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 119, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token-input {
   background: none;
   width: 60px;
@@ -9862,7 +9862,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 129, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 129, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield .token-input:focus {
   border-color: transparent;
   outline: 0;
@@ -9870,49 +9870,49 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 137, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 137, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.disabled {
   cursor: not-allowed;
   background-color: #eeeeee;
 }
-/* line 140, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 140, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.disabled .token-input {
   cursor: not-allowed;
 }
-/* line 143, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 143, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.disabled .token:hover {
   cursor: not-allowed;
   border-color: #d9d9d9;
 }
-/* line 146, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 146, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.disabled .token:hover .close {
   cursor: not-allowed;
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
 
-/* line 155, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 155, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .has-warning .tokenfield.focus {
   border-color: #66512c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
 }
 
-/* line 161, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 161, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .has-error .tokenfield.focus {
   border-color: #843534;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
 }
 
-/* line 167, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 167, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .has-success .tokenfield.focus {
   border-color: #2b542c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
 }
 
-/* line 173, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 173, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.input-sm, .input-group-sm > .tokenfield.form-control,
 .input-group-sm > .tokenfield.input-group-addon,
 .input-group-sm > .input-group-btn > .tokenfield.btn {
@@ -9920,18 +9920,18 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   padding-bottom: 0px;
 }
 
-/* line 179, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 179, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-sm .tokenfield {
   min-height: 30px;
   padding-bottom: 0px;
 }
-/* line 183, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 183, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-sm .token {
   height: 20px;
   margin-bottom: 4px;
 }
 
-/* line 189, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 189, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.input-sm .token, .input-group-sm > .tokenfield.form-control .token,
 .input-group-sm > .tokenfield.input-group-addon .token,
 .input-group-sm > .input-group-btn > .tokenfield.btn .token {
@@ -9939,20 +9939,20 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   margin-bottom: 4px;
 }
 
-/* line 194, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 194, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-sm .token-input {
   height: 18px;
   margin-bottom: 5px;
 }
 
-/* line 200, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 200, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.input-sm .token-input, .input-group-sm > .tokenfield.form-control .token-input,
 .input-group-sm > .tokenfield.input-group-addon .token-input,
 .input-group-sm > .input-group-btn > .tokenfield.btn .token-input {
   height: 18px;
   margin-bottom: 5px;
 }
-/* line 204, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 204, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.input-lg, .input-group-lg > .tokenfield.form-control,
 .input-group-lg > .tokenfield.input-group-addon,
 .input-group-lg > .input-group-btn > .tokenfield.btn {
@@ -9961,39 +9961,39 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   padding-bottom: 4px;
 }
 
-/* line 212, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 212, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-lg .tokenfield {
   height: auto;
   min-height: 45px;
   padding-bottom: 4px;
 }
-/* line 217, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 217, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-lg .token {
   height: 25px;
 }
 
-/* line 222, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 222, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.input-lg .token, .input-group-lg > .tokenfield.form-control .token,
 .input-group-lg > .tokenfield.input-group-addon .token,
 .input-group-lg > .input-group-btn > .tokenfield.btn .token {
   height: 25px;
 }
 
-/* line 226, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 226, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-lg .token-label, .tokenfield.input-lg .token-label, .input-group-lg > .tokenfield.form-control .token-label,
 .input-group-lg > .tokenfield.input-group-addon .token-label,
 .input-group-lg > .input-group-btn > .tokenfield.btn .token-label {
   line-height: 23px;
 }
 
-/* line 230, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 230, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-lg .token .close, .tokenfield.input-lg .token .close, .input-group-lg > .tokenfield.form-control .token .close,
 .input-group-lg > .tokenfield.input-group-addon .token .close,
 .input-group-lg > .input-group-btn > .tokenfield.btn .token .close {
   line-height: 1.3em;
 }
 
-/* line 234, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 234, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .input-group-lg .token-input {
   height: 23px;
   line-height: 23px;
@@ -10001,7 +10001,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   vertical-align: top;
 }
 
-/* line 242, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 242, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.input-lg .token-input, .input-group-lg > .tokenfield.form-control .token-input,
 .input-group-lg > .tokenfield.input-group-addon .token-input,
 .input-group-lg > .input-group-btn > .tokenfield.btn .token-input {
@@ -10010,16 +10010,16 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
   margin-bottom: 6px;
   vertical-align: top;
 }
-/* line 248, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 248, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.rtl {
   direction: rtl;
   text-align: right;
 }
-/* line 251, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 251, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.rtl .token {
   margin: -1px 0 5px 5px;
 }
-/* line 253, /vagrant/myonic/static/css/_bootstrap-tokenfield.scss */
+/* line 253, /vagrant/myonic/static/css/bootstrap-plugins/_bootstrap-tokenfield.scss */
 .tokenfield.rtl .token .token-label {
   padding-left: 0px;
   padding-right: 4px;
@@ -10029,7 +10029,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled.focus, fieldset[
  * Base structure
  */
 /* Move down content because we have a fixed navbar that is 50px tall */
-/* line 16 */
+/* line 15 */
 body {
   padding-top: 50px;
 }
@@ -10037,7 +10037,7 @@ body {
 /*
  * Global add-ons
  */
-/* line 24 */
+/* line 23 */
 .sub-header {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
@@ -10047,7 +10047,7 @@ body {
  * Top navigation
  * Hide default border to remove 1px line.
  */
-/* line 34 */
+/* line 33 */
 .navbar-fixed-top {
   border: 0;
 }
@@ -10056,13 +10056,13 @@ body {
  * Sidebar
  */
 /* Hide for mobile, show later */
-/* line 44 */
+/* line 43 */
 .sidebar {
   display: none;
 }
 
 @media (min-width: 768px) {
-  /* line 49 */
+  /* line 48 */
   .sidebar {
     position: fixed;
     top: 51px;
@@ -10079,24 +10079,24 @@ body {
   }
 }
 /* Sidebar navigation */
-/* line 67 */
+/* line 66 */
 .nav-sidebar {
   margin-right: -21px;
   /* 20px padding + 1px border */
   margin-bottom: 20px;
   margin-left: -20px;
 }
-/* line 73 */
+/* line 72 */
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
 }
-/* line 77 */
+/* line 76 */
 .nav-sidebar > .active > a {
   color: #fff;
   background-color: #428bca;
 }
-/* line 80 */
+/* line 79 */
 .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
   color: #fff;
   background-color: #428bca;
@@ -10105,17 +10105,17 @@ body {
 /*
  * Main content
  */
-/* line 92 */
+/* line 91 */
 .main {
   padding: 20px;
 }
-/* line 94 */
+/* line 93 */
 .main .page-header {
   margin-top: 0;
 }
 
 @media (min-width: 768px) {
-  /* line 100 */
+  /* line 99 */
   .main {
     padding-right: 40px;
     padding-left: 40px;
@@ -10124,7 +10124,7 @@ body {
 /**
 *  Nestable css
 */
-/* line 109 */
+/* line 108 */
 .dd {
   position: relative;
   display: block;
@@ -10144,7 +10144,7 @@ body {
   * Nestable++
   */
 }
-/* line 119 */
+/* line 118 */
 .dd .dd-list {
   display: block;
   position: relative;
@@ -10152,15 +10152,15 @@ body {
   padding: 0;
   list-style: none;
 }
-/* line 125 */
+/* line 124 */
 .dd .dd-list .dd-list {
   padding-left: 30px;
 }
-/* line 130 */
+/* line 129 */
 .dd .dd-collapsed .dd-list {
   display: none;
 }
-/* line 134 */
+/* line 133 */
 .dd .dd-item, .dd .dd-empty, .dd .dd-placeholder {
   display: block;
   position: relative;
@@ -10170,7 +10170,7 @@ body {
   font-size: 13px;
   line-height: 20px;
 }
-/* line 144 */
+/* line 143 */
 .dd .dd-handle {
   display: block;
   height: 30px;
@@ -10189,12 +10189,12 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-/* line 161 */
+/* line 160 */
 .dd .dd-handle:hover {
   color: #2ea8e5;
   background: #fff;
 }
-/* line 167 */
+/* line 166 */
 .dd .dd-item > button {
   display: block;
   position: relative;
@@ -10214,7 +10214,7 @@ body {
   text-align: center;
   font-weight: bold;
 }
-/* line 185 */
+/* line 184 */
 .dd .dd-item > button:before {
   content: '+';
   display: block;
@@ -10223,11 +10223,11 @@ body {
   text-align: center;
   text-indent: 0;
 }
-/* line 193 */
+/* line 192 */
 .dd .dd-item > button[data-action="collapse"]:before {
   content: '-';
 }
-/* line 198 */
+/* line 197 */
 .dd .dd-placeholder {
   margin: 5px 0;
   padding: 0;
@@ -10237,7 +10237,7 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-/* line 208 */
+/* line 207 */
 .dd .dd-empty {
   margin: 5px 0;
   padding: 0;
@@ -10255,22 +10255,22 @@ body {
   background-size: 60px 60px;
   background-position: 0 0, 30px 30px;
 }
-/* line 226 */
+/* line 225 */
 .dd .dd-dragel {
   position: absolute;
   pointer-events: none;
   z-index: 9999;
 }
-/* line 230 */
+/* line 229 */
 .dd .dd-dragel > .dd-item .dd-handle {
   margin-top: 0;
 }
-/* line 233 */
+/* line 232 */
 .dd .dd-dragel .dd-handle {
   -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
-/* line 243 */
+/* line 242 */
 .dd .nestable-lists {
   display: block;
   clear: both;
@@ -10280,12 +10280,12 @@ body {
   border-top: 2px solid #ddd;
   border-bottom: 2px solid #ddd;
 }
-/* line 253 */
+/* line 252 */
 .dd #nestable-menu {
   padding: 0;
   margin: 20px 0;
 }
-/* line 258 */
+/* line 257 */
 .dd #nestable-output, .dd #nestable2-output {
   width: 100%;
   height: 7em;
@@ -10296,7 +10296,7 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-/* line 270 */
+/* line 269 */
 .dd #nestable2 .dd-handle {
   color: #fff;
   border: 1px solid #999;
@@ -10305,27 +10305,27 @@ body {
   background: -moz-linear-gradient(top, #bbb 0%, #999 100%);
   background: linear-gradient(top, #bbb 0%, #999 100%);
 }
-/* line 277 */
+/* line 276 */
 .dd #nestable2 .dd-handle:hover {
   background: #bbb;
 }
-/* line 281 */
+/* line 280 */
 .dd #nestable2 .dd-item > button:before {
   color: #fff;
 }
-/* line 286 */
+/* line 285 */
 .dd .dd {
   width: 80%;
 }
-/* line 290 */
+/* line 289 */
 .dd .dd + .dd {
   margin-left: 2%;
 }
-/* line 295 */
+/* line 294 */
 .dd .dd-hover > .dd-handle {
   background: #2ea8e5 !important;
 }
-/* line 303 */
+/* line 302 */
 .dd .dd3-content {
   display: block;
   height: 30px;
@@ -10344,20 +10344,20 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-/* line 320 */
+/* line 319 */
 .dd .dd3-content:hover {
   color: #2ea8e5;
   background: #fff;
 }
-/* line 326 */
+/* line 325 */
 .dd .dd-dragel > .dd3-item > .dd3-content {
   margin: 0;
 }
-/* line 330 */
+/* line 329 */
 .dd .dd3-item > button {
   margin-left: 30px;
 }
-/* line 334 */
+/* line 333 */
 .dd .dd3-handle {
   position: absolute;
   margin: 0;
@@ -10376,7 +10376,7 @@ body {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 351 */
+/* line 350 */
 .dd .dd3-handle:before {
   content: '≡';
   display: block;
@@ -10390,32 +10390,32 @@ body {
   font-size: 20px;
   font-weight: normal;
 }
-/* line 364 */
+/* line 363 */
 .dd .dd3-handle:hover {
   background: #ddd;
 }
-/* line 373 */
+/* line 372 */
 .dd .button-delete {
   position: absolute;
   top: 4px;
   right: -26px;
 }
-/* line 379 */
+/* line 378 */
 .dd .button-edit {
   position: absolute;
   top: 4px;
   right: -52px;
 }
-/* line 385 */
+/* line 384 */
 .dd #menu-editor {
   margin-top: 40px;
 }
-/* line 389 */
+/* line 388 */
 .dd #saveButton {
   padding-right: 30px;
   padding-left: 30px;
 }
-/* line 394 */
+/* line 393 */
 .dd .output-container, .dd #json-output {
   margin-top: 20px;
 }

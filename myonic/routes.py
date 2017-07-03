@@ -21,7 +21,7 @@ def createHomepage():
     if not Pages.query.filter_by(path='').first():
         page = Pages(
         published=True,
-        title='Homepage',
+        title='Home',
         path='',
         )
         db.session.add(page)
@@ -301,6 +301,7 @@ def login():
 @login_required
 def savePageContent():
     data = json.loads(request.form['regions'])
+    app.logger.warning(data)
     if Pages.query.filter_by(id=request.form['page_id']).all():
         page = Pages.query.filter_by(id=request.form['page_id']).first()
         try:
@@ -387,6 +388,7 @@ def insertImageFromEditor():
 @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
 @app.route('/<path:path>/', methods=['GET', 'POST'])
 def page(path):
+    nav = Navbar.query.order_by('index').all()
     if current_user.is_authenticated:
         form = editPageForm()
         if request.method == 'POST':
@@ -408,13 +410,13 @@ def page(path):
 
     if path == '/':
         page = Pages.query.filter_by(path='').first()
-        return render_template('home.html.j2', page=page, form=form, seo=pageSEO(title=page.title, description=page.description))
+        return render_template('home.html.j2', page=page, form=form, nav=nav, seo=pageSEO(title=page.title, description=page.description))
     elif Pages.query.filter_by(path=path).all():
         page = Pages.query.filter_by(path=path).first()
         if page.published:
-            return render_template('page.html.j2', page=page, form=form, seo=pageSEO(title=page.title, description=page.description))
+            return render_template('page.html.j2', page=page, form=form, nav=nav, seo=pageSEO(title=page.title, description=page.description))
         elif current_user.is_authenticated:
-            return render_template('page.html.j2', page=page, form=form, seo=pageSEO(title=page.title, description=page.description))
+            return render_template('page.html.j2', page=page, form=form, nav=nav, seo=pageSEO(title=page.title, description=page.description))
         else:
             abort(404)
     else:

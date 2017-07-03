@@ -1,11 +1,12 @@
 FROM python:2.7.13-slim
 
-RUN apt update && apt install -y python-imaging
+RUN apt update && apt install -y python-imaging ruby-full
 
 WORKDIR /myonic-flask
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+RUN gem install sass
 
 COPY . .
 

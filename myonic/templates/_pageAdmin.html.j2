@@ -5,6 +5,7 @@
 {% assets "css" %}
   <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
 {% endassets %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <meta name="page_id" content="{{ page.id }}" />
 
@@ -57,7 +58,7 @@
       <a href="{{ url_for('newPage') }}">Create new page</a>
     </div>
     <div class='option'>
-    <a href="{{ url_for('listPages') }}">All Pages</a>
+      <a href="{{ url_for('listPages') }}">All Pages</a>
     </div>
     <div class='user'>
       {% if current_user.is_authenticated %}

@@ -26,9 +26,15 @@ bundles = {
         ),
         Bundle(
         'css/style.scss',
-        filters='pyscss,cssmin',
+        filters='scss,cssmin',
         output='css/style.min.css'
         )
+    ),
+    'js': Bundle(
+    'js/jquery-3.2.1.min.js',
+    'js/jquery.stickybits.min.js',
+    'js/bootstrap.min.js',
+    'js/scrollreveal.min.js',
     ),
     'admin-css': Bundle(
     'css/style-admin.scss',

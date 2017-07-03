@@ -206,9 +206,19 @@ window.addEventListener('load', function() {
     });
   }
   var editor;
-  // ContentTools.StylePalette.add([
-  //   new ContentTools.Style('Author', 'author', ['p'])
-  // ]);
+
+  // =======================
+  //        STYLES!
+  // =======================
+  ContentTools.StylePalette.add([
+    new ContentTools.Style('Big Brand Logo', 'big-brand-logo', ['img']),
+    new ContentTools.Style('Responsive Image', 'img-responsive', ['img']),
+    new ContentTools.Style('Circle Image (Requires perfectly square image)', 'img-circle', ['img']),
+    new ContentTools.Style('Rounded Image', 'img-rounded', ['img']),
+    new ContentTools.Style('Scroll Animation', 'animate'),
+    new ContentTools.Style('Scroll Animation (sequence)', 'animate-seq'),
+    new ContentTools.Style('Convert links to Buttons', 'btn', ['p'])
+  ]);
   ContentTools.IMAGE_UPLOADER = imageUploader;
   editor = ContentTools.EditorApp.get();
   editor.init('*[data-editable], [data-fixture]', 'data-name');

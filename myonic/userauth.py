@@ -26,7 +26,7 @@ def load_user(user_id):
 @oauth_authorized.connect_via(blueprint)
 def google_logged_in(blueprint, token):
     if not token:
-        flash('Failed to log in with {name}'.format(name=blueprint.name))
+        flash('Failed to log in with {name}'.format(name=blueprint.name), category='danger')
         return
     resp = blueprint.session.get('/oauth2/v2/userinfo')
     if resp.ok:
@@ -44,11 +44,11 @@ def google_logged_in(blueprint, token):
                     db.session.add(user)
                     db.session.commit()
                 login_user(user)
-                flash('Successfully signed in with Google')
+                flash('Successfully signed in with Google', category='success')
             else:
-                flash('Please login with a myonic.tech Google Account')
+                flash('Please login with a myonic.tech Google Account', category='danger')
         except KeyError:
-            flash('Please login with a myonic.tech Google Account')
+            flash('Please login with a myonic.tech Google Account', category='danger')
     else:
         msg = 'Failed to fetch user info from {name}'.format(name=blueprint.name)
         flash(msg, category='error')
@@ -64,9 +64,9 @@ def google_error(blueprint, error, error_description=None, error_uri=None):
         description=error_description,
         uri=error_uri,
     )
-    flash(msg, category='error')
+    flash(msg, category='danger')
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    flash('You must log in to access that page')
+    flash('You must log in to access that page', category='danger')
     return redirect(url_for('login'))

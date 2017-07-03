@@ -46,7 +46,7 @@ fi" >> /etc/profile
     echo "export OAUTHLIB_INSECURE_TRANSPORT=1" >> /etc/profile
     echo "export OAUTHLIB_RELAX_TOKEN_SCOPE=1" >> /etc/profile
     echo "cd /vagrant/myonic" >> /etc/profile
-    echo "alias frun='flask run --host=0.0.0.0'"
+    echo "alias frun='flask run --host=0.0.0.0'" >> /etc/profile
     echo "echo -e '\e[94mRemember to include the host when starting Flask: "flask run --host=0.0.0.0" which is aliased to the command \e[107m"frun"\e[49m\e[39m'" >> /etc/profile
     cat /etc/profile
     echo "--INSTALLING REQUIREMENTS--"

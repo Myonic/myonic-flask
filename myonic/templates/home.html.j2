@@ -1,16 +1,51 @@
-{% extends "layout.html.j2" %}
-
-{% block body %}
-<h1 data-fixture data-name="title">
-  {{ page.title|default('No Title') }}
-</h1>
-<div data-editable data-name="content">
-  <p>
-    {{ page.content|default('No Content') }}
-  </p>
-</div>
-{% if current_user.is_authenticated %}
-  {% from '_macros.j2' import form_errors %}
-  {% include '_pageAdmin.html.j2' with context %}
-{% endif %}
-{% endblock %}
+<!DOCTYPE html>
+<head>
+  {% include '_seo.html.j2' with context %}
+  {% assets 'css' %}
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+  {% endassets %}
+</head>
+<body>
+  <div class="container-fluid">
+    <nav>
+      <div class="mobile-nav">
+        <a href="#nav" class="material-icons">menu</a>
+      </div>
+      <ul id="nav">
+        {% for item in nav %}
+          <li{% if item.pageitem.path == '/' + request.path[:-1] %} class="active"{% elif item.pageitem.path == request.path[:-1] %} class="active"{% endif %}>
+          <a href="{% if item.type == 'page' and item.pageitem.path == '' %}/{% elif item.type == 'page' %}{{ item.pageitem.path }}{% else %}{{ item.url }}{% endif %}">
+            {# TODO: FIX HOMEPAGE PATH BUILDING #}
+            {{ item.label }}
+            {% if item.pageitem.path == '/' + request.path[:-1] %}<span class="sr-only">(current)</span>{% elif item.pageitem.path == request.path[:-1] %}<span class="sr-only">(current)</span>{% endif %}
+          </a>
+        </li>
+        {% endfor %}
+        <a href="#" class="material-icons close">close</a>
+      </ul>
+    </nav>
+    <div data-editable data-name="content">
+      {{ page.content|default('No Content') }}
+    </div>
+    {% if current_user.is_authenticated %}
+      {% from '_macros.j2' import form_errors %}
+      {% include '_pageAdmin.html.j2' with context %}
+    {% endif %}
+  </div>
+  {% assets 'js' %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+  <script type"text/javascript">
+    $('[data-sr-id]').removeAttr('data-sr-id').removeAttr('style');
+    window.location.href = '#'
+    window.sr = ScrollReveal();
+    sr.reveal('.animate', {
+      easing: 'cubic-bezier(.35,.65,.64,1)'
+    });
+    sr.reveal('.animate-seq', {
+      easing: 'cubic-bezier(.35,.65,.64,1)'
+    }, 50);
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</body>

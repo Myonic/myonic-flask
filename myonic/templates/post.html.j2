@@ -5,9 +5,7 @@
   {{ post.title }}
 </h1>
 <div data-editable data-name="content">
-  <p>
-    {{ post.content }}
-  </p>
+  {{ post.content }}
 </div>
 {% if current_user.is_authenticated %}
   {% from '_macros.j2' import form_errors %}
