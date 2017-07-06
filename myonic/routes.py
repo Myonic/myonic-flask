@@ -42,6 +42,10 @@ def createHomepage():
     #     google_client = Site(setting='name', data='Site')
     #     google_secret = Site(setting='name', data='Site')
 
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1] in app.config.get('ALLOWED_EXTENSIONS')
+
 @app.route('/admin/')
 @login_required
 def admin():
@@ -109,6 +113,15 @@ def newPost():
             tags = [(tag.lower()) for tag in form.tags.data.lower().split(', ')]
         else:
             tags = None
+        # Upload file
+        file = form.image.data
+        fname = ''
+        if file:
+            ext = file.filename.rsplit('.', 1)[1]
+            fname = str(int(time() * 1000)) + '.' + ext
+            file.save(join(app.config.get('UPLOAD_FOLDER'), fname))
+        else:
+            flash('The image upload failed because the file was missing', category='danger')
         post = Posts(
         published=False,
         title=form.title.data,
@@ -117,7 +130,8 @@ def newPost():
         category=category,
         tags=tags,
         datePublished=form.date.data,
-        author=current_user.email
+        author=current_user.email,
+        image= 'uploads/' + fname
         )
         db.session.add(post)
         db.session.commit()
@@ -146,6 +160,14 @@ def editPost(id):
             tags = [(tag.lower()) for tag in form.tags.data.lower().split(', ')]
         else:
             tags = None
+        # Upload file
+        file = form.image.data
+        fname = ''
+        if file:
+            ext = file.filename.rsplit('.', 1)[1]
+            fname = str(int(time() * 1000)) + '.' + ext
+            file.save(join(app.config.get('UPLOAD_FOLDER'), fname))
+            post.image= 'uploads/' + fname
         post.slug=slugify(form.slug.data)
         post.description=form.description.data
         post.category=category
@@ -282,6 +304,19 @@ def navbarUp(index):
     db.session.commit()
     return redirect(url_for('navbarSettings'))
 
+@app.route('/admin/settings/navbar/delete/<int:id>/')
+@login_required
+def navbarDelete(id):
+    navbar = Navbar.query.all()
+    navitem = Navbar.query.filter_by(id=id).first()
+    for item in navbar:
+        if item.index > navitem.index:
+            item.index -= 1
+            db.session.add(item)
+    db.session.delete(navitem)
+    db.session.commit()
+    return redirect(url_for('navbarSettings'))
+
 @app.route('/admin/logout/')
 @login_required
 def logout():
@@ -295,13 +330,12 @@ def login():
         flash('You are already logged in', category='warning')
         return redirect(url_for('page', path=''))
     else:
-        return render_template('login.html.j2')
+        return redirect(url_for('google.login'))
 
 @app.route('/admin/ajax/page/save', methods=['POST'])
 @login_required
 def savePageContent():
     data = json.loads(request.form['regions'])
-    app.logger.warning(data)
     if Pages.query.filter_by(id=request.form['page_id']).all():
         page = Pages.query.filter_by(id=request.form['page_id']).first()
         try:
@@ -338,10 +372,6 @@ def savePostContent():
         db.session.commit()
     return "ok"
 
-def allowed_file(filename):
-    return '.' in filename and \
-        filename.rsplit('.', 1)[1] in app.config.get('ALLOWED_EXTENSIONS')
-
 @app.route('/admin/ajax/image/upload', methods=['POST'])
 @login_required
 def uploadImageFromEditor():
@@ -352,7 +382,7 @@ def uploadImageFromEditor():
         fname = str(int(time() * 1000)) + '.' + ext
         file.save(join(app.config.get('UPLOAD_FOLDER'), fname))
     file = Image.open(join(app.config.get('UPLOAD_FOLDER'), fname))
-    return jsonify({'size' : file.size, 'url' : url_for('static', filename='uploads/' + fname)})
+    return jsonify({'size' : file.size, 'url' : url_for('static', filename='uploads/' + fname)}) # TODO: Does not take into account the UPLOAD_FOLDER configuration when returning the image. Maybe instead, remove it as a configurable option and just make the location static.
 
 @app.route('/admin/ajax/image/rotate', methods=['POST'])
 @login_required
@@ -427,6 +457,7 @@ def page(path):
 @app.route('/blog/', defaults={'slug': ''}, endpoint='blog-canonical', methods=['GET', 'POST']) # TODO: Make part of Admin blueprint
 @app.route('/blog/<path:slug>/', endpoint='blog-canonical', methods=['GET', 'POST']) # TODO: Make part of Admin blueprint
 def blog(slug):
+    nav = Navbar.query.order_by('index').all()
     # TODO: Allow site to run blog system on timezone other then UTC
     if current_user.is_authenticated:
         form = editPostFormInpage()
@@ -444,15 +475,15 @@ def blog(slug):
 
     if slug == '':
         posts=Posts.query.filter(Posts.datePublished <= datetime.date.today(), Posts.published).order_by(Posts.datePublished.desc()).limit(5)
-        return render_template('postlist.html.j2', posts=posts, seo=pageSEO(title='Blog', type='blog'))
+        return render_template('postlist.html.j2', posts=posts, nav=nav, seo=pageSEO(title='Blog', type='blog'))
     elif Posts.query.filter_by(slug=slug).all():
         post = Posts.query.filter_by(slug=slug).first()
         if post.published and post.datePublished <= datetime.date.today():
-            return render_template('post.html.j2', post=post, form=form, seo=articleSEO(title=post.title, postDate=post.datePublished, author=post.users.first_name + ' ' + post.users.last_name, category=post.categories.name, twitter_type='summery', description=post.description)) # TODO: Define twitter_type based on if featured image is present or not
+            return render_template('post.html.j2', post=post, form=form, nav=nav, seo=articleSEO(title=post.title, postDate=post.datePublished, author=post.users.first_name + ' ' + post.users.last_name, category=post.categories.name, twitter_type='summery', description=post.description)) # TODO: Define twitter_type based on if featured image is present or not
         elif current_user.is_authenticated:
             if post.published and post.datePublished >= datetime.date.today():
                 flash('Post is set currently set to publish on %s. Flipping the publish switch to off will prevent it from posting automatically.' % post.datePublished.strftime('%m/%d/%Y'))
-            return render_template('post.html.j2', post=post, form=form, seo=articleSEO(title=post.title, postDate=post.datePublished, author=post.users.first_name + ' ' + post.users.last_name, category=post.categories.name, twitter_type='summery', description=post.description)) # TODO: Define twitter_type based on if featured image is present or not
+            return render_template('post.html.j2', post=post, form=form, nav=nav, seo=articleSEO(title=post.title, postDate=post.datePublished, author=post.users.first_name + ' ' + post.users.last_name, category=post.categories.name, twitter_type='summery', description=post.description)) # TODO: Define twitter_type based on if featured image is present or not
         else:
             abort(404)
     else:

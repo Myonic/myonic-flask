@@ -1,0 +1,42 @@
+{% from '_macros.j2' import form_errors, checkfield %}
+
+{# <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content-tools/content-tools.min.css') }}"> #}
+
+{% assets "css" %}
+  <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+{% endassets %}
+
+<div class='admin'>
+  <div class='left'>
+
+    {# TODO: Linked Breadcrumbs #}
+    <div class='breadcrumb'>
+      <a href="{{ url_for('listPosts') }}"><i class="all-pages material-icons">menu</i></a>
+      <span class='path'>
+        <a href="{{ url_for('page', path='') }}">Home</a> :: <a href="{{ url_for('blog-canonical') }}">Blog</a>
+      </span>
+    </div>
+    <i style="padding-left:16px;">Using links on this page will drop you out of admin mode</i>
+  </div>
+
+  <div class='right'>
+    <div class='option'>
+      <a href="{{ url_for('newPost') }}">Create New Post</a>
+    </div>
+    <div class='option'>
+    <a href="{{ url_for('listPosts') }}">All Posts</a>
+    </div>
+    <div class='user'>
+      {% if current_user.is_authenticated %}
+        Hello {{ current_user.first_name }}!
+        <a href="{{ url_for('logout') }}">Log out</a>
+      {% else %}
+        You are not logged in.
+        <a href="{{ url_for('google.login') }}">Log in</a>
+      {% endif %}
+    </div>
+  </div>
+  {% assets "postadmin-js" %}
+    <script src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+</div>

@@ -1,6 +1,7 @@
 from myonic import app
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SelectField, HiddenField
+from flask_wtf.file import FileRequired, FileAllowed
+from wtforms import StringField, BooleanField, SelectField, HiddenField, FileField
 from wtforms.validators import DataRequired, URL, Email, ValidationError, Regexp, URL, NoneOf
 from wtforms.ext.dateutil.fields import DateField
 from myonic.models import Pages, Posts, Categories
@@ -56,6 +57,7 @@ class createPostForm(FlaskForm):
     description = StringField('Short Description')
     category = SelectField('Category', coerce=int) # TODO: Validate this field
     tags = StringField('Tags', validators=[DataRequired(message='Please add at least 1 tag')])
+    image = FileField('Featured Image', validators=[FileRequired(message='Please provide a featured image'), FileAllowed(['png', 'jpg', 'jpeg', 'gif'], message='That file type is not allowed')])
 
 class editPostForm(FlaskForm):
     published = BooleanField('Published?')
@@ -65,6 +67,7 @@ class editPostForm(FlaskForm):
     category = SelectField('Category', coerce=int) # TODO: Validate this field
     tags = StringField('Tags', validators=[DataRequired(message='Please add at least 1 tag')])
     author = SelectField('Author', coerce=int) # TODO: Validate this field
+    image = FileField('Update Featured Image', validators=[FileAllowed(['png', 'jpg', 'jpeg', 'gif'], message='That file type is not allowed')])
 
 class editPostFormInpage(FlaskForm):
     published = BooleanField('Published?')

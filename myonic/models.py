@@ -63,7 +63,6 @@ class Navbar(db.Model):
     url         = db.Column(db.String)
     page        = db.Column(db.Integer, db.ForeignKey('pages.id'))
 
-# TODO: Change to setting:data model instead of keeping all the data in 1 giant row
 class Site(db.Model):
     __tablename__ = 'site'
     id          = db.Column(db.Integer, primary_key = True)

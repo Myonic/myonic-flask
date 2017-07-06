@@ -1,14 +1,50 @@
 {% extends "bloglayout.html.j2" %}
 
 {% block body %}
-<h1 data-fixture data-name="title">
-  {{ post.title }}
-</h1>
-<div data-editable data-name="content">
-  {{ post.content }}
+<div class="post-container">
+  <div class="post-header" style="background-image:url({{ url_for('static', filename=post.image) }})">
+    <div class="overlay">
+      <h1 data-fixture data-name="title">
+        {{ post.title }}
+      </h1>
+      <p class="post-meta">Posted on {{ post.datePublished.strftime('%B %e, %Y') }} in {{ post.categories.name }}</p>
+    </div>
+  </div>
+  <div data-editable data-name="content">
+    {{ post.content }}
+  </div>
 </div>
 {% if current_user.is_authenticated %}
   {% from '_macros.j2' import form_errors %}
   {% include '_postAdmin.html.j2' with context %}
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+// function scrollFooter(scrollY, heightFooter) {
+//
+//     if (scrollY >= heightFooter) {
+//         $('.post-footer').css({
+//             'bottom': '0px'
+//         });
+//     } else {
+//         $('.post-footer').css({
+//             'bottom': '-' + heightFooter + 'px'
+//         });
+//     }
+// }
+$(function() {
+    var windowHeight = $(window).height()//,
+        // footerHeight = $('footer').height(),
+        // heightDocument = (windowHeight) + ($('.content').height()) + ($('footer').height()) - 20;
+    // scrollFooter(window.scrollY, footerHeight);
+    window.onscroll = function() {
+        var scroll = window.scrollY;
+        console.log("boop")
+        $('.post-header').css('background-position-y', 50 - (scroll * 100 / windowHeight) + '%');
+        // scrollFooter(scroll, footerHeight);
+    }
+});
+</script>
 {% endblock %}

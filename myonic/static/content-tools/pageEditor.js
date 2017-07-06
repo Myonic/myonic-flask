@@ -211,13 +211,25 @@ window.addEventListener('load', function() {
   //        STYLES!
   // =======================
   ContentTools.StylePalette.add([
+    // Image
     new ContentTools.Style('Big Brand Logo', 'big-brand-logo', ['img']),
     new ContentTools.Style('Responsive Image', 'img-responsive', ['img']),
     new ContentTools.Style('Circle Image (Requires perfectly square image)', 'img-circle', ['img']),
     new ContentTools.Style('Rounded Image', 'img-rounded', ['img']),
+    // Animation
     new ContentTools.Style('Scroll Animation', 'animate'),
     new ContentTools.Style('Scroll Animation (sequence)', 'animate-seq'),
-    new ContentTools.Style('Convert links to Buttons', 'btn', ['p'])
+    // Modifiers
+    new ContentTools.Style('Convert links to Buttons', 'btn', ['p']),
+    // BS Table
+    new ContentTools.Style('Bootstrap Table', 'table', ['table']),
+    new ContentTools.Style('Bootstrap Striped Table', 'table-striped', ['table']),
+    new ContentTools.Style('Bootstrap Hover Table', 'table-hover', ['table']),
+    new ContentTools.Style('Bootstrap Table Green', 'success', ['tr', 'td']),
+    new ContentTools.Style('Bootstrap Table Red', 'danger', ['tr', 'td']),
+    new ContentTools.Style('Bootstrap Table Blue', 'info', ['tr', 'td']),
+    new ContentTools.Style('Bootstrap Table Yellow', 'warning', ['tr', 'td']),
+    new ContentTools.Style('Bootstrap Table Grey', 'active', ['tr', 'td']),
   ]);
   ContentTools.IMAGE_UPLOADER = imageUploader;
   editor = ContentTools.EditorApp.get();

@@ -15,7 +15,7 @@
     <div class='breadcrumb'>
       <a href="{{ url_for('listPosts') }}"><i class="all-pages material-icons">menu</i></a>
       <span class='path'>
-        <a href="{{ url_for('page', path='') }}">Home</a> :: <a href="#">Blog</a><span> / {{ post.slug|e }}</span>
+        <a href="{{ url_for('page', path='') }}">Home</a> :: <a href="{{ url_for('blog-canonical') }}">Blog</a><span> / {{ post.slug|e }}</span>
       </span>
     </div>
 

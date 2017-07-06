@@ -7,12 +7,17 @@ $focus-outline:#00FFF7;
 
 $navbar-background:#888;
 $navbar-background-tray:rgba(15, 15, 15, 0.9); // Mobile navigation tray
-$navbar-text:#fff;
-$navbar-item-hover:#555;
-$navbar-text-hover:#ccc;
+$navbar-text:#ccc;
+$navbar-item-active:#555;
+$navbar-text-hover:#fff;
+$navbar-text-xhover:#bbb; //Color of all the text that is not being hovered over
 
 $button-primary:#000;
 $button-secondary:#fff;
+
+$blue:rgb(8, 148, 200);
+$red:rgb(242, 79, 79);
+$grey:rgb(167, 167, 167);
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -20,6 +25,7 @@ $button-secondary:#fff;
 
 body {
   padding-top:60px;
+  padding-bottom:60px;
   color: $text-color;
 }
 
@@ -33,18 +39,22 @@ nav {
   left:0;
   top:0;
   right:0;
-  width:100%;
   z-index: 999;
+  width:100%;
+  height:50px;
+  background: $navbar-background;
   ul {
-    width:100%;
     list-style-type:none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    background: $navbar-background;
+    float:right;
+    &:hover {
+      li {
+        a {
+          color: $navbar-text-xhover;
+        }
+      }
+    }
     li {
       display:inline-block;
-      float: left;
       a {
         padding: 0 8px;
         display:block;
@@ -56,15 +66,18 @@ nav {
         text-decoration: none;
         transition: 0.5s;
         &:hover {
-          background: $navbar-item-hover;
           color: $navbar-text-hover;
           text-decoration: none;
         }
         &:focus {
           color: $navbar-text-hover;
           text-decoration: none;
-          outline: 3px solid $focus-outline !important;
         }
+      }
+      &.active {
+        background: $navbar-item-active;
+        color: $navbar-text-hover;
+        text-decoration: none;
       }
     }
     .close {
@@ -74,7 +87,7 @@ nav {
   .mobile-nav {
     display: none;
   }
-  @media screen and (max-width : 760px){
+  @media screen and (max-width : 768px){
     ul {
       width: 0;
       position: fixed;
@@ -83,7 +96,7 @@ nav {
       left: 0;
       background: $navbar-background-tray;
       overflow-x: hidden;
-      padding-top: 60px;
+      padding: 60px 0 0 0;
       transition: 0.5s;
       height: 100%;
       .close {
@@ -117,7 +130,7 @@ nav {
           background: none;
           text-decoration: none;
           &:hover {
-            background: $navbar-item-hover;
+            background: $navbar-item-active;
             color: $navbar-text-hover;
             text-decoration: none;
           }
@@ -136,8 +149,10 @@ nav {
         line-height: 50px;
         padding-right: 16px;
         text-decoration: none;
+        transition: color 0.5s;
         &:hover {
           text-decoration: none;
+          color: $navbar-text-hover;
         }
       }
     }
@@ -176,6 +191,28 @@ nav {
   }
 }
 
+// Special Formatting
+
+h1, h2 {
+  margin-bottom: 16px;
+  &::after {
+    content:'';
+    border-bottom: 2px solid $blue;
+    margin-top: 8px;
+    width: 100px;
+    position: relative;
+    display: block;
+  }
+  &.text-center::after {
+    margin: 8px auto 0 auto;
+    left: 0;
+    right: 0;
+  }
+  &.text-right::after {
+    display: none; //TODO: Fix to allow underline
+  }
+}
+
 p {
   font-size: 16px;
   &.btn {
@@ -201,5 +238,58 @@ p {
         color: $button-secondary;
       }
     }
+  }
+}
+
+//Post Formatting
+.post-container {
+  margin-top: 500px;
+  .post-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .overlay {
+      padding-top: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.5);
+      h1 {
+        font-size: 60px;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        &::after {
+          margin: 8px auto 0 auto;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+  .post-meta {
+    flex-basis: 100%;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.post-list-container {
+  .post-item {
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

@@ -1,15 +1,22 @@
 {% extends "bloglayout.html.j2" %}
 
 {% block body %}
-<h1>All Posts</h1>
-{% for post in posts %}
-  <div>
-    <h2><a href="{{ url_for('blog', slug=post.slug) }}">{{ post.title|e }}</a></h2>
-    <p>{{ post.content|e|truncate(255) }}</p>
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Blog</h1>
   </div>
-{% endfor %}
+</div>
+  <div class="row post-list-container">
+    {% for post in posts %}
+    <div class="col-sm-6 post-item">
+      <h2><a href="{{ url_for('blog', slug=post.slug) }}">{{ post.title|e }}</a></h2>
+      <p>Posted on {{ post.datePublished.strftime('%B %e, %Y') }} in {{ post.categories.name }}</p>
+    </div>
+    {% endfor %}
+  </div>
 
-{% if current_user.is_authenticated %}
-  {% from '_macros.j2' import form_errors %}
-{% endif %}
+  {% if current_user.is_authenticated %}
+    {% from '_macros.j2' import form_errors %}
+    {% include '_postListAdmin.html.j2' with context %}
+  {% endif %}
 {% endblock %}

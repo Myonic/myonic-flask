@@ -43,8 +43,8 @@
             <td>
               <a href="{{ url_for('navbarUp', index=item.index) }}" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-up"></i></a>
               <a href="{{ url_for('navbarDown', index=item.index) }}" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-down"></i></a>
-              <a href="#" class="btn btn-xs btn btn-success">Edit</a>
-              <a href="#" class="btn btn-xs btn-danger">Delete</a>
+              <a href="#" disabled class="btn btn-xs btn btn-success" data-toggle="tooltip" title="Not Implimented" data-placement="left">Edit</a>
+              <a href="{{ url_for('navbarDelete', id=item.id) }}" class="btn btn-xs btn-danger">Delete</a>
             </td>
           </tr>
         {% endfor %}
@@ -92,4 +92,10 @@
 
 {% block body %}{% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+{% endblock %}
